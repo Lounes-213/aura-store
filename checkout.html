@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-theme="light">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>إتمام الطلب — AURA Haute Couture</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
   <style>
     .checkout-layout {
@@ -109,7 +109,7 @@
     .success-modal {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.75);
       backdrop-filter: blur(8px);
       display: none;
       place-items: center;
@@ -151,7 +151,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="site-logo">
-        <img src="./assets/icons/logo.svg" alt="AURA Logo">
+        <img src="./assets/icons/logo-light.svg" alt="AURA Logo">
       </a>
       <span style="font-size: 0.9rem; font-weight: 600; color: var(--color-muted-foreground);" data-i18n="checkout.secureBanner">
         🔒 نافذة الدفع الآمن والمشفر
@@ -172,7 +172,7 @@
         <h3 style="display: flex; align-items: center; font-size: 1.3rem; margin-bottom: 0.5rem;">
           <span class="section-num">1</span> <span data-i18n="checkout.step1Title">معلومات الزبون والشحن</span>
         </h3>
-        <p class="text-muted" style="font-size: 0.85rem;" data-i18n="checkout.step1Desc">يرجى إدخال تفاصيل العنوان بدقة لضمان سرعة التسليم</p>
+        <p class="text-muted" style="font-size: 0.85rem;" data-i18n="checkout.step1Desc">التوصيل متاح لكافة ولايات الجزائر الـ 69 مع خيار المعاينة قبل الدفع</p>
 
         <form id="checkout-form" onsubmit="handleOrderSubmit(event)">
           <div class="form-grid">
@@ -187,19 +187,12 @@
             </div>
 
             <div class="form-field">
-              <label class="form-label" data-i18n="checkout.wilaya">الولاية *</label>
-              <select class="form-select" id="wilaya-select" onchange="updateShippingCost()">
-                <option value="16">16 - Alger (400 DZD)</option>
-                <option value="09">09 - Blida (500 DZD)</option>
-                <option value="31">31 - Oran (600 DZD)</option>
-                <option value="25">25 - Constantine (600 DZD)</option>
-                <option value="19">19 - Sétif (600 DZD)</option>
-                <option value="other">58 Wilayas (700 DZD)</option>
-              </select>
+              <label class="form-label" data-i18n="checkout.wilaya">الولاية (69 ولاية) *</label>
+              <select class="form-select" id="wilaya-select" onchange="updateShippingCost()"></select>
             </div>
 
             <div class="form-field">
-              <label class="form-label" data-i18n="checkout.commune">البلدية / الحي *</label>
+              <label class="form-label" data-i18n="checkout.commune">البلدية / الدائرة *</label>
               <input type="text" required class="form-input" placeholder="Hydra / Kouba / Sidi Yahia...">
             </div>
 
@@ -210,7 +203,7 @@
 
             <div class="form-field full">
               <label class="form-label" data-i18n="checkout.notes">ملاحظات إضافية للتوصيل (اختياري)</label>
-              <textarea class="form-input" rows="2"></textarea>
+              <textarea class="form-input" rows="2" placeholder="المقاس المطلوب للبدلة والقميص، أوقات التواجد..."></textarea>
             </div>
           </div>
       </div>
@@ -223,8 +216,8 @@
           <label style="display: flex; align-items: center; gap: var(--space-md); padding: 14px; border: 2px solid var(--color-accent); border-radius: var(--radius-sm); background: var(--color-accent-soft); cursor: pointer;">
             <input type="radio" name="payment" value="cod" checked style="accent-color: var(--color-accent); width:18px; height:18px;">
             <div>
-              <strong style="display: block; font-size: 0.95rem;" data-i18n="checkout.codTitle">الدفع عند الاستلام (Paiement à la livraison)</strong>
-              <span style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="checkout.codDesc">يمكنك فحص القطعة والتأكد من المقاس قبل تسليم المبلغ لمندوب الشحن</span>
+              <strong style="display: block; font-size: 0.95rem;" data-i18n="checkout.codTitle">الدفع عند الاستلام بعد المعاينة والقياس</strong>
+              <span style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="checkout.codDesc">يحق لك فحص البدلة أو القميص والتأكد من جودة القماش قبل تسليم المبلغ</span>
             </div>
           </label>
 
@@ -232,7 +225,7 @@
             <input type="radio" name="payment" value="cib" disabled style="width:18px; height:18px;">
             <div>
               <strong style="display: block; font-size: 0.95rem;" data-i18n="checkout.cibTitle">البطاقة الذهبية / CIB (قريباً)</strong>
-              <span style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="checkout.cibDesc">خدمة الدفع الإلكتروني المباشر عبر الساتيم</span>
+              <span style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="checkout.cibDesc">بوابة الدفع الإلكتروني المباشر عبر الساتيم</span>
             </div>
           </label>
         </div>
@@ -268,7 +261,7 @@
       </div>
 
       <div style="margin-top: var(--space-xl); font-size: 0.8rem; color: var(--color-muted-foreground); text-align: center;">
-        <p data-i18n="checkout.trustBadge">🛡️ تسوق بكل ثقة مع ضمان استبدال مجاني خلال 7 أيام</p>
+        <p data-i18n="checkout.trustBadge">🛡️ ضمان استبدال مجاني للمقاسات خلال 7 أيام في الـ 69 ولاية</p>
       </div>
     </aside>
   </main>
@@ -277,10 +270,10 @@
   <div class="success-modal" id="order-success-modal">
     <div class="modal-box">
       <div style="font-size: 3.5rem; margin-bottom: 1rem;">👑</div>
-      <h2 style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-primary);" data-i18n="checkout.successTitle">تم تأكيد طلبك بنجاح!</h2>
+      <h2 style="font-family:'Amiri',serif; font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-accent);" data-i18n="checkout.successTitle">تم تأكيد طلبك بنجاح!</h2>
       <p style="color: var(--color-muted-foreground); margin-bottom: 1.5rem; line-height: 1.7;" data-i18n="checkout.successDesc">
         شكراً لاختيارك دار AURA Haute Couture.<br>
-        سيتصل بك مستشار خدمة الزبائن خلال دقائق لتأكيد موعد التسليم والمقاسات.
+        سيتصل بك خبير المقاسات لتأكيد القياسات الدقيقة وموعد الشحن.
       </p>
       <div style="background: var(--color-muted); padding: 12px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-weight:700; margin-bottom: 2rem;">
         <span data-i18n="checkout.orderRef">رقم الطلب:</span> <span id="order-ref-num">#AURA-84920</span>
@@ -292,9 +285,36 @@
   <script src="./js/i18n.js"></script>
   <script src="./js/store.js"></script>
   <script>
+    const WILAYAS_69 = [
+      "01 - أدرار (Adrar)", "02 - الشلف (Chlef)", "03 - الأغواط (Laghouat)", "04 - أم البواقي (Oum El Bouaghi)",
+      "05 - باتنة (Batna)", "06 - بجاية (Béjaïa)", "07 - بسكرة (Biskra)", "08 - بشار (Béchar)",
+      "09 - البليدة (Blida)", "10 - البويرة (Bouira)", "11 - تمنراست (Tamanrasset)", "12 - تبسة (Tébessa)",
+      "13 - تلمسان (Tlemcen)", "14 - تيارت (Tiaret)", "15 - تيزي وزو (Tizi Ouzou)", "16 - الجزائر العاصمة (Alger)",
+      "17 - الجلفة (Djelfa)", "18 - جيجل (Jijel)", "19 - سطيف (Sétif)", "20 - سعيدة (Saïda)",
+      "21 - سكيكدة (Skikda)", "22 - سيدي بلعباس (Sidi Bel Abbès)", "23 - عنابة (Annaba)", "24 - قالمة (Guelma)",
+      "25 - قسنطينة (Constantine)", "26 - المدية (Médéa)", "27 - مستغانم (Mostaganem)", "28 - المسيلة (M'Sila)",
+      "29 - معسكر (Mascara)", "30 - ورقلة (Ouargla)", "31 - وهران (Oran)", "32 - البيض (El Bayadh)",
+      "33 - إليزي (Illizi)", "34 - برج بوعريريج (Bordj Bou Arreridj)", "35 - بومرداس (Boumerdès)", "36 - الطارف (El Tarf)",
+      "37 - تندوف (Tindouf)", "38 - تسمسيلت (Tissemsilt)", "39 - الوادي (El Oued)", "40 - خنشلة (Khenchela)",
+      "41 - سوق أهراس (Souk Ahras)", "42 - تيبازة (Tipaza)", "43 - ميلة (Mila)", "44 - عين الدفلى (Aïn Defla)",
+      "45 - النعامة (Naâma)", "46 - عين تموشنت (Aïn Témouchent)", "47 - غرداية (Ghardaïa)", "48 - غليزان (Relizane)",
+      "49 - تيميمون (Timimoun)", "50 - برج باجي مختار (Bordj Badji Mokhtar)", "51 - أولاد جلال (Ouled Djellal)",
+      "52 - بني عباس (Béni Abbès)", "53 - عين صالح (In Salah)", "54 - عين قزام (In Guezzam)", "55 - تقرت (Touggourt)",
+      "56 - جانت (Djanet)", "57 - المغير (El M'Ghair)", "58 - المنيعة (El Meniaa)",
+      "59 - آفلو (Aflou)", "60 - بريكة (Barika)", "61 - قصر الشلالة (Ksar Chellala)", "62 - عين وسارة (Aïn Oussera)",
+      "63 - مسعد (Messaad)", "64 - شلغوم العيد (Chelghoum Laïd)", "65 - بوقاعة (Bougaa)", "66 - الأبيض سيدي الشيخ (El Abiodh Sidi Cheikh)",
+      "67 - فرندة (Frenda)", "68 - العلمة (El Eulma)", "69 - بوسعادة (Bou Saâda)"
+    ];
+
     let shippingCost = 400;
 
     window.addEventListener('DOMContentLoaded', () => {
+      const select = document.getElementById('wilaya-select');
+      select.innerHTML = WILAYAS_69.map((w, idx) => {
+        const code = (idx + 1).toString().padStart(2, '0');
+        return `<option value="${code}" ${code === '16' ? 'selected' : ''}>${w}</option>`;
+      }).join('');
+
       setTimeout(renderCheckoutSummary, 200);
     });
 
@@ -304,9 +324,11 @@
 
     function updateShippingCost() {
       const select = document.getElementById('wilaya-select');
-      if (select.value === '16') shippingCost = 400;
-      else if (select.value === '09') shippingCost = 500;
-      else if (['31','25','19'].includes(select.value)) shippingCost = 600;
+      const val = select.value;
+      if (val === '16') shippingCost = 400;
+      else if (val === '09' || val === '35' || val === '42') shippingCost = 500;
+      else if (['31','25','19','68','23'].includes(val)) shippingCost = 600;
+      else if (parseInt(val) >= 49) shippingCost = 900; // Grand Sud
       else shippingCost = 700;
 
       renderCheckoutSummary();
