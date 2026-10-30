@@ -1,0 +1,205 @@
+[
+  {
+    "id": "prod-1",
+    "nameAr": "معطف صوف كشمير إيطالي باللون الرملي",
+    "nameFr": "Manteau Cachemire Beige Royal",
+    "category": "coats",
+    "categoryAr": "معاطف فاخرة",
+    "gender": "women",
+    "price": 48500,
+    "oldPrice": 56000,
+    "rating": 4.9,
+    "reviewsCount": 42,
+    "badge": "جديد",
+    "isFeatured": true,
+    "image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800&auto=format&fit=crop",
+    "gallery": [
+      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop"
+    ],
+    "description": "معطف مصنوع يدوياً من أفخر ألياف الكشمير الإيطالية بنسبة 100%. تصميم كلاسيكي انسيابي بأزرار قرنية طبيعية وبطانة من الحرير الخالص، مثالي للإطلالات الشتوية الفخمة.",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "بيج رملي", "hex": "#D8C7B0" },
+      { "name": "أسود فحمي", "hex": "#1C1917" }
+    ],
+    "inStock": true
+  },
+  {
+    "id": "prod-2",
+    "nameAr": "فستان سهرة من الحرير الإمبراطوري الزمردي",
+    "nameFr": "Robe de Soirée Soie Émeraude",
+    "category": "dresses",
+    "categoryAr": "فساتين سهرة",
+    "gender": "women",
+    "price": 52000,
+    "oldPrice": null,
+    "rating": 5.0,
+    "reviewsCount": 28,
+    "badge": "الأكثر طلباً",
+    "isFeatured": true,
+    "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop",
+    "gallery": [
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop"
+    ],
+    "description": "فستان سهرة راقٍ بقصّة ميرميد متدرجة، منسوج من الحرير الطبيعي النقي ذو بريق أخضر زمردي ساحر. صُمم ليمنحك هيبة وأناقة خالدة في أرقى الحفلات والمناسبات.",
+    "sizes": ["XS", "S", "M", "L"],
+    "colors": [
+      { "name": "زمردي ملكي", "hex": "#0D4D3D" },
+      { "name": "عنابي داكن", "hex": "#581825" }
+    ],
+    "inStock": true
+  },
+  {
+    "id": "prod-3",
+    "nameAr": "بدلة توكسيدو رسمية من الصوف الخالص",
+    "nameFr": "Costume Smoking Laine Fine",
+    "category": "suits",
+    "categoryAr": "بدلات رسمية",
+    "gender": "men",
+    "price": 64000,
+    "oldPrice": 72000,
+    "rating": 4.8,
+    "reviewsCount": 35,
+    "badge": "حصرية",
+    "isFeatured": true,
+    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop",
+    "gallery": [
+      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&auto=format&fit=crop"
+    ],
+    "description": "طقم بدلة رسمية مصممة بنمط الخياطة الإنجليزية الفاخرة (Super 140s Wool). ياقة شال ساتانية تضفي لمسة أرستقراطية متكاملة لرجال الأعمال والمناسبات الرسمية الكبرى.",
+    "sizes": ["48", "50", "52", "54"],
+    "colors": [
+      { "name": "أسود نايت", "hex": "#0A0A0A" },
+      { "name": "أزرق منتصف الليل", "hex": "#131C2E" }
+    ],
+    "inStock": true
+  },
+  {
+    "id": "prod-4",
+    "nameAr": "حقيبة يد مونوغرام من جلد العجل الطبيعي",
+    "nameFr": "Sac en Cuir Iconique AURA",
+    "category": "accessories",
+    "categoryAr": "حقائب وإكسسوارات",
+    "gender": "unisex",
+    "price": 31500,
+    "oldPrice": null,
+    "rating": 4.9,
+    "reviewsCount": 19,
+    "badge": "إصدار محدود",
+    "isFeatured": true,
+    "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop",
+    "gallery": [
+      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop"
+    ],
+    "description": "حقيبة كتف مصنّعة يدوياً بجلود إيطالية مدبوغة عضوياً، مزدانة بمشبك القفل الذهبي الأيقوني الخاص بدار AURA.",
+    "sizes": ["Standard"],
+    "colors": [
+      { "name": "هافان توباكو", "hex": "#7A4A28" },
+      { "name": "أسود مذهب", "hex": "#1A1A1A" }
+    ],
+    "inStock": true
+  },
+  {
+    "id": "prod-5",
+    "nameAr": "قميص كتان فرنسي بأزرار لؤلؤية",
+    "nameFr": "Chemise Lin Français Pure",
+    "category": "shirts",
+    "categoryAr": "قمصان فاخرة",
+    "gender": "men",
+    "price": 19800,
+    "oldPrice": 23000,
+    "rating": 4.7,
+    "reviewsCount": 51,
+    "badge": null,
+    "isFeatured": false,
+    "image": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop",
+    "gallery": [
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop"
+    ],
+    "description": "قميص صيفي من خيوط الكتان النورماندي الطبيعي، خفيف الوزن ويوفر تنفساً فائقاً مع ملمس فخم ومتانة عالية.",
+    "sizes": ["M", "L", "XL", "XXL"],
+    "colors": [
+      { "name": "أبيض ناصع", "hex": "#FFFFFF" },
+      { "name": "أزرق سماوي", "hex": "#BFD7ED" }
+    ],
+    "inStock": true
+  },
+  {
+    "id": "prod-6",
+    "nameAr": "فستان بليزر عصري بتفاصيل ذهبية",
+    "nameFr": "Robe Blazer Minimaliste",
+    "category": "dresses",
+    "categoryAr": "فساتين سهرة",
+    "gender": "women",
+    "price": 36000,
+    "oldPrice": null,
+    "rating": 4.9,
+    "reviewsCount": 16,
+    "badge": "تريند",
+    "isFeatured": false,
+    "image": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=800&auto=format&fit=crop",
+    "gallery": [
+      "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=800&auto=format&fit=crop"
+    ],
+    "description": "تصميم جريء يجمع بين هيبة البدلة الرجالية ونعومة الفستان النسائي، مزود بحزام قماشي وأزرار مزدوجة مطعمة بالذهب.",
+    "sizes": ["S", "M", "L"],
+    "colors": [
+      { "name": "أبيض عاجي", "hex": "#F4F0EA" },
+      { "name": "كحلي كلاسيك", "hex": "#1B2232" }
+    ],
+    "inStock": true
+  },
+  {
+    "id": "prod-7",
+    "nameAr": "حذاء أوكسفورد جلدي مصنوع يدوياً",
+    "nameFr": "Chaussures Richelieu Cuir Artisanal",
+    "category": "shoes",
+    "categoryAr": "أحذية وإكسسوارات",
+    "gender": "men",
+    "price": 42000,
+    "oldPrice": 49000,
+    "rating": 4.9,
+    "reviewsCount": 38,
+    "badge": "صناعة يدوية",
+    "isFeatured": false,
+    "image": "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=800&auto=format&fit=crop",
+    "gallery": [
+      "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=800&auto=format&fit=crop"
+    ],
+    "description": "حذاء كلاسيكي بنظام خياطة غودير (Goodyear Welted) لضمان أقصى درجات الراحة والعمر المديد، ملمع بزيوت نباتية طبيعية.",
+    "sizes": ["40", "41", "42", "43", "44"],
+    "colors": [
+      { "name": "بني محروق", "hex": "#3E2723" },
+      { "name": "أسود لامع", "hex": "#111111" }
+    ],
+    "inStock": true
+  },
+  {
+    "id": "prod-8",
+    "nameAr": "وشاح كشمير مطرز بخيوط الحرير",
+    "nameFr": "Écharpe Cachemire Broderie Or",
+    "category": "accessories",
+    "categoryAr": "حقائب وإكسسوارات",
+    "gender": "unisex",
+    "price": 16500,
+    "oldPrice": null,
+    "rating": 4.8,
+    "reviewsCount": 22,
+    "badge": null,
+    "isFeatured": false,
+    "image": "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=800&auto=format&fit=crop",
+    "gallery": [
+      "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=800&auto=format&fit=crop"
+    ],
+    "description": "وشاح دافئ بملمس حريري ناعم لا يضاهى، تتخلله نقوش دقيقة محاكة يدويًا تعكس أصالة وتاريخ الدار العريقة.",
+    "sizes": ["One Size"],
+    "colors": [
+      { "name": "رمادي ناعم", "hex": "#9E9E9E" },
+      { "name": "بيج عسلي", "hex": "#CBB89D" }
+    ],
+    "inStock": true
+  }
+]

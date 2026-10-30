@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 70" width="280" height="70">
+  <defs>
+    <linearGradient id="goldGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3E5AB" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#AA771C" />
+    </linearGradient>
+  </defs>
+  
+  <g transform="translate(15, 10)">
+    <path d="M 25 2 L 48 25 L 25 48 L 2 25 Z" fill="none" stroke="url(#goldGradLight)" stroke-width="1.8" />
+    <path d="M 25 8 L 42 25 L 25 42 L 8 25 Z" fill="none" stroke="url(#goldGradLight)" stroke-width="0.8" opacity="0.6" />
+    <path d="M 25 12 L 34 36 M 25 12 L 16 36 M 19 28 L 31 28" fill="none" stroke="url(#goldGradLight)" stroke-width="2" stroke-linecap="round" />
+    <circle cx="25" cy="2" r="2" fill="#F3E5AB" />
+  </g>
+
+  <text x="75" y="38" font-family="'Cormorant Garamond', 'Cinzel', serif" font-size="28" font-weight="700" letter-spacing="6" fill="#FBF9F5">AURA</text>
+  <text x="77" y="52" font-family="'Montserrat', sans-serif" font-size="8.5" font-weight="500" letter-spacing="4.5" fill="#A8A29E">HAUTE COUTURE</text>
+  <line x1="230" y1="34" x2="260" y2="34" stroke="url(#goldGradLight)" stroke-width="1" />
+  <circle cx="245" cy="34" r="2" fill="#D4AF37" />
+</svg>
