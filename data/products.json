@@ -1,113 +1,180 @@
 [
   {
     "id": "prod-1",
-    "nameAr": "معطف صوف كشمير إيطالي باللون الرملي",
-    "nameFr": "Manteau Cachemire Beige Royal",
+    "name": {
+      "ar": "معطف صوف كشمير إيطالي باللون الرملي",
+      "en": "Italian Sand Beige Cashmere Coat",
+      "fr": "Manteau Cachemire Beige Sable Italien"
+    },
     "category": "coats",
-    "categoryAr": "معاطف فاخرة",
+    "categoryLabel": {
+      "ar": "معاطف فاخرة",
+      "en": "Luxury Coats",
+      "fr": "Manteaux de Luxe"
+    },
     "gender": "women",
     "price": 48500,
     "oldPrice": 56000,
     "rating": 4.9,
     "reviewsCount": 42,
-    "badge": "جديد",
+    "badge": {
+      "ar": "جديد",
+      "en": "New",
+      "fr": "Nouveau"
+    },
     "isFeatured": true,
     "image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800&auto=format&fit=crop",
     "gallery": [
       "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop"
     ],
-    "description": "معطف مصنوع يدوياً من أفخر ألياف الكشمير الإيطالية بنسبة 100%. تصميم كلاسيكي انسيابي بأزرار قرنية طبيعية وبطانة من الحرير الخالص، مثالي للإطلالات الشتوية الفخمة.",
+    "description": {
+      "ar": "معطف مصنوع يدوياً من أفخر ألياف الكشمير الإيطالية بنسبة 100%. تصميم كلاسيكي انسيابي بأزرار قرنية طبيعية وبطانة من الحرير الخالص.",
+      "en": "Handcrafted from 100% pure Italian cashmere fibers. Timeless silhouette featuring natural horn buttons and pure silk lining.",
+      "fr": "Confectionné à la main en pur cachemire italien 100%. Coupe intemporelle sublimée par des boutons en corne naturelle et doublure en soie pure."
+    },
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
-      { "name": "بيج رملي", "hex": "#D8C7B0" },
-      { "name": "أسود فحمي", "hex": "#1C1917" }
+      { "name": { "ar": "بيج رملي", "en": "Sand Beige", "fr": "Beige Sable" }, "hex": "#D8C7B0" },
+      { "name": { "ar": "أسود فحمي", "en": "Charcoal Black", "fr": "Noir Carbone" }, "hex": "#1C1917" }
     ],
     "inStock": true
   },
   {
     "id": "prod-2",
-    "nameAr": "فستان سهرة من الحرير الإمبراطوري الزمردي",
-    "nameFr": "Robe de Soirée Soie Émeraude",
+    "name": {
+      "ar": "فستان سهرة من الحرير الإمبراطوري الزمردي",
+      "en": "Imperial Emerald Silk Evening Gown",
+      "fr": "Robe de Soirée Soie Impériale Émeraude"
+    },
     "category": "dresses",
-    "categoryAr": "فساتين سهرة",
+    "categoryLabel": {
+      "ar": "فساتين سهرة",
+      "en": "Evening Dresses",
+      "fr": "Robes de Soirée"
+    },
     "gender": "women",
     "price": 52000,
     "oldPrice": null,
     "rating": 5.0,
     "reviewsCount": 28,
-    "badge": "الأكثر طلباً",
+    "badge": {
+      "ar": "الأكثر طلباً",
+      "en": "Best Seller",
+      "fr": "Coup de Cœur"
+    },
     "isFeatured": true,
     "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop",
     "gallery": [
       "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop"
     ],
-    "description": "فستان سهرة راقٍ بقصّة ميرميد متدرجة، منسوج من الحرير الطبيعي النقي ذو بريق أخضر زمردي ساحر. صُمم ليمنحك هيبة وأناقة خالدة في أرقى الحفلات والمناسبات.",
+    "description": {
+      "ar": "فستان سهرة راقٍ بقصّة ميرميد متدرجة، منسوج من الحرير الطبيعي النقي ذو بريق أخضر زمردي ساحر.",
+      "en": "Exquisite mermaid-cut evening gown tailored from pure mulberry silk with a luminous deep emerald luster.",
+      "fr": "Robe du soir majestueuse coupe sirène, tissée en pure soie naturelle aux reflets émeraude envoûtants."
+    },
     "sizes": ["XS", "S", "M", "L"],
     "colors": [
-      { "name": "زمردي ملكي", "hex": "#0D4D3D" },
-      { "name": "عنابي داكن", "hex": "#581825" }
+      { "name": { "ar": "زمردي ملكي", "en": "Royal Emerald", "fr": "Émeraude Royale" }, "hex": "#0D4D3D" },
+      { "name": { "ar": "عنابي داكن", "en": "Deep Burgundy", "fr": "Bordeaux Profond" }, "hex": "#581825" }
     ],
     "inStock": true
   },
   {
     "id": "prod-3",
-    "nameAr": "بدلة توكسيدو رسمية من الصوف الخالص",
-    "nameFr": "Costume Smoking Laine Fine",
+    "name": {
+      "ar": "بدلة توكسيدو رسمية من الصوف الخالص",
+      "en": "Super 140s Wool Black Tuxedo",
+      "fr": "Smoking Tuxedo Pure Laine Vierge"
+    },
     "category": "suits",
-    "categoryAr": "بدلات رسمية",
+    "categoryLabel": {
+      "ar": "بدلات رسمية",
+      "en": "Formal Suits",
+      "fr": "Costumes & Smokings"
+    },
     "gender": "men",
     "price": 64000,
     "oldPrice": 72000,
     "rating": 4.8,
     "reviewsCount": 35,
-    "badge": "حصرية",
+    "badge": {
+      "ar": "حصرية",
+      "en": "Exclusive",
+      "fr": "Exclusif"
+    },
     "isFeatured": true,
     "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop",
     "gallery": [
       "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&auto=format&fit=crop"
     ],
-    "description": "طقم بدلة رسمية مصممة بنمط الخياطة الإنجليزية الفاخرة (Super 140s Wool). ياقة شال ساتانية تضفي لمسة أرستقراطية متكاملة لرجال الأعمال والمناسبات الرسمية الكبرى.",
+    "description": {
+      "ar": "طقم بدلة رسمية بنمط الخياطة الإنجليزية الراقية (Super 140s). ياقة شال من الساتان الإيطالي لرجال الأعمال والنخبة.",
+      "en": "Tailored in the Savile Row tradition from Super 140s virgin wool, complete with Italian duchess satin shawl lapels.",
+      "fr": "Confectionné selon la grande tradition tailleur en pure laine Super 140s, rehaussé d'un col châle en satin de soie."
+    },
     "sizes": ["48", "50", "52", "54"],
     "colors": [
-      { "name": "أسود نايت", "hex": "#0A0A0A" },
-      { "name": "أزرق منتصف الليل", "hex": "#131C2E" }
+      { "name": { "ar": "أسود نايت", "en": "Midnight Black", "fr": "Noir Nuit" }, "hex": "#0A0A0A" },
+      { "name": { "ar": "أزرق ملكي", "en": "Navy Blue", "fr": "Bleu Nuit" }, "hex": "#131C2E" }
     ],
     "inStock": true
   },
   {
     "id": "prod-4",
-    "nameAr": "حقيبة يد مونوغرام من جلد العجل الطبيعي",
-    "nameFr": "Sac en Cuir Iconique AURA",
+    "name": {
+      "ar": "حقيبة يد مونوغرام من جلد العجل الطبيعي",
+      "en": "AURA Monogram Calfskin Shoulder Bag",
+      "fr": "Sac Bandoulière Cuir Monogramme AURA"
+    },
     "category": "accessories",
-    "categoryAr": "حقائب وإكسسوارات",
+    "categoryLabel": {
+      "ar": "حقائب وإكسسوارات",
+      "en": "Bags & Accessories",
+      "fr": "Sacs & Accessoires"
+    },
     "gender": "unisex",
     "price": 31500,
     "oldPrice": null,
     "rating": 4.9,
     "reviewsCount": 19,
-    "badge": "إصدار محدود",
+    "badge": {
+      "ar": "إصدار محدود",
+      "en": "Limited Edition",
+      "fr": "Édition Limitée"
+    },
     "isFeatured": true,
     "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop",
     "gallery": [
       "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop"
     ],
-    "description": "حقيبة كتف مصنّعة يدوياً بجلود إيطالية مدبوغة عضوياً، مزدانة بمشبك القفل الذهبي الأيقوني الخاص بدار AURA.",
+    "description": {
+      "ar": "حقيبة كتف مصنعة يدوياً بجلود إيطالية مدبوغة عضوياً مع قفل الدار المذهب عيار 24.",
+      "en": "Handcrafted Tuscan vegetable-tanned calfskin leather with signature 24k gold-plated monogram closure.",
+      "fr": "Cuir de veau toscan au tannage végétal, orné du fermoir signature plaqué or 24 carats."
+    },
     "sizes": ["Standard"],
     "colors": [
-      { "name": "هافان توباكو", "hex": "#7A4A28" },
-      { "name": "أسود مذهب", "hex": "#1A1A1A" }
+      { "name": { "ar": "هافان توباكو", "en": "Tobacco Havana", "fr": "Havane Tabac" }, "hex": "#7A4A28" },
+      { "name": { "ar": "أسود مذهب", "en": "Gilded Black", "fr": "Noir Doré" }, "hex": "#1A1A1A" }
     ],
     "inStock": true
   },
   {
     "id": "prod-5",
-    "nameAr": "قميص كتان فرنسي بأزرار لؤلؤية",
-    "nameFr": "Chemise Lin Français Pure",
+    "name": {
+      "ar": "قميص كتان فرنسي بأزرار لؤلؤية",
+      "en": "Normandy Pure Linen Shirt",
+      "fr": "Chemise en Lin de Normandie"
+    },
     "category": "shirts",
-    "categoryAr": "قمصان فاخرة",
+    "categoryLabel": {
+      "ar": "قمصان فاخرة",
+      "en": "Luxury Shirts",
+      "fr": "Chemises de Luxe"
+    },
     "gender": "men",
     "price": 19800,
     "oldPrice": 23000,
@@ -119,70 +186,111 @@
     "gallery": [
       "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop"
     ],
-    "description": "قميص صيفي من خيوط الكتان النورماندي الطبيعي، خفيف الوزن ويوفر تنفساً فائقاً مع ملمس فخم ومتانة عالية.",
+    "description": {
+      "ar": "قميص صيفي من خيوط الكتان النورماندي الطبيعي، خفيف الوزن ويوفر تنفساً فائقاً مع أزرار من صدف اللؤلؤ.",
+      "en": "Woven from certified organic Normandy flax fibers, featuring genuine mother-of-pearl buttons.",
+      "fr": "Tissé en lin biologique de Normandie certifié, rehaussé de boutons en nacre véritable."
+    },
     "sizes": ["M", "L", "XL", "XXL"],
     "colors": [
-      { "name": "أبيض ناصع", "hex": "#FFFFFF" },
-      { "name": "أزرق سماوي", "hex": "#BFD7ED" }
+      { "name": { "ar": "أبيض ناصع", "en": "Pure White", "fr": "Blanc Pur" }, "hex": "#FFFFFF" },
+      { "name": { "ar": "أزرق سماوي", "en": "Sky Blue", "fr": "Bleu Azur" }, "hex": "#BFD7ED" }
     ],
     "inStock": true
   },
   {
     "id": "prod-6",
-    "nameAr": "فستان بليزر عصري بتفاصيل ذهبية",
-    "nameFr": "Robe Blazer Minimaliste",
+    "name": {
+      "ar": "فستان بليزر عصري بتفاصيل ذهبية",
+      "en": "Modern Double-Breasted Blazer Dress",
+      "fr": "Robe Blazer Croisée Or"
+    },
     "category": "dresses",
-    "categoryAr": "فساتين سهرة",
+    "categoryLabel": {
+      "ar": "فساتين سهرة",
+      "en": "Evening Dresses",
+      "fr": "Robes de Soirée"
+    },
     "gender": "women",
     "price": 36000,
     "oldPrice": null,
     "rating": 4.9,
     "reviewsCount": 16,
-    "badge": "تريند",
+    "badge": {
+      "ar": "تريند",
+      "en": "Trending",
+      "fr": "Tendance"
+    },
     "isFeatured": false,
     "image": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=800&auto=format&fit=crop",
     "gallery": [
       "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=800&auto=format&fit=crop"
     ],
-    "description": "تصميم جريء يجمع بين هيبة البدلة الرجالية ونعومة الفستان النسائي، مزود بحزام قماشي وأزرار مزدوجة مطعمة بالذهب.",
+    "description": {
+      "ar": "تصميم جريء يجمع بين هيبة البدلة الرجالية ونعومة الفستان النسائي مع حزام خصر أنيق.",
+      "en": "Sharp sartorial tailoring meets feminine grace in this sculpted double-breasted dress.",
+      "fr": "L'élégance du vestiaire masculin réinterprétée dans une coupe féminine cintrée avec ceinture structurée."
+    },
     "sizes": ["S", "M", "L"],
     "colors": [
-      { "name": "أبيض عاجي", "hex": "#F4F0EA" },
-      { "name": "كحلي كلاسيك", "hex": "#1B2232" }
+      { "name": { "ar": "أبيض عاجي", "en": "Ivory White", "fr": "Blanc Ivoire" }, "hex": "#F4F0EA" },
+      { "name": { "ar": "كحلي كلاسيك", "en": "Classic Navy", "fr": "Bleu Marine" }, "hex": "#1B2232" }
     ],
     "inStock": true
   },
   {
     "id": "prod-7",
-    "nameAr": "حذاء أوكسفورد جلدي مصنوع يدوياً",
-    "nameFr": "Chaussures Richelieu Cuir Artisanal",
+    "name": {
+      "ar": "حذاء أوكسفورد جلدي مصنوع يدوياً",
+      "en": "Artisanal Goodyear-Welted Oxford Shoes",
+      "fr": "Souliers Richelieu Cousu Goodyear"
+    },
     "category": "shoes",
-    "categoryAr": "أحذية وإكسسوارات",
+    "categoryLabel": {
+      "ar": "أحذية فاخرة",
+      "en": "Luxury Shoes",
+      "fr": "Souliers de Luxe"
+    },
     "gender": "men",
     "price": 42000,
     "oldPrice": 49000,
     "rating": 4.9,
     "reviewsCount": 38,
-    "badge": "صناعة يدوية",
+    "badge": {
+      "ar": "صناعة يدوية",
+      "en": "Handcrafted",
+      "fr": "Fait Main"
+    },
     "isFeatured": false,
     "image": "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=800&auto=format&fit=crop",
     "gallery": [
       "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=800&auto=format&fit=crop"
     ],
-    "description": "حذاء كلاسيكي بنظام خياطة غودير (Goodyear Welted) لضمان أقصى درجات الراحة والعمر المديد، ملمع بزيوت نباتية طبيعية.",
+    "description": {
+      "ar": "حذاء كلاسيكي بنظام خياطة غودير لضمان أقصى درجات الراحة والعمر المديد، ملمع بزيوت نباتية طبيعية.",
+      "en": "Masterpiece footwear built with Goodyear welt construction and hand-burnished crust leather.",
+      "fr": "Chef-d'œuvre de cordonnerie avec montage cousu Goodyear et patine réalisée artisanalement."
+    },
     "sizes": ["40", "41", "42", "43", "44"],
     "colors": [
-      { "name": "بني محروق", "hex": "#3E2723" },
-      { "name": "أسود لامع", "hex": "#111111" }
+      { "name": { "ar": "بني محروق", "en": "Espresso Brown", "fr": "Brun Ébène" }, "hex": "#3E2723" },
+      { "name": { "ar": "أسود لامع", "en": "Glossy Black", "fr": "Noir Brillant" }, "hex": "#111111" }
     ],
     "inStock": true
   },
   {
     "id": "prod-8",
-    "nameAr": "وشاح كشمير مطرز بخيوط الحرير",
-    "nameFr": "Écharpe Cachemire Broderie Or",
+    "name": {
+      "ar": "وشاح كشمير مطرز بخيوط الحرير",
+      "en": "Embroidered Silk & Cashmere Scarf",
+      "fr": "Étole Cachemire & Broderie Soie"
+    },
     "category": "accessories",
-    "categoryAr": "حقائب وإكسسوارات",
+    "categoryLabel": {
+      "ar": "حقائب وإكسسوارات",
+      "en": "Bags & Accessories",
+      "fr": "Sacs & Accessoires"
+    },
     "gender": "unisex",
     "price": 16500,
     "oldPrice": null,
@@ -194,11 +302,15 @@
     "gallery": [
       "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=800&auto=format&fit=crop"
     ],
-    "description": "وشاح دافئ بملمس حريري ناعم لا يضاهى، تتخلله نقوش دقيقة محاكة يدويًا تعكس أصالة وتاريخ الدار العريقة.",
+    "description": {
+      "ar": "وشاح دافئ بملمس حريري ناعم لا يضاهى، تتخلله نقوش دقيقة محاكة يدويًا.",
+      "en": "Featherweight warmth blending fine Mongolian cashmere with pure silk brocade embroidery.",
+      "fr": "Douceur infinie alliant cachemire de Mongolie et broderies florales en fil de soie."
+    },
     "sizes": ["One Size"],
     "colors": [
-      { "name": "رمادي ناعم", "hex": "#9E9E9E" },
-      { "name": "بيج عسلي", "hex": "#CBB89D" }
+      { "name": { "ar": "رمادي ناعم", "en": "Soft Gray", "fr": "Gris Perle" }, "hex": "#9E9E9E" },
+      { "name": { "ar": "بيج عسلي", "en": "Honey Beige", "fr": "Beige Miel" }, "hex": "#CBB89D" }
     ],
     "inStock": true
   }

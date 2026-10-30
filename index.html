@@ -1,542 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AURA Haute Couture â€” Ø¯Ø§Ø± Ø§Ù„Ø£Ø²ÙŠØ§Ø¡ Ø§Ù„Ø±Ø§Ù‚ÙŠØ©</title>
+  <title>AURA Haute Couture — دار الأزياء الراقية</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
   <style>
-:root {
-  /* Design Tokens from ui-ux-pro-max luxury-fashion */
-  --color-primary: #1C1917;
-  --color-on-primary: #FFFFFF;
-  --color-secondary: #44403C;
-  --color-on-secondary: #FFFFFF;
-  --color-accent: #C5A059;
-  --color-accent-hover: #AA853E;
-  --color-accent-soft: rgba(197, 160, 89, 0.12);
-  --color-background: #FBF9F5;
-  --color-foreground: #0C0A09;
-  --color-card: #FFFFFF;
-  --color-card-foreground: #0C0A09;
-  --color-muted: #F3ECE1;
-  --color-muted-foreground: #78716C;
-  --color-border: #E7E2DA;
-  --color-border-subtle: #F0ECE4;
-  --color-destructive: #DC2626;
-
-  /* Typography */
-  --font-serif: 'Cormorant Garamond', 'Cinzel', serif;
-  --font-sans: 'Cairo', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-
-  /* Spacing Scale (8dp luxury rhythm) */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --space-2xl: 48px;
-  --space-3xl: 64px;
-
-  /* Elevations & Shadows */
-  --shadow-sm: 0 2px 8px rgba(28, 25, 23, 0.04);
-  --shadow-md: 0 10px 25px -5px rgba(28, 25, 23, 0.07);
-  --shadow-lg: 0 20px 45px -10px rgba(28, 25, 23, 0.12);
-  --shadow-luxury: 0 30px 60px -15px rgba(197, 160, 89, 0.2);
-
-  /* Radii */
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --radius-full: 9999px;
-
-  /* Transition curves */
-  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-fast: all 0.2s ease;
-}
-
-/* Dark Mode Overrides */
-[data-theme="dark"] {
-  --color-primary: #FBF9F5;
-  --color-on-primary: #1C1917;
-  --color-secondary: #D6D3D1;
-  --color-on-secondary: #1C1917;
-  --color-accent: #E5C378;
-  --color-accent-hover: #D4AF37;
-  --color-accent-soft: rgba(229, 195, 120, 0.14);
-  --color-background: #0E0F12;
-  --color-foreground: #F8FAF8;
-  --color-card: #16181D;
-  --color-card-foreground: #F8FAF8;
-  --color-muted: #1F222A;
-  --color-muted-foreground: #A1A1AA;
-  --color-border: #272B35;
-  --color-border-subtle: #1E2129;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
-  --shadow-lg: 0 20px 45px -10px rgba(0, 0, 0, 0.8);
-}
-
-/* Base reset */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-sans);
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-  line-height: 1.6;
-  direction: rtl;
-  text-align: right;
-  overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Typography Utilities */
-h1, h2, h3, h4, .font-serif {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-.text-accent { color: var(--color-accent); }
-.text-muted { color: var(--color-muted-foreground); }
-
-/* Common Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  padding: 12px 28px;
-  border-radius: var(--radius-md);
-  font-weight: 700;
-  font-size: 0.95rem;
-  cursor: pointer;
-  border: 1px solid transparent;
-  transition: var(--transition-smooth);
-  text-decoration: none;
-  font-family: var(--font-sans);
-}
-
-.btn-primary {
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  border-color: var(--color-primary);
-}
-
-.btn-primary:hover {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  color: #12100E;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-luxury);
-}
-
-.btn-accent {
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
-  color: #12100E;
-  box-shadow: 0 4px 20px var(--color-accent-soft);
-}
-
-.btn-accent:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(197, 160, 89, 0.35);
-}
-
-.btn-outline {
-  background: transparent;
-  border-color: var(--color-border);
-  color: var(--color-foreground);
-}
-
-.btn-outline:hover {
-  background: var(--color-muted);
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-}
-
-.btn-icon {
-  width: 42px;
-  height: 42px;
-  padding: 0;
-  border-radius: var(--radius-full);
-  display: inline-grid;
-  place-items: center;
-  background: transparent;
-  border: 1px solid var(--color-border-subtle);
-  color: var(--color-foreground);
-  cursor: pointer;
-  transition: var(--transition-fast);
-}
-
-.btn-icon:hover {
-  background: var(--color-muted);
-  color: var(--color-accent);
-  border-color: var(--color-accent);
-}
-
-/* Container */
-.container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 var(--space-lg);
-}
-
-/* Header & Nav */
-.site-header {
-  position: sticky;
-  top: 0;
-  background: rgba(251, 249, 245, 0.88);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--color-border);
-  z-index: 500;
-  transition: var(--transition-fast);
-}
-
-[data-theme="dark"] .site-header {
-  background: rgba(14, 15, 18, 0.88);
-}
-
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px;
-}
-
-.site-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.site-logo img, .site-logo svg {
-  height: 42px;
-  width: auto;
-}
-
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xl);
-  list-style: none;
-}
-
-.main-nav a {
-  color: var(--color-secondary);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  position: relative;
-  transition: color 0.2s;
-  padding: 6px 0;
-}
-
-.main-nav a:hover, .main-nav a.active {
-  color: var(--color-foreground);
-}
-
-.main-nav a.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--color-accent);
-  border-radius: 2px;
-}
-
-.header-tools {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-}
-
-.cart-trigger {
-  position: relative;
-}
-
-.cart-count {
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  background: var(--color-accent);
-  color: #12100E;
-  font-weight: 800;
-  font-size: 0.7rem;
-  width: 20px;
-  height: 20px;
-  border-radius: var(--radius-full);
-  display: grid;
-  place-items: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-/* Badge tags */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 10px;
-  border-radius: var(--radius-sm);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.badge-gold {
-  background: var(--color-accent);
-  color: #12100E;
-}
-
-.badge-dark {
-  background: rgba(18, 16, 14, 0.85);
-  color: #FFFFFF;
-}
-
-/* Card item */
-.product-card {
-  background: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  transition: var(--transition-smooth);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-accent);
-}
-
-.product-thumb {
-  position: relative;
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-  background: var(--color-muted);
-}
-
-.product-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.product-card:hover .product-thumb img {
-  transform: scale(1.06);
-}
-
-.product-body {
-  padding: var(--space-lg);
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.product-cat {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--color-accent);
-  letter-spacing: 1px;
-  margin-bottom: var(--space-xs);
-  text-transform: uppercase;
-}
-
-.product-title {
-  font-family: var(--font-sans);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-foreground);
-  margin-bottom: var(--space-sm);
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.product-price {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--color-foreground);
-  margin-top: auto;
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-sm);
-}
-
-.product-old-price {
-  font-size: 0.85rem;
-  color: var(--color-muted-foreground);
-  text-decoration: line-through;
-  font-weight: 400;
-}
-
-/* Off-canvas Cart Drawer */
-.cart-drawer-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition-fast);
-  z-index: 998;
-}
-
-.cart-drawer-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.cart-drawer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  max-width: 440px;
-  height: 100vh;
-  background: var(--color-card);
-  box-shadow: -10px 0 40px rgba(0,0,0,0.3);
-  z-index: 999;
-  transform: translateX(-100%);
-  transition: var(--transition-smooth);
-  display: flex;
-  flex-direction: column;
-}
-
-.cart-drawer.active {
-  transform: translateX(0);
-}
-
-.cart-drawer-header {
-  padding: var(--space-lg);
-  border-bottom: 1px solid var(--color-border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cart-items-list {
-  flex-grow: 1;
-  overflow-y: auto;
-  padding: var(--space-lg);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.cart-item-row {
-  display: flex;
-  gap: var(--space-md);
-  align-items: center;
-  padding-bottom: var(--space-md);
-  border-bottom: 1px solid var(--color-border-subtle);
-}
-
-.cart-item-img {
-  width: 70px;
-  height: 85px;
-  border-radius: var(--radius-sm);
-  object-fit: cover;
-  background: var(--color-muted);
-}
-
-.cart-item-info {
-  flex-grow: 1;
-}
-
-.cart-drawer-footer {
-  padding: var(--space-lg);
-  border-top: 1px solid var(--color-border);
-  background: var(--color-muted);
-}
-
-/* Footer */
-.site-footer {
-  background: #11100F;
-  color: #D6D3D1;
-  padding: var(--space-3xl) 0 var(--space-xl);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: var(--space-2xl);
-  margin-bottom: var(--space-3xl);
-}
-
-.footer-col h4 {
-  color: #FFFFFF;
-  font-size: 1.15rem;
-  margin-bottom: var(--space-lg);
-  position: relative;
-  padding-bottom: var(--space-xs);
-}
-
-.footer-col ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.footer-col a {
-  color: #A8A29E;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.2s;
-}
-
-.footer-col a:hover {
-  color: var(--color-accent);
-}
-
-.footer-bottom {
-  padding-top: var(--space-lg);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.85rem;
-  color: #78716C;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .main-nav { display: none; }
-}
-
-@media (max-width: 640px) {
-  .footer-grid { grid-template-columns: 1fr; }
-  .header-inner { height: 68px; }
-  .container { padding: 0 var(--space-md); }
-}
-
-</style>
-  <style>
-    /* Hero Section Specifics */
     .hero-fullscreen {
       min-height: 85vh;
       display: flex;
@@ -571,8 +43,8 @@ h1, h2, h3, h4, .font-serif {
     }
 
     .hero-h1 {
-      font-size: 3.8rem;
-      line-height: 1.1;
+      font-size: 3.6rem;
+      line-height: 1.15;
       color: var(--color-foreground);
       margin-bottom: var(--space-lg);
       font-weight: 700;
@@ -601,7 +73,7 @@ h1, h2, h3, h4, .font-serif {
     .floating-accent-card {
       position: absolute;
       bottom: -24px;
-      right: -24px;
+      inset-inline-end: -24px;
       background: var(--color-card);
       border: 1px solid var(--color-border);
       padding: var(--space-lg);
@@ -613,7 +85,6 @@ h1, h2, h3, h4, .font-serif {
       backdrop-filter: blur(12px);
     }
 
-    /* Pillars Features */
     .features-ribbon {
       padding: var(--space-2xl) 0;
       background: var(--color-card);
@@ -644,7 +115,6 @@ h1, h2, h3, h4, .font-serif {
       flex-shrink: 0;
     }
 
-    /* Category Explorer Cards */
     .cat-explorer-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -712,7 +182,7 @@ h1, h2, h3, h4, .font-serif {
       .ribbon-grid { grid-template-columns: 1fr 1fr; }
       .cat-explorer-grid { grid-template-columns: 1fr; }
       .hero-h1 { font-size: 2.6rem; }
-      .floating-accent-card { right: 12px; bottom: 12px; }
+      .floating-accent-card { inset-inline-end: 12px; bottom: 12px; }
     }
   </style>
 </head>
@@ -720,40 +190,45 @@ h1, h2, h3, h4, .font-serif {
 
   <!-- Top Announcement Bar -->
   <aside style="background: var(--color-primary); color: #fff; padding: 8px 16px; font-size: 0.8rem; text-align: center; font-weight: 600; border-bottom: 1px solid rgba(197, 160, 89, 0.2);">
-    <span>âœ¨ ØªÙˆØµÙŠÙ„ Ø­ØµØ±ÙŠ ÙˆÙ…Ø¬Ø§Ù†ÙŠ Ù„ÙƒØ§ÙØ© ÙˆÙ„Ø§ÙŠØ§Øª Ø§Ù„Ø¬Ø²Ø§Ø¦Ø± Ù„Ù„Ø·Ù„Ø¨Ø§Øª ÙÙˆÙ‚ 30,000 Ø¯Ø¬ | Ø§Ù„Ø¯ÙØ¹ Ø¹Ù†Ø¯ Ø§Ù„Ø§Ø³ØªÙ„Ø§Ù… Ù…ØªÙˆÙØ±</span>
+    <span data-i18n="announcement">✨ توصيل حصري ومجاني لكافة ولايات الجزائر للطلبات فوق 30,000 دج | الدفع عند الاستلام متوفر</span>
   </aside>
 
   <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="site-logo">
-        <img src="./assets/icons/logo.svg" alt="AURA Haute Couture Logo">
+        <img src="./assets/icons/logo.svg" alt="AURA Logo">
       </a>
 
       <nav>
         <ul class="main-nav">
-          <li><a href="index.html" class="active">Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©</a></li>
-          <li><a href="catalog.html">Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ø© Ø§Ù„ÙƒØ§Ù…Ù„Ø©</a></li>
-          <li><a href="catalog.html?category=coats">Ù…Ø¹Ø§Ø·Ù</a></li>
-          <li><a href="catalog.html?category=dresses">ÙØ³Ø§ØªÙŠÙ† Ø³Ù‡Ø±Ø©</a></li>
-          <li><a href="catalog.html?category=suits">Ø¨Ø¯Ù„Ø§Øª Ø±Ø³Ù…ÙŠØ©</a></li>
-          <li><a href="about.html">Ø¹Ù† Ø§Ù„Ø¯Ø§Ø±</a></li>
+          <li><a href="index.html" class="active" data-i18n="nav.home">الرئيسية</a></li>
+          <li><a href="catalog.html" data-i18n="nav.catalog">المجموعة الكاملة</a></li>
+          <li><a href="catalog.html?category=coats" data-i18n="nav.coats">معاطف</a></li>
+          <li><a href="catalog.html?category=dresses" data-i18n="nav.dresses">فساتين سهرة</a></li>
+          <li><a href="catalog.html?category=suits" data-i18n="nav.suits">بدلات رسمية</a></li>
+          <li><a href="about.html" data-i18n="nav.about">عن الدار</a></li>
         </ul>
       </nav>
 
       <div class="header-tools">
-        <!-- Theme Toggle -->
-        <button class="btn-icon theme-toggle" title="ØªØºÙŠÙŠØ± Ø§Ù„Ù…Ø¸Ù‡Ø± (ÙØ§ØªØ­ / Ø¯Ø§ÙƒÙ†)">
+        <!-- Language Switcher Button (AR / EN / FR) -->
+        <button class="lang-select-btn" title="تغيير اللغة / Change Language / Changer la langue">
+          🌐 <span class="current-lang">AR</span>
+        </button>
+
+        <!-- Theme Toggle (Dark / Light) -->
+        <button class="btn-icon theme-toggle" title="تبديل الوضع الليلي / النهاري">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         </button>
 
         <!-- Search button -->
-        <a href="catalog.html" class="btn-icon" title="Ø¨Ø­Ø« ÙÙŠ Ø§Ù„Ù…ØªØ¬Ø±">
+        <a href="catalog.html" class="btn-icon" title="بحث">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </a>
 
         <!-- Cart Trigger -->
-        <button class="btn-icon cart-trigger" title="Ø­Ù‚ÙŠØ¨Ø© Ø§Ù„ØªØ³ÙˆÙ‚">
+        <button class="btn-icon cart-trigger" title="حقيبة التسوق">
           <span class="cart-count">0</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         </button>
@@ -767,18 +242,17 @@ h1, h2, h3, h4, .font-serif {
       <div class="container hero-content-grid">
         <div>
           <div class="hero-tag">
-            <span>âšœï¸</span> ØªØ´ÙƒÙŠÙ„Ø© Ø§Ù„Ø®Ø±ÙŠÙ ÙˆØ§Ù„Ø´ØªØ§Ø¡ Ø§Ù„Ø­ØµØ±ÙŠØ© 2026
+            <span>⚜️</span> <span data-i18n="hero.tag">تشكيلة الخريف والشتاء الحصرية 2026</span>
           </div>
-          <h1 class="hero-h1">Ø£ØµØ§Ù„Ø© Ø§Ù„Ø®ÙŠØ§Ø·Ø© Ø§Ù„Ø±ÙÙŠØ¹Ø© Ø¨Ù„Ù…Ø³Ø© Ø¹ØµØ±ÙŠØ© Ø®Ø§Ù„Ø¯Ø©</h1>
-          <p class="hero-desc">
-            ØªØ¬Ø³ÙŠØ¯ Ø­Ù‚ÙŠÙ‚ÙŠ Ù„Ù„ÙØ®Ø§Ù…Ø© ÙˆØ§Ù„Ø°ÙˆÙ‚ Ø§Ù„Ø±ÙÙŠØ¹. Ù‚Ø·Ø¹ Ø§Ø³ØªØ«Ù†Ø§Ø¦ÙŠØ© Ù…Ø­Ø§ÙƒØ© ÙŠØ¯ÙˆÙŠÙ‹Ø§ Ù…Ù† Ø£Ù†Ù‚Ù‰ Ø£Ù‚Ù…Ø´Ø© Ø§Ù„ÙƒØ´Ù…ÙŠØ± ÙˆØ§Ù„Ø­Ø±ÙŠØ± Ø§Ù„Ø¥ÙŠØ·Ø§Ù„ÙŠ Ù„ØªØ¶ÙÙŠ Ø¹Ù„Ù‰ Ø¥Ø·Ù„Ø§Ù„ØªÙƒ Ø¨Ø±ÙŠÙ‚Ø§Ù‹ Ù„Ø§ ÙŠÙÙ†Ø³Ù‰.
+          <h1 class="hero-h1" data-i18n="hero.title">أصالة الخياطة الرفيعة بلمسة عصرية خالدة</h1>
+          <p class="hero-desc" data-i18n="hero.desc">
+            تجسيد حقيقي للفخامة والذوق الرفيع. قطع استثنائية محاكة يدويًا من أنقى أقمشة الكشمير والحرير الإيطالي لتضفي على إطلالتك بريقاً لا يُنسى.
           </p>
           <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
-            <a href="catalog.html" class="btn btn-primary">
-              Ø§Ø³ØªÙƒØ´Ù Ø§Ù„ØªØ´ÙƒÙŠÙ„Ø©
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            <a href="catalog.html" class="btn btn-primary" data-i18n="hero.ctaPrimary">
+              استكشف التشكيلة
             </a>
-            <a href="#featured-section" class="btn btn-outline">Ø§Ù„Ù‚Ø·Ø¹ Ø§Ù„Ø£ÙƒØ«Ø± Ø·Ù„Ø¨Ø§Ù‹</a>
+            <a href="#featured-section" class="btn btn-outline" data-i18n="hero.ctaSecondary">القطع الأكثر طلباً</a>
           </div>
         </div>
 
@@ -786,11 +260,11 @@ h1, h2, h3, h4, .font-serif {
           <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000&auto=format&fit=crop" alt="AURA Luxury Collection" class="hero-main-img">
           <div class="floating-accent-card">
             <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-accent-soft); display: grid; place-items: center; color: var(--color-accent); font-size: 1.3rem;">
-              ðŸ’Ž
+              💎
             </div>
             <div>
-              <h4 style="font-size: 1rem; font-weight: 700;">Ø¶Ù…Ø§Ù† Ø§Ù„Ø¬ÙˆØ¯Ø© Ø§Ù„Ù…Ù„ÙƒÙŠØ©</h4>
-              <p style="font-size: 0.8rem; color: var(--color-muted-foreground);">Ø£Ù‚Ù…Ø´Ø© Ø¥ÙŠØ·Ø§Ù„ÙŠØ© Ù…Ø¹ØªÙ…Ø¯Ø© 100%</p>
+              <h4 style="font-size: 1rem; font-weight: 700;" data-i18n="hero.badgeTitle">ضمان الجودة الملكية</h4>
+              <p style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="hero.badgeSubtitle">أقمشة إيطالية معتمدة 100%</p>
             </div>
           </div>
         </div>
@@ -805,8 +279,8 @@ h1, h2, h3, h4, .font-serif {
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           </div>
           <div>
-            <h4 style="font-size: 0.95rem; font-weight: 700;">ØªÙˆØµÙŠÙ„ Ø³Ø±ÙŠØ¹ ÙˆÙ…Ø¤Ù…Ù‘Ù†</h4>
-            <p style="font-size: 0.8rem; color: var(--color-muted-foreground);">Ø®Ù„Ø§Ù„ 24-48 Ø³Ø§Ø¹Ø© Ù„Ù€ 58 ÙˆÙ„Ø§ÙŠØ©</p>
+            <h4 style="font-size: 0.95rem; font-weight: 700;" data-i18n="features.deliveryTitle">توصيل سريع ومؤمّن</h4>
+            <p style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="features.deliveryDesc">خلال 24-48 ساعة لـ 58 ولاية</p>
           </div>
         </div>
 
@@ -815,8 +289,8 @@ h1, h2, h3, h4, .font-serif {
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <div>
-            <h4 style="font-size: 0.95rem; font-weight: 700;">Ø£ØµØ§Ù„Ø© ÙˆØ¬ÙˆØ¯Ø© Ù…Ø¶Ù…ÙˆÙ†Ø©</h4>
-            <p style="font-size: 0.8rem; color: var(--color-muted-foreground);">Ø´Ù‡Ø§Ø¯Ø© Ù…Ù†Ø´Ø£ Ù…Ø¹ ÙƒÙ„ Ù‚Ø·Ø¹Ø©</p>
+            <h4 style="font-size: 0.95rem; font-weight: 700;" data-i18n="features.qualityTitle">أصالة وجودة مضمونة</h4>
+            <p style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="features.qualityDesc">شهادة منشأ مع كل قطعة</p>
           </div>
         </div>
 
@@ -825,8 +299,8 @@ h1, h2, h3, h4, .font-serif {
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
           </div>
           <div>
-            <h4 style="font-size: 0.95rem; font-weight: 700;">Ø§Ø³ØªØ¨Ø¯Ø§Ù„ Ø³Ù‡Ù„ ÙˆÙ…Ø±ÙŠØ­</h4>
-            <p style="font-size: 0.8rem; color: var(--color-muted-foreground);">Ø¥Ù…ÙƒØ§Ù†ÙŠØ© Ø§Ù„Ù‚ÙŠØ§Ø³ Ø¹Ù†Ø¯ Ø§Ù„Ø§Ø³ØªÙ„Ø§Ù…</p>
+            <h4 style="font-size: 0.95rem; font-weight: 700;" data-i18n="features.returnsTitle">استبدال سهل ومريح</h4>
+            <p style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="features.returnsDesc">إمكانية القياس عند الاستلام</p>
           </div>
         </div>
 
@@ -835,8 +309,8 @@ h1, h2, h3, h4, .font-serif {
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </div>
           <div>
-            <h4 style="font-size: 0.95rem; font-weight: 700;">Ù…Ø³ØªØ´Ø§Ø± Ø£Ù†Ø§Ù‚Ø© Ø®Ø§Øµ</h4>
-            <p style="font-size: 0.8rem; color: var(--color-muted-foreground);">Ø®Ø¯Ù…Ø© Ø¹Ù…Ù„Ø§Ø¡ VIP Ø¹Ù„Ù‰ Ù…Ø¯Ø§Ø± Ø§Ù„Ø³Ø§Ø¹Ø©</p>
+            <h4 style="font-size: 0.95rem; font-weight: 700;" data-i18n="features.stylistTitle">مستشار أناقة خاص</h4>
+            <p style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="features.stylistDesc">خدمة عملاء VIP على مدار الساعة</p>
           </div>
         </div>
       </div>
@@ -846,33 +320,33 @@ h1, h2, h3, h4, .font-serif {
     <section style="padding: var(--space-3xl) 0;">
       <div class="container">
         <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-          <span class="badge badge-gold" style="margin-bottom: var(--space-sm);">Ø£Ù‚Ø³Ø§Ù… Ø§Ù„Ø¯Ø§Ø±</span>
-          <h2 style="font-size: 2.5rem; margin-bottom: var(--space-xs);">Ø§ÙƒØªØ´Ù Ø§Ù„ØªØ´ÙƒÙŠÙ„Ø§Øª Ø§Ù„Ù…ØªÙ†ÙˆØ¹Ø©</h2>
-          <p class="text-muted">Ù‚Ø·Ø¹ Ù…ØªÙ†Ø§ØºÙ…Ø© ØªØ¹Ø¨Ø± Ø¹Ù† Ø£Ø³Ù„ÙˆØ¨ Ø­ÙŠØ§ØªÙƒ Ø§Ù„ÙØ±ÙŠØ¯</p>
+          <span class="badge badge-gold" style="margin-bottom: var(--space-sm);" data-i18n="categories.badge">أقسام الدار</span>
+          <h2 style="font-size: 2.5rem; margin-bottom: var(--space-xs);" data-i18n="categories.title">اكتشف التشكيلات المتنوعة</h2>
+          <p class="text-muted" data-i18n="categories.desc">قطع متناغمة تعبر عن أسلوب حياتك الفريد</p>
         </div>
 
         <div class="cat-explorer-grid">
           <a href="catalog.html?category=coats" class="cat-card-interactive">
-            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=600&auto=format&fit=crop" alt="Ø§Ù„Ù…Ø¹Ø§Ø·Ù Ø§Ù„ÙØ§Ø®Ø±Ø©">
+            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=600&auto=format&fit=crop" alt="Coats">
             <div class="cat-card-content">
-              <h3>Ø§Ù„Ù…Ø¹Ø§Ø·Ù ÙˆØ§Ù„ÙƒØ§Ø¨</h3>
-              <span>ØªØµÙØ­ Ø§Ù„Ù‚Ø³Ù… â†</span>
+              <h3 data-i18n="categories.coats">المعاطف والكاب</h3>
+              <span data-i18n="categories.browse">تصفح القسم ←</span>
             </div>
           </a>
 
           <a href="catalog.html?category=dresses" class="cat-card-interactive">
-            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop" alt="ÙØ³Ø§ØªÙŠÙ† Ø§Ù„Ø³Ù‡Ø±Ø©">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop" alt="Dresses">
             <div class="cat-card-content">
-              <h3>ÙØ³Ø§ØªÙŠÙ† Ø§Ù„Ø³Ù‡Ø±Ø© ÙˆØ§Ù„Ù…Ù†Ø§Ø³Ø¨Ø§Øª</h3>
-              <span>ØªØµÙØ­ Ø§Ù„Ù‚Ø³Ù… â†</span>
+              <h3 data-i18n="categories.dresses">فساتين السهرة والمناسبات</h3>
+              <span data-i18n="categories.browse">تصفح القسم ←</span>
             </div>
           </a>
 
           <a href="catalog.html?category=suits" class="cat-card-interactive">
-            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600&auto=format&fit=crop" alt="Ø§Ù„Ø¨Ø¯Ù„Ø§Øª Ø§Ù„Ø±Ø³Ù…ÙŠØ©">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600&auto=format&fit=crop" alt="Suits">
             <div class="cat-card-content">
-              <h3>Ø§Ù„Ø¨Ø¯Ù„Ø§Øª Ø§Ù„Ø±Ø³Ù…ÙŠØ© ÙˆØ§Ù„ØªÙˆÙƒØ³ÙŠØ¯Ùˆ</h3>
-              <span>ØªØµÙØ­ Ø§Ù„Ù‚Ø³Ù… â†</span>
+              <h3 data-i18n="categories.suits">البدلات الرسمية والتوكسيدو</h3>
+              <span data-i18n="categories.browse">تصفح القسم ←</span>
             </div>
           </a>
         </div>
@@ -882,15 +356,15 @@ h1, h2, h3, h4, .font-serif {
     <!-- Featured Products Grid -->
     <section id="featured-section" style="padding: var(--space-3xl) 0; background: var(--color-muted);">
       <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--space-2xl);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--space-2xl); flex-wrap:wrap; gap:16px;">
           <div>
-            <span class="badge badge-gold" style="margin-bottom: var(--space-xs);">Ø§Ù„Ù…Ø®ØªØ§Ø±Ø§Øª Ø§Ù„Ø£ÙŠÙ‚ÙˆÙ†ÙŠØ©</span>
-            <h2 style="font-size: 2.4rem;">Ø±ÙˆØ§Ø¦Ø¹ Ø¯Ø§Ø± AURA</h2>
+            <span class="badge badge-gold" style="margin-bottom: var(--space-xs);" data-i18n="featured.badge">المختارات الأيقونية</span>
+            <h2 style="font-size: 2.4rem;" data-i18n="featured.title">روائع دار AURA</h2>
           </div>
-          <a href="catalog.html" class="btn btn-outline" style="border-radius: var(--radius-full);">Ø´Ø§Ù‡Ø¯ ÙƒÙ„ Ø§Ù„Ù…Ù†ØªØ¬Ø§Øª (8) â†</a>
+          <a href="catalog.html" class="btn btn-outline" style="border-radius: var(--radius-full);" data-i18n="featured.viewAll">شاهد كل المنتجات (8) ←</a>
         </div>
 
-        <div class="product-cards-grid" id="featured-products-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg);">
+        <div class="product-cards-grid" id="featured-products-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--space-lg);">
           <!-- Rendered via JS -->
         </div>
       </div>
@@ -902,23 +376,21 @@ h1, h2, h3, h4, .font-serif {
   <aside class="cart-drawer" id="cart-drawer">
     <div class="cart-drawer-header">
       <div style="display: flex; align-items: center; gap: var(--space-sm);">
-        <h3 style="font-size: 1.25rem;">Ø­Ù‚ÙŠØ¨Ø© Ø§Ù„Ù…Ø´ØªØ±ÙŠØ§Øª</h3>
+        <h3 style="font-size: 1.25rem;" data-i18n="cart.title">حقيبة المشتريات</h3>
         <span class="badge badge-gold cart-count">0</span>
       </div>
-      <button class="btn-icon" id="close-cart-btn" style="border:none;">âœ•</button>
+      <button class="btn-icon" id="close-cart-btn" style="border:none;">✕</button>
     </div>
 
-    <div class="cart-items-list" id="cart-items-list">
-      <!-- Items dynamically populated -->
-    </div>
+    <div class="cart-items-list" id="cart-items-list"></div>
 
     <div class="cart-drawer-footer">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md);">
-        <span style="color: var(--color-muted-foreground); font-weight: 600;">Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹ Ø§Ù„ÙØ±Ø¹ÙŠ:</span>
-        <span id="cart-total-price" style="font-size: 1.3rem; font-weight: 800; font-family: var(--font-mono); color: var(--color-foreground);">0 Ø¯Ø¬</span>
+        <span style="color: var(--color-muted-foreground); font-weight: 600;" data-i18n="cart.subtotal">المجموع الفرعي:</span>
+        <span id="cart-total-price" style="font-size: 1.3rem; font-weight: 800; font-family: var(--font-mono); color: var(--color-foreground);">0 DZD</span>
       </div>
-      <a href="checkout.html" class="btn btn-primary" style="width: 100%; border-radius: var(--radius-md);">
-        Ù…ØªØ§Ø¨Ø¹Ø© Ø¥ØªÙ…Ø§Ù… Ø§Ù„Ø·Ù„Ø¨ (Checkout)
+      <a href="checkout.html" class="btn btn-primary" style="width: 100%; border-radius: var(--radius-md);" data-i18n="cart.checkoutBtn">
+        متابعة إتمام الطلب (Checkout)
       </a>
     </div>
   </aside>
@@ -929,529 +401,98 @@ h1, h2, h3, h4, .font-serif {
       <div class="footer-grid">
         <div class="footer-col">
           <img src="./assets/icons/logo-light.svg" alt="AURA" style="height: 38px; margin-bottom: var(--space-md);">
-          <p style="color: #A8A29E; line-height: 1.8; font-size: 0.9rem; max-width: 320px;">
-            Ø¯Ø§Ø± Ø£Ø²ÙŠØ§Ø¡ Ø¬Ø²Ø§Ø¦Ø±ÙŠØ© Ø±Ø§Ù‚ÙŠØ© Ù…Ø³ØªÙˆØ­Ø§Ø© Ù…Ù† Ø¹Ø±Ø§Ù‚Ø© Ø§Ù„Ø­ÙŠØ§ÙƒØ© Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠØ©ØŒ ØªÙ‚Ø¯Ù… ØªØ¬Ø±Ø¨Ø© ÙØ§Ø®Ø±Ø© Ù„Ø§ Ù…Ø«ÙŠÙ„ Ù„Ù‡Ø§ ØªÙ„Ø¨ÙŠ ØªØ·Ù„Ø¹Ø§Øª Ø¹Ø´Ø§Ù‚ Ø§Ù„Ø°ÙˆÙ‚ Ø§Ù„Ø±ÙÙŠØ¹.
+          <p style="color: #A8A29E; line-height: 1.8; font-size: 0.9rem; max-width: 320px;" data-i18n="footer.desc">
+            دار أزياء جزائرية راقية مستوحاة من عراقة الحياكة العالمية، تقدم تجربة فاخرة لا مثيل لها تلبي تطلعات عشاق الذوق الرفيع.
           </p>
         </div>
 
         <div class="footer-col">
-          <h4>Ø±ÙˆØ§Ø¨Ø· Ø³Ø±ÙŠØ¹Ø©</h4>
+          <h4 data-i18n="footer.linksTitle">روابط سريعة</h4>
           <ul>
-            <li><a href="catalog.html">Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ù†ØªØ¬Ø§Øª</a></li>
-            <li><a href="catalog.html?category=coats">Ø§Ù„Ù…Ø¹Ø§Ø·Ù Ø§Ù„Ø´ØªÙˆÙŠØ©</a></li>
-            <li><a href="catalog.html?category=dresses">ÙØ³Ø§ØªÙŠÙ† Ø§Ù„Ø³Ù‡Ø±Ø©</a></li>
-            <li><a href="about.html">Ù‚ØµØ© Ø§Ù„Ø¯Ø§Ø±</a></li>
+            <li><a href="catalog.html" data-i18n="nav.catalog">جميع المنتجات</a></li>
+            <li><a href="catalog.html?category=coats" data-i18n="nav.coats">المعاطف الشتوية</a></li>
+            <li><a href="catalog.html?category=dresses" data-i18n="nav.dresses">فساتين السهرة</a></li>
+            <li><a href="about.html" data-i18n="nav.about">قصة الدار</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Ø®Ø¯Ù…Ø© Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡</h4>
+          <h4 data-i18n="footer.supportTitle">خدمة العملاء</h4>
           <ul>
-            <li><a href="checkout.html">Ù…ØªØ§Ø¨Ø¹Ø© Ø§Ù„Ø´Ø­Ù†Ø©</a></li>
-            <li><a href="#">Ø³ÙŠØ§Ø³Ø© Ø§Ù„Ø¥Ø±Ø¬Ø§Ø¹ ÙˆØ§Ù„Ø§Ø³ØªØ¨Ø¯Ø§Ù„</a></li>
-            <li><a href="#">Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…Ù‚Ø§Ø³Ø§Øª Ø§Ù„Ù…Ù„ÙƒÙŠØ©</a></li>
-            <li><a href="#">Ø§Ù„Ø£Ø³Ø¦Ù„Ø© Ø§Ù„Ø´Ø§Ø¦Ø¹Ø©</a></li>
+            <li><a href="checkout.html" data-i18n="footer.trackOrder">متابعة الشحنة</a></li>
+            <li><a href="#" data-i18n="footer.returnsPolicy">سياسة الإرجاع والاستبدال</a></li>
+            <li><a href="#" data-i18n="footer.sizeGuide">دليل المقاسات الملكية</a></li>
+            <li><a href="#" data-i18n="footer.faq">الأسئلة الشائعة</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Ø§Ù„Ù†Ø´Ø±Ø© Ø§Ù„Ø¨Ø±ÙŠØ¯ÙŠØ© VIP</h4>
-          <p style="font-size: 0.85rem; color: #A8A29E; margin-bottom: var(--space-md);">
-            Ø§Ù†Ø¶Ù… Ø¥Ù„Ù‰ Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù†Ø®Ø¨Ø© Ù„Ù„Ø­ØµÙˆÙ„ Ø¹Ù„Ù‰ Ø¯Ø¹ÙˆØ§Øª Ø­ØµØ±ÙŠØ© Ù„Ø¹Ø±ÙˆØ¶ Ø§Ù„Ø£Ø²ÙŠØ§Ø¡ ÙˆØ§Ù„Ø®ØµÙˆÙ…Ø§Øª Ø§Ù„Ø®Ø§ØµØ©.
+          <h4 data-i18n="footer.newsletterTitle">النشرة البريدية VIP</h4>
+          <p style="font-size: 0.85rem; color: #A8A29E; margin-bottom: var(--space-md);" data-i18n="footer.newsletterDesc">
+            انضم إلى قائمة النخبة للحصول على دعوات حصرية لعروض الأزياء والخصومات الخاصة.
           </p>
           <div style="display: flex; gap: var(--space-xs);">
-            <input type="email" placeholder="Ø¨Ø±ÙŠØ¯Ùƒ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ..." style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); padding: 10px 14px; border-radius: var(--radius-sm); color: #fff; flex-grow: 1;">
-            <button class="btn btn-accent" style="padding: 10px 18px; border-radius: var(--radius-sm);">Ø§Ø´ØªØ±Ø§Ùƒ</button>
+            <input type="email" placeholder="بريدك الإلكتروني..." data-i18n="footer.emailPlaceholder" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); padding: 10px 14px; border-radius: var(--radius-sm); color: #fff; flex-grow: 1;">
+            <button class="btn btn-accent" style="padding: 10px 18px; border-radius: var(--radius-sm);" data-i18n="footer.subscribe">اشتراك</button>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>Â© 2026 Ø¯Ø§Ø± AURA Ù„Ù„Ø£Ø²ÙŠØ§Ø¡ Ø§Ù„Ø±Ø§Ù‚ÙŠØ©. Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø­Ù‚ÙˆÙ‚ Ù…Ø­ÙÙˆØ¸Ø©.</p>
-        <p>Ù…ØµÙ…Ù… Ø¨Ø£Ø¹Ù„Ù‰ Ù…Ø¹Ø§ÙŠÙŠØ± Ø§Ù„Ù€ Luxury UI/UX</p>
+        <p data-i18n="footer.copyright">© 2026 دار AURA للأزياء الراقية. جميع الحقوق محفوظة.</p>
+        <p data-i18n="footer.badge">مصمم بأعلى معايير الـ Luxury UI/UX</p>
       </div>
     </div>
   </footer>
 
+  <script src="./js/i18n.js"></script>
+  <script src="./js/store.js"></script>
   <script>
-window.AURA_EMBEDDED_PRODUCTS = [
-  {
-    "id": "prod-1",
-    "nameAr": "Ù…Ø¹Ø·Ù ØµÙˆÙ ÙƒØ´Ù…ÙŠØ± Ø¥ÙŠØ·Ø§Ù„ÙŠ Ø¨Ø§Ù„Ù„ÙˆÙ† Ø§Ù„Ø±Ù…Ù„ÙŠ",
-    "nameFr": "Manteau Cachemire Beige Royal",
-    "category": "coats",
-    "categoryAr": "Ù…Ø¹Ø§Ø·Ù ÙØ§Ø®Ø±Ø©",
-    "gender": "women",
-    "price": 48500,
-    "oldPrice": 56000,
-    "rating": 4.9,
-    "reviewsCount": 42,
-    "badge": "Ø¬Ø¯ÙŠØ¯",
-    "isFeatured": true,
-    "image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop"
-    ],
-    "description": "Ù…Ø¹Ø·Ù Ù…ØµÙ†ÙˆØ¹ ÙŠØ¯ÙˆÙŠØ§Ù‹ Ù…Ù† Ø£ÙØ®Ø± Ø£Ù„ÙŠØ§Ù Ø§Ù„ÙƒØ´Ù…ÙŠØ± Ø§Ù„Ø¥ÙŠØ·Ø§Ù„ÙŠØ© Ø¨Ù†Ø³Ø¨Ø© 100%. ØªØµÙ…ÙŠÙ… ÙƒÙ„Ø§Ø³ÙŠÙƒÙŠ Ø§Ù†Ø³ÙŠØ§Ø¨ÙŠ Ø¨Ø£Ø²Ø±Ø§Ø± Ù‚Ø±Ù†ÙŠØ© Ø·Ø¨ÙŠØ¹ÙŠØ© ÙˆØ¨Ø·Ø§Ù†Ø© Ù…Ù† Ø§Ù„Ø­Ø±ÙŠØ± Ø§Ù„Ø®Ø§Ù„ØµØŒ Ù…Ø«Ø§Ù„ÙŠ Ù„Ù„Ø¥Ø·Ù„Ø§Ù„Ø§Øª Ø§Ù„Ø´ØªÙˆÙŠØ© Ø§Ù„ÙØ®Ù…Ø©.",
-    "sizes": ["S", "M", "L", "XL"],
-    "colors": [
-      { "name": "Ø¨ÙŠØ¬ Ø±Ù…Ù„ÙŠ", "hex": "#D8C7B0" },
-      { "name": "Ø£Ø³ÙˆØ¯ ÙØ­Ù…ÙŠ", "hex": "#1C1917" }
-    ],
-    "inStock": true
-  },
-  {
-    "id": "prod-2",
-    "nameAr": "ÙØ³ØªØ§Ù† Ø³Ù‡Ø±Ø© Ù…Ù† Ø§Ù„Ø­Ø±ÙŠØ± Ø§Ù„Ø¥Ù…Ø¨Ø±Ø§Ø·ÙˆØ±ÙŠ Ø§Ù„Ø²Ù…Ø±Ø¯ÙŠ",
-    "nameFr": "Robe de SoirÃ©e Soie Ã‰meraude",
-    "category": "dresses",
-    "categoryAr": "ÙØ³Ø§ØªÙŠÙ† Ø³Ù‡Ø±Ø©",
-    "gender": "women",
-    "price": 52000,
-    "oldPrice": null,
-    "rating": 5.0,
-    "reviewsCount": 28,
-    "badge": "Ø§Ù„Ø£ÙƒØ«Ø± Ø·Ù„Ø¨Ø§Ù‹",
-    "isFeatured": true,
-    "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop"
-    ],
-    "description": "ÙØ³ØªØ§Ù† Ø³Ù‡Ø±Ø© Ø±Ø§Ù‚Ù Ø¨Ù‚ØµÙ‘Ø© Ù…ÙŠØ±Ù…ÙŠØ¯ Ù…ØªØ¯Ø±Ø¬Ø©ØŒ Ù…Ù†Ø³ÙˆØ¬ Ù…Ù† Ø§Ù„Ø­Ø±ÙŠØ± Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠ Ø§Ù„Ù†Ù‚ÙŠ Ø°Ùˆ Ø¨Ø±ÙŠÙ‚ Ø£Ø®Ø¶Ø± Ø²Ù…Ø±Ø¯ÙŠ Ø³Ø§Ø­Ø±. ØµÙÙ…Ù… Ù„ÙŠÙ…Ù†Ø­Ùƒ Ù‡ÙŠØ¨Ø© ÙˆØ£Ù†Ø§Ù‚Ø© Ø®Ø§Ù„Ø¯Ø© ÙÙŠ Ø£Ø±Ù‚Ù‰ Ø§Ù„Ø­ÙÙ„Ø§Øª ÙˆØ§Ù„Ù…Ù†Ø§Ø³Ø¨Ø§Øª.",
-    "sizes": ["XS", "S", "M", "L"],
-    "colors": [
-      { "name": "Ø²Ù…Ø±Ø¯ÙŠ Ù…Ù„ÙƒÙŠ", "hex": "#0D4D3D" },
-      { "name": "Ø¹Ù†Ø§Ø¨ÙŠ Ø¯Ø§ÙƒÙ†", "hex": "#581825" }
-    ],
-    "inStock": true
-  },
-  {
-    "id": "prod-3",
-    "nameAr": "Ø¨Ø¯Ù„Ø© ØªÙˆÙƒØ³ÙŠØ¯Ùˆ Ø±Ø³Ù…ÙŠØ© Ù…Ù† Ø§Ù„ØµÙˆÙ Ø§Ù„Ø®Ø§Ù„Øµ",
-    "nameFr": "Costume Smoking Laine Fine",
-    "category": "suits",
-    "categoryAr": "Ø¨Ø¯Ù„Ø§Øª Ø±Ø³Ù…ÙŠØ©",
-    "gender": "men",
-    "price": 64000,
-    "oldPrice": 72000,
-    "rating": 4.8,
-    "reviewsCount": 35,
-    "badge": "Ø­ØµØ±ÙŠØ©",
-    "isFeatured": true,
-    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&auto=format&fit=crop"
-    ],
-    "description": "Ø·Ù‚Ù… Ø¨Ø¯Ù„Ø© Ø±Ø³Ù…ÙŠØ© Ù…ØµÙ…Ù…Ø© Ø¨Ù†Ù…Ø· Ø§Ù„Ø®ÙŠØ§Ø·Ø© Ø§Ù„Ø¥Ù†Ø¬Ù„ÙŠØ²ÙŠØ© Ø§Ù„ÙØ§Ø®Ø±Ø© (Super 140s Wool). ÙŠØ§Ù‚Ø© Ø´Ø§Ù„ Ø³Ø§ØªØ§Ù†ÙŠØ© ØªØ¶ÙÙŠ Ù„Ù…Ø³Ø© Ø£Ø±Ø³ØªÙ‚Ø±Ø§Ø·ÙŠØ© Ù…ØªÙƒØ§Ù…Ù„Ø© Ù„Ø±Ø¬Ø§Ù„ Ø§Ù„Ø£Ø¹Ù…Ø§Ù„ ÙˆØ§Ù„Ù…Ù†Ø§Ø³Ø¨Ø§Øª Ø§Ù„Ø±Ø³Ù…ÙŠØ© Ø§Ù„ÙƒØ¨Ø±Ù‰.",
-    "sizes": ["48", "50", "52", "54"],
-    "colors": [
-      { "name": "Ø£Ø³ÙˆØ¯ Ù†Ø§ÙŠØª", "hex": "#0A0A0A" },
-      { "name": "Ø£Ø²Ø±Ù‚ Ù…Ù†ØªØµÙ Ø§Ù„Ù„ÙŠÙ„", "hex": "#131C2E" }
-    ],
-    "inStock": true
-  },
-  {
-    "id": "prod-4",
-    "nameAr": "Ø­Ù‚ÙŠØ¨Ø© ÙŠØ¯ Ù…ÙˆÙ†ÙˆØºØ±Ø§Ù… Ù…Ù† Ø¬Ù„Ø¯ Ø§Ù„Ø¹Ø¬Ù„ Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠ",
-    "nameFr": "Sac en Cuir Iconique AURA",
-    "category": "accessories",
-    "categoryAr": "Ø­Ù‚Ø§Ø¦Ø¨ ÙˆØ¥ÙƒØ³Ø³ÙˆØ§Ø±Ø§Øª",
-    "gender": "unisex",
-    "price": 31500,
-    "oldPrice": null,
-    "rating": 4.9,
-    "reviewsCount": 19,
-    "badge": "Ø¥ØµØ¯Ø§Ø± Ù…Ø­Ø¯ÙˆØ¯",
-    "isFeatured": true,
-    "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop"
-    ],
-    "description": "Ø­Ù‚ÙŠØ¨Ø© ÙƒØªÙ Ù…ØµÙ†Ù‘Ø¹Ø© ÙŠØ¯ÙˆÙŠØ§Ù‹ Ø¨Ø¬Ù„ÙˆØ¯ Ø¥ÙŠØ·Ø§Ù„ÙŠØ© Ù…Ø¯Ø¨ÙˆØºØ© Ø¹Ø¶ÙˆÙŠØ§Ù‹ØŒ Ù…Ø²Ø¯Ø§Ù†Ø© Ø¨Ù…Ø´Ø¨Ùƒ Ø§Ù„Ù‚ÙÙ„ Ø§Ù„Ø°Ù‡Ø¨ÙŠ Ø§Ù„Ø£ÙŠÙ‚ÙˆÙ†ÙŠ Ø§Ù„Ø®Ø§Øµ Ø¨Ø¯Ø§Ø± AURA.",
-    "sizes": ["Standard"],
-    "colors": [
-      { "name": "Ù‡Ø§ÙØ§Ù† ØªÙˆØ¨Ø§ÙƒÙˆ", "hex": "#7A4A28" },
-      { "name": "Ø£Ø³ÙˆØ¯ Ù…Ø°Ù‡Ø¨", "hex": "#1A1A1A" }
-    ],
-    "inStock": true
-  },
-  {
-    "id": "prod-5",
-    "nameAr": "Ù‚Ù…ÙŠØµ ÙƒØªØ§Ù† ÙØ±Ù†Ø³ÙŠ Ø¨Ø£Ø²Ø±Ø§Ø± Ù„Ø¤Ù„Ø¤ÙŠØ©",
-    "nameFr": "Chemise Lin FranÃ§ais Pure",
-    "category": "shirts",
-    "categoryAr": "Ù‚Ù…ØµØ§Ù† ÙØ§Ø®Ø±Ø©",
-    "gender": "men",
-    "price": 19800,
-    "oldPrice": 23000,
-    "rating": 4.7,
-    "reviewsCount": 51,
-    "badge": null,
-    "isFeatured": false,
-    "image": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop"
-    ],
-    "description": "Ù‚Ù…ÙŠØµ ØµÙŠÙÙŠ Ù…Ù† Ø®ÙŠÙˆØ· Ø§Ù„ÙƒØªØ§Ù† Ø§Ù„Ù†ÙˆØ±Ù…Ø§Ù†Ø¯ÙŠ Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠØŒ Ø®ÙÙŠÙ Ø§Ù„ÙˆØ²Ù† ÙˆÙŠÙˆÙØ± ØªÙ†ÙØ³Ø§Ù‹ ÙØ§Ø¦Ù‚Ø§Ù‹ Ù…Ø¹ Ù…Ù„Ù…Ø³ ÙØ®Ù… ÙˆÙ…ØªØ§Ù†Ø© Ø¹Ø§Ù„ÙŠØ©.",
-    "sizes": ["M", "L", "XL", "XXL"],
-    "colors": [
-      { "name": "Ø£Ø¨ÙŠØ¶ Ù†Ø§ØµØ¹", "hex": "#FFFFFF" },
-      { "name": "Ø£Ø²Ø±Ù‚ Ø³Ù…Ø§ÙˆÙŠ", "hex": "#BFD7ED" }
-    ],
-    "inStock": true
-  },
-  {
-    "id": "prod-6",
-    "nameAr": "ÙØ³ØªØ§Ù† Ø¨Ù„ÙŠØ²Ø± Ø¹ØµØ±ÙŠ Ø¨ØªÙØ§ØµÙŠÙ„ Ø°Ù‡Ø¨ÙŠØ©",
-    "nameFr": "Robe Blazer Minimaliste",
-    "category": "dresses",
-    "categoryAr": "ÙØ³Ø§ØªÙŠÙ† Ø³Ù‡Ø±Ø©",
-    "gender": "women",
-    "price": 36000,
-    "oldPrice": null,
-    "rating": 4.9,
-    "reviewsCount": 16,
-    "badge": "ØªØ±ÙŠÙ†Ø¯",
-    "isFeatured": false,
-    "image": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=800&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=800&auto=format&fit=crop"
-    ],
-    "description": "ØªØµÙ…ÙŠÙ… Ø¬Ø±ÙŠØ¡ ÙŠØ¬Ù…Ø¹ Ø¨ÙŠÙ† Ù‡ÙŠØ¨Ø© Ø§Ù„Ø¨Ø¯Ù„Ø© Ø§Ù„Ø±Ø¬Ø§Ù„ÙŠØ© ÙˆÙ†Ø¹ÙˆÙ…Ø© Ø§Ù„ÙØ³ØªØ§Ù† Ø§Ù„Ù†Ø³Ø§Ø¦ÙŠØŒ Ù…Ø²ÙˆØ¯ Ø¨Ø­Ø²Ø§Ù… Ù‚Ù…Ø§Ø´ÙŠ ÙˆØ£Ø²Ø±Ø§Ø± Ù…Ø²Ø¯ÙˆØ¬Ø© Ù…Ø·Ø¹Ù…Ø© Ø¨Ø§Ù„Ø°Ù‡Ø¨.",
-    "sizes": ["S", "M", "L"],
-    "colors": [
-      { "name": "Ø£Ø¨ÙŠØ¶ Ø¹Ø§Ø¬ÙŠ", "hex": "#F4F0EA" },
-      { "name": "ÙƒØ­Ù„ÙŠ ÙƒÙ„Ø§Ø³ÙŠÙƒ", "hex": "#1B2232" }
-    ],
-    "inStock": true
-  },
-  {
-    "id": "prod-7",
-    "nameAr": "Ø­Ø°Ø§Ø¡ Ø£ÙˆÙƒØ³ÙÙˆØ±Ø¯ Ø¬Ù„Ø¯ÙŠ Ù…ØµÙ†ÙˆØ¹ ÙŠØ¯ÙˆÙŠØ§Ù‹",
-    "nameFr": "Chaussures Richelieu Cuir Artisanal",
-    "category": "shoes",
-    "categoryAr": "Ø£Ø­Ø°ÙŠØ© ÙˆØ¥ÙƒØ³Ø³ÙˆØ§Ø±Ø§Øª",
-    "gender": "men",
-    "price": 42000,
-    "oldPrice": 49000,
-    "rating": 4.9,
-    "reviewsCount": 38,
-    "badge": "ØµÙ†Ø§Ø¹Ø© ÙŠØ¯ÙˆÙŠØ©",
-    "isFeatured": false,
-    "image": "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=800&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=800&auto=format&fit=crop"
-    ],
-    "description": "Ø­Ø°Ø§Ø¡ ÙƒÙ„Ø§Ø³ÙŠÙƒÙŠ Ø¨Ù†Ø¸Ø§Ù… Ø®ÙŠØ§Ø·Ø© ØºÙˆØ¯ÙŠØ± (Goodyear Welted) Ù„Ø¶Ù…Ø§Ù† Ø£Ù‚ØµÙ‰ Ø¯Ø±Ø¬Ø§Øª Ø§Ù„Ø±Ø§Ø­Ø© ÙˆØ§Ù„Ø¹Ù…Ø± Ø§Ù„Ù…Ø¯ÙŠØ¯ØŒ Ù…Ù„Ù…Ø¹ Ø¨Ø²ÙŠÙˆØª Ù†Ø¨Ø§ØªÙŠØ© Ø·Ø¨ÙŠØ¹ÙŠØ©.",
-    "sizes": ["40", "41", "42", "43", "44"],
-    "colors": [
-      { "name": "Ø¨Ù†ÙŠ Ù…Ø­Ø±ÙˆÙ‚", "hex": "#3E2723" },
-      { "name": "Ø£Ø³ÙˆØ¯ Ù„Ø§Ù…Ø¹", "hex": "#111111" }
-    ],
-    "inStock": true
-  },
-  {
-    "id": "prod-8",
-    "nameAr": "ÙˆØ´Ø§Ø­ ÙƒØ´Ù…ÙŠØ± Ù…Ø·Ø±Ø² Ø¨Ø®ÙŠÙˆØ· Ø§Ù„Ø­Ø±ÙŠØ±",
-    "nameFr": "Ã‰charpe Cachemire Broderie Or",
-    "category": "accessories",
-    "categoryAr": "Ø­Ù‚Ø§Ø¦Ø¨ ÙˆØ¥ÙƒØ³Ø³ÙˆØ§Ø±Ø§Øª",
-    "gender": "unisex",
-    "price": 16500,
-    "oldPrice": null,
-    "rating": 4.8,
-    "reviewsCount": 22,
-    "badge": null,
-    "isFeatured": false,
-    "image": "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=800&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=800&auto=format&fit=crop"
-    ],
-    "description": "ÙˆØ´Ø§Ø­ Ø¯Ø§ÙØ¦ Ø¨Ù…Ù„Ù…Ø³ Ø­Ø±ÙŠØ±ÙŠ Ù†Ø§Ø¹Ù… Ù„Ø§ ÙŠØ¶Ø§Ù‡Ù‰ØŒ ØªØªØ®Ù„Ù„Ù‡ Ù†Ù‚ÙˆØ´ Ø¯Ù‚ÙŠÙ‚Ø© Ù…Ø­Ø§ÙƒØ© ÙŠØ¯ÙˆÙŠÙ‹Ø§ ØªØ¹ÙƒØ³ Ø£ØµØ§Ù„Ø© ÙˆØªØ§Ø±ÙŠØ® Ø§Ù„Ø¯Ø§Ø± Ø§Ù„Ø¹Ø±ÙŠÙ‚Ø©.",
-    "sizes": ["One Size"],
-    "colors": [
-      { "name": "Ø±Ù…Ø§Ø¯ÙŠ Ù†Ø§Ø¹Ù…", "hex": "#9E9E9E" },
-      { "name": "Ø¨ÙŠØ¬ Ø¹Ø³Ù„ÙŠ", "hex": "#CBB89D" }
-    ],
-    "inStock": true
-  }
-]
-;
-// AURA Haute Couture - Main Store Controller
+    function renderFeatured() {
+      const container = document.getElementById('featured-products-container');
+      if (!container || !window.auraStore) return;
 
-class AuraStore {
-  constructor() {
-    this.products = [];
-    this.cart = JSON.parse(localStorage.getItem('aura_cart') || '[]');
-    this.theme = localStorage.getItem('aura_theme') || 'light';
-    this.currency = 'Ø¯Ø¬';
-    this.init();
-  }
+      const featured = window.auraStore.products.slice(0, 4);
+      const t = window.auraStore.t.featured || {};
 
-  async init() {
-    this.applyTheme(this.theme);
-    await this.loadProducts();
-    this.updateCartBadge();
-    this.renderCartDrawer();
-    this.bindEvents();
-  }
+      container.innerHTML = featured.map(p => {
+        const badge = window.auraStore.getLocalized(p.badge);
+        const name = window.auraStore.getLocalized(p.name);
+        const cat = window.auraStore.getLocalized(p.categoryLabel);
 
-  async loadProducts() {
-    try {
-      this.products = window.AURA_EMBEDDED_PRODUCTS || [];
-    } catch (e) {
-      console.error('Failed to load products:', e);
-    }
-  }
-
-  applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('aura_theme', theme);
-    this.theme = theme;
-    
-    // Update logo color if needed
-    const logoImg = document.querySelector('.site-logo img');
-    if (logoImg) {
-      logoImg.src = theme === 'dark' ? './assets/icons/logo-light.svg' : './assets/icons/logo.svg';
-    }
-  }
-
-  toggleTheme() {
-    const nextTheme = this.theme === 'light' ? 'dark' : 'light';
-    this.applyTheme(nextTheme);
-  }
-
-  formatPrice(num) {
-    return num.toLocaleString('fr-DZ') + ' ' + this.currency;
-  }
-
-  addToCart(productId, size = 'M', color = null) {
-    const product = this.products.find(p => p.id === productId);
-    if (!product) return;
-
-    const existing = this.cart.find(item => item.id === productId && item.size === size);
-    if (existing) {
-      existing.quantity += 1;
-    } else {
-      this.cart.push({
-        id: product.id,
-        nameAr: product.nameAr,
-        price: product.price,
-        image: product.image,
-        size: size,
-        color: color || (product.colors && product.colors[0]?.name) || 'Ø§ÙØªØ±Ø§Ø¶ÙŠ',
-        quantity: 1
-      });
-    }
-
-    this.saveCart();
-    this.showToast(`ØªÙ…Øª Ø¥Ø¶Ø§ÙØ© "${product.nameAr}" Ø¥Ù„Ù‰ Ø­Ù‚ÙŠØ¨Ø© Ø§Ù„ØªØ³ÙˆÙ‚`);
-    this.openCart();
-  }
-
-  removeFromCart(productId, size) {
-    this.cart = this.cart.filter(item => !(item.id === productId && item.size === size));
-    this.saveCart();
-    this.renderCartDrawer();
-  }
-
-  updateQuantity(productId, size, delta) {
-    const item = this.cart.find(i => i.id === productId && i.size === size);
-    if (!item) return;
-    item.quantity += delta;
-    if (item.quantity <= 0) {
-      this.removeFromCart(productId, size);
-    } else {
-      this.saveCart();
-      this.renderCartDrawer();
-    }
-  }
-
-  saveCart() {
-    localStorage.setItem('aura_cart', JSON.stringify(this.cart));
-    this.updateCartBadge();
-    this.renderCartDrawer();
-  }
-
-  getCartTotal() {
-    return this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  }
-
-  getCartCount() {
-    return this.cart.reduce((sum, item) => sum + item.quantity, 0);
-  }
-
-  updateCartBadge() {
-    const badges = document.querySelectorAll('.cart-count');
-    const count = this.getCartCount();
-    badges.forEach(b => {
-      b.textContent = count;
-      b.style.display = count > 0 ? 'grid' : 'none';
-    });
-  }
-
-  renderCartDrawer() {
-    const listEl = document.getElementById('cart-items-list');
-    const totalEl = document.getElementById('cart-total-price');
-    if (!listEl || !totalEl) return;
-
-    if (this.cart.length === 0) {
-      listEl.innerHTML = `
-        <div style="text-align: center; padding: 3rem 1rem; color: var(--color-muted-foreground);">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 1rem; opacity: 0.5;">
-            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
-          </svg>
-          <p style="font-size: 1rem; font-weight: 600;">Ø­Ù‚ÙŠØ¨Ø© Ø§Ù„ØªØ³ÙˆÙ‚ ÙØ§Ø±ØºØ© Ø­Ø§Ù„ÙŠØ§Ù‹</p>
-          <p style="font-size: 0.85rem; margin-top: 0.5rem;">Ø§Ø³ØªÙƒØ´Ù ØªØ´ÙƒÙŠÙ„Ø§ØªÙ†Ø§ Ø§Ù„ÙØ§Ø®Ø±Ø© ÙˆØ§Ø®ØªØ± Ù…Ø§ ÙŠÙ†Ø§Ø³Ø¨Ùƒ</p>
-        </div>
-      `;
-      totalEl.textContent = '0 ' + this.currency;
-      return;
-    }
-
-    listEl.innerHTML = this.cart.map(item => `
-      <div class="cart-item-row">
-        <img src="${item.image}" alt="${item.nameAr}" class="cart-item-img">
-        <div class="cart-item-info">
-          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">${item.nameAr}</h4>
-          <p style="font-size: 0.75rem; color: var(--color-muted-foreground); margin-bottom: 8px;">
-            Ø§Ù„Ù…Ù‚Ø§Ø³: <strong>${item.size}</strong> | Ø§Ù„Ù„ÙˆÙ†: <strong>${item.color}</strong>
-          </p>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div style="display: flex; align-items: center; gap: 8px; background: var(--color-muted); border-radius: 6px; padding: 2px 8px;">
-              <button onclick="window.auraStore.updateQuantity('${item.id}', '${item.size}', -1)" style="border:none;background:none;cursor:pointer;font-size:1.1rem;font-weight:700;">-</button>
-              <span style="font-size: 0.9rem; font-weight:700;">${item.quantity}</span>
-              <button onclick="window.auraStore.updateQuantity('${item.id}', '${item.size}', 1)" style="border:none;background:none;cursor:pointer;font-size:1.1rem;font-weight:700;">+</button>
-            </div>
-            <span style="font-weight: 800; font-family: var(--font-mono);">${this.formatPrice(item.price * item.quantity)}</span>
-          </div>
-        </div>
-        <button onclick="window.auraStore.removeFromCart('${item.id}', '${item.size}')" style="border:none;background:none;color:var(--color-destructive);cursor:pointer;padding:4px;" title="Ø­Ø°Ù">âœ•</button>
-      </div>
-    `).join('');
-
-    totalEl.textContent = this.formatPrice(this.getCartTotal());
-  }
-
-  openCart() {
-    const drawer = document.getElementById('cart-drawer');
-    const overlay = document.getElementById('cart-overlay');
-    if (drawer && overlay) {
-      drawer.classList.add('active');
-      overlay.classList.add('active');
-    }
-  }
-
-  closeCart() {
-    const drawer = document.getElementById('cart-drawer');
-    const overlay = document.getElementById('cart-overlay');
-    if (drawer && overlay) {
-      drawer.classList.remove('active');
-      overlay.classList.remove('active');
-    }
-  }
-
-  showToast(message) {
-    let toast = document.getElementById('aura-toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.id = 'aura-toast';
-      toast.style.cssText = `
-        position: fixed;
-        bottom: 24px;
-        left: 24px;
-        background: #1C1917;
-        color: #FFFFFF;
-        border: 1px solid var(--color-accent);
-        padding: 12px 24px;
-        border-radius: 12px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        z-index: 2000;
-        transform: translateY(100px);
-        opacity: 0;
-        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      `;
-      document.body.appendChild(toast);
-    }
-    toast.innerHTML = `<span>âœ¨</span> ${message}`;
-    toast.style.transform = 'translateY(0)';
-    toast.style.opacity = '1';
-
-    setTimeout(() => {
-      toast.style.transform = 'translateY(100px)';
-      toast.style.opacity = '0';
-    }, 3200);
-  }
-
-  bindEvents() {
-    // Theme toggles
-    document.querySelectorAll('.theme-toggle').forEach(btn => {
-      btn.addEventListener('click', () => this.toggleTheme());
-    });
-
-    // Cart trigger
-    document.querySelectorAll('.cart-trigger').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.openCart();
-      });
-    });
-
-    // Cart close
-    const closeBtn = document.getElementById('close-cart-btn');
-    const overlay = document.getElementById('cart-overlay');
-    if (closeBtn) closeBtn.addEventListener('click', () => this.closeCart());
-    if (overlay) overlay.addEventListener('click', () => this.closeCart());
-  }
-}
-
-// Global instance
-window.auraStore = new AuraStore();
-
-</script>
-  <script>
-    // Initial Render of Featured Products
-    document.addEventListener('DOMContentLoaded', async () => {
-      // Wait for store to load
-      setTimeout(() => {
-        const container = document.getElementById('featured-products-container');
-        if (!container || !window.auraStore) return;
-
-        const featured = window.auraStore.products.slice(0, 4);
-        container.innerHTML = featured.map(p => `
+        return `
           <div class="product-card">
             <div class="product-thumb">
-              ${p.badge ? `<span class="badge badge-gold" style="position: absolute; top: 12px; right: 12px; z-index: 5;">${p.badge}</span>` : ''}
+              ${badge ? `<span class="badge badge-gold" style="position: absolute; top: 12px; inset-inline-end: 12px; z-index: 5;">${badge}</span>` : ''}
               <a href="product.html?id=${p.id}">
-                <img src="${p.image}" alt="${p.nameAr}">
+                <img src="${p.image}" alt="${name}">
               </a>
             </div>
             <div class="product-body">
-              <span class="product-cat">${p.categoryAr}</span>
+              <span class="product-cat">${cat}</span>
               <a href="product.html?id=${p.id}" style="text-decoration:none;">
-                <h3 class="product-title">${p.nameAr}</h3>
+                <h3 class="product-title">${name}</h3>
               </a>
               <div class="product-price">
                 <span>${window.auraStore.formatPrice(p.price)}</span>
                 ${p.oldPrice ? `<span class="product-old-price">${window.auraStore.formatPrice(p.oldPrice)}</span>` : ''}
               </div>
               <button onclick="window.auraStore.addToCart('${p.id}')" class="btn btn-primary" style="margin-top: var(--space-md); width: 100%; padding: 10px;">
-                Ø¥Ø¶Ø§ÙØ© Ø¥Ù„Ù‰ Ø§Ù„Ø­Ù‚ÙŠØ¨Ø©
+                ${t.addToCart || 'Add to Bag'}
               </button>
             </div>
           </div>
-        `).join('');
-      }, 250);
+        `;
+      }).join('');
+    }
+
+    window.onAuraLanguageChanged = () => {
+      renderFeatured();
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(renderFeatured, 200);
     });
   </script>
 </body>
 </html>
-

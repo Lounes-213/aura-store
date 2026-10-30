@@ -1,78 +1,149 @@
-// AURA Haute Couture - Main Store Controller
+// AURA Haute Couture - Master Multilingual & Multi-theme Store Controller
 
 class AuraStore {
   constructor() {
-    this.products = [];
-    this.cart = JSON.parse(localStorage.getItem('aura_cart') || '[]');
+    this.lang = localStorage.getItem('aura_lang') || 'ar';
     this.theme = localStorage.getItem('aura_theme') || 'light';
-    this.currency = 'دج';
+    this.cart = JSON.parse(localStorage.getItem('aura_cart') || '[]');
+    this.products = [];
     this.init();
   }
 
   async init() {
     this.applyTheme(this.theme);
+    this.applyLanguage(this.lang, false);
     await this.loadProducts();
     this.updateCartBadge();
     this.renderCartDrawer();
     this.bindEvents();
+    this.refreshPageTexts();
   }
 
   async loadProducts() {
-    try {
-      const res = await fetch('./data/products.json');
-      this.products = await res.json();
-    } catch (e) {
-      console.error('Failed to load products:', e);
+    if (window.AURA_EMBEDDED_PRODUCTS && window.AURA_EMBEDDED_PRODUCTS.length) {
+      this.products = window.AURA_EMBEDDED_PRODUCTS;
+    } else {
+      try {
+        const res = await fetch('./data/products.json');
+        this.products = await res.json();
+      } catch (e) {
+        console.error('Products load fallback error:', e);
+      }
     }
+  }
+
+  get t() {
+    const dict = window.AURA_TRANSLATIONS || {};
+    return dict[this.lang] || dict['ar'] || {};
   }
 
   applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('aura_theme', theme);
     this.theme = theme;
-    
-    // Update logo color if needed
+
     const logoImg = document.querySelector('.site-logo img');
     if (logoImg) {
       logoImg.src = theme === 'dark' ? './assets/icons/logo-light.svg' : './assets/icons/logo.svg';
     }
+
+    const themeIcon = document.querySelector('.theme-toggle svg');
+    if (themeIcon) {
+      themeIcon.innerHTML = theme === 'dark' 
+        ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>' 
+        : '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+    }
   }
 
   toggleTheme() {
-    const nextTheme = this.theme === 'light' ? 'dark' : 'light';
-    this.applyTheme(nextTheme);
+    this.applyTheme(this.theme === 'light' ? 'dark' : 'light');
+  }
+
+  applyLanguage(lang, reRender = true) {
+    if (!['ar', 'en', 'fr'].includes(lang)) lang = 'ar';
+    this.lang = lang;
+    localStorage.setItem('aura_lang', lang);
+
+    const dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', dir);
+
+    // Update active lang button UI
+    document.querySelectorAll('.lang-select-btn span.current-lang').forEach(el => {
+      el.textContent = lang.toUpperCase();
+    });
+
+    if (reRender) {
+      this.refreshPageTexts();
+      this.renderCartDrawer();
+      if (typeof window.onAuraLanguageChanged === 'function') {
+        window.onAuraLanguageChanged(lang);
+      }
+    }
+  }
+
+  cycleLanguage() {
+    const sequence = ['ar', 'en', 'fr'];
+    const nextIdx = (sequence.indexOf(this.lang) + 1) % sequence.length;
+    this.applyLanguage(sequence[nextIdx], true);
   }
 
   formatPrice(num) {
-    return num.toLocaleString('fr-DZ') + ' ' + this.currency;
+    const cur = this.t.currency || 'DZD';
+    return num.toLocaleString('fr-DZ') + ' ' + cur;
+  }
+
+  getLocalized(obj) {
+    if (!obj) return '';
+    if (typeof obj === 'string') return obj;
+    return obj[this.lang] || obj['ar'] || obj['en'] || '';
+  }
+
+  refreshPageTexts() {
+    const t = this.t;
+    // Walk over all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const path = el.getAttribute('data-i18n').split('.');
+      let val = t;
+      for (const k of path) {
+        val = val ? val[k] : null;
+      }
+      if (val) {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = val;
+        } else {
+          el.innerHTML = val;
+        }
+      }
+    });
   }
 
   addToCart(productId, size = 'M', color = null) {
-    const product = this.products.find(p => p.id === productId);
-    if (!product) return;
+    const p = this.products.find(x => x.id === productId);
+    if (!p) return;
 
-    const existing = this.cart.find(item => item.id === productId && item.size === size);
+    const existing = this.cart.find(i => i.id === productId && i.size === size);
     if (existing) {
       existing.quantity += 1;
     } else {
       this.cart.push({
-        id: product.id,
-        nameAr: product.nameAr,
-        price: product.price,
-        image: product.image,
+        id: p.id,
+        name: p.name,
+        price: p.price,
+        image: p.image,
         size: size,
-        color: color || (product.colors && product.colors[0]?.name) || 'افتراضي',
+        color: color || this.getLocalized(p.colors?.[0]?.name) || 'Classic',
         quantity: 1
       });
     }
 
     this.saveCart();
-    this.showToast(`تمت إضافة "${product.nameAr}" إلى حقيبة التسوق`);
+    this.showToast(this.t.cart?.addedToast || 'Added to bag!');
     this.openCart();
   }
 
   removeFromCart(productId, size) {
-    this.cart = this.cart.filter(item => !(item.id === productId && item.size === size));
+    this.cart = this.cart.filter(i => !(i.id === productId && i.size === size));
     this.saveCart();
     this.renderCartDrawer();
   }
@@ -104,9 +175,8 @@ class AuraStore {
   }
 
   updateCartBadge() {
-    const badges = document.querySelectorAll('.cart-count');
     const count = this.getCartCount();
-    badges.forEach(b => {
+    document.querySelectorAll('.cart-count').forEach(b => {
       b.textContent = count;
       b.style.display = count > 0 ? 'grid' : 'none';
     });
@@ -117,27 +187,29 @@ class AuraStore {
     const totalEl = document.getElementById('cart-total-price');
     if (!listEl || !totalEl) return;
 
+    const t = this.t.cart || {};
+
     if (this.cart.length === 0) {
       listEl.innerHTML = `
         <div style="text-align: center; padding: 3rem 1rem; color: var(--color-muted-foreground);">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 1rem; opacity: 0.5;">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
           </svg>
-          <p style="font-size: 1rem; font-weight: 600;">حقيبة التسوق فارغة حالياً</p>
-          <p style="font-size: 0.85rem; margin-top: 0.5rem;">استكشف تشكيلاتنا الفاخرة واختر ما يناسبك</p>
+          <p style="font-size: 1rem; font-weight: 700;">${t.emptyTitle || 'Your Shopping Bag is Empty'}</p>
+          <p style="font-size: 0.85rem; margin-top: 0.5rem;">${t.emptySubtitle || 'Explore our creations and select items.'}</p>
         </div>
       `;
-      totalEl.textContent = '0 ' + this.currency;
+      totalEl.textContent = this.formatPrice(0);
       return;
     }
 
     listEl.innerHTML = this.cart.map(item => `
       <div class="cart-item-row">
-        <img src="${item.image}" alt="${item.nameAr}" class="cart-item-img">
+        <img src="${item.image}" alt="Item" class="cart-item-img">
         <div class="cart-item-info">
-          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">${item.nameAr}</h4>
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">${this.getLocalized(item.name)}</h4>
           <p style="font-size: 0.75rem; color: var(--color-muted-foreground); margin-bottom: 8px;">
-            المقاس: <strong>${item.size}</strong> | اللون: <strong>${item.color}</strong>
+            ${t.size || 'Size'}: <strong>${item.size}</strong> | ${t.color || 'Color'}: <strong>${item.color}</strong>
           </p>
           <div style="display: flex; justify-content: space-between; align-items: center;">
             <div style="display: flex; align-items: center; gap: 8px; background: var(--color-muted); border-radius: 6px; padding: 2px 8px;">
@@ -148,7 +220,7 @@ class AuraStore {
             <span style="font-weight: 800; font-family: var(--font-mono);">${this.formatPrice(item.price * item.quantity)}</span>
           </div>
         </div>
-        <button onclick="window.auraStore.removeFromCart('${item.id}', '${item.size}')" style="border:none;background:none;color:var(--color-destructive);cursor:pointer;padding:4px;" title="حذف">✕</button>
+        <button onclick="window.auraStore.removeFromCart('${item.id}', '${item.size}')" style="border:none;background:none;color:var(--color-destructive);cursor:pointer;padding:4px;" title="Delete">✕</button>
       </div>
     `).join('');
 
@@ -211,12 +283,14 @@ class AuraStore {
   }
 
   bindEvents() {
-    // Theme toggles
     document.querySelectorAll('.theme-toggle').forEach(btn => {
       btn.addEventListener('click', () => this.toggleTheme());
     });
 
-    // Cart trigger
+    document.querySelectorAll('.lang-select-btn').forEach(btn => {
+      btn.addEventListener('click', () => this.cycleLanguage());
+    });
+
     document.querySelectorAll('.cart-trigger').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -224,7 +298,6 @@ class AuraStore {
       });
     });
 
-    // Cart close
     const closeBtn = document.getElementById('close-cart-btn');
     const overlay = document.getElementById('cart-overlay');
     if (closeBtn) closeBtn.addEventListener('click', () => this.closeCart());
@@ -232,5 +305,4 @@ class AuraStore {
   }
 }
 
-// Global instance
 window.auraStore = new AuraStore();
