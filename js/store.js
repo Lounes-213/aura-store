@@ -3,7 +3,7 @@
 class AuraStore {
   constructor() {
     this.lang = localStorage.getItem('aura_lang') || 'ar';
-    this.theme = localStorage.getItem('aura_theme') || 'light';
+    this.theme = localStorage.getItem('aura_theme') || 'dark';
     this.cart = JSON.parse(localStorage.getItem('aura_cart') || '[]');
     this.products = [];
     this.init();
@@ -68,9 +68,9 @@ class AuraStore {
     document.documentElement.setAttribute('lang', lang);
     document.documentElement.setAttribute('dir', dir);
 
-    // Update active lang button UI
-    document.querySelectorAll('.lang-select-btn span.current-lang').forEach(el => {
-      el.textContent = lang.toUpperCase();
+    // Sync all dropdown selects on page
+    document.querySelectorAll('.lang-select-native').forEach(el => {
+      el.value = lang;
     });
 
     if (reRender) {
@@ -82,14 +82,8 @@ class AuraStore {
     }
   }
 
-  cycleLanguage() {
-    const sequence = ['ar', 'en', 'fr'];
-    const nextIdx = (sequence.indexOf(this.lang) + 1) % sequence.length;
-    this.applyLanguage(sequence[nextIdx], true);
-  }
-
   formatPrice(num) {
-    const cur = this.t.currency || 'DZD';
+    const cur = this.t.currency || 'دج';
     return num.toLocaleString('fr-DZ') + ' ' + cur;
   }
 
@@ -101,7 +95,6 @@ class AuraStore {
 
   refreshPageTexts() {
     const t = this.t;
-    // Walk over all elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const path = el.getAttribute('data-i18n').split('.');
       let val = t;
@@ -118,7 +111,7 @@ class AuraStore {
     });
   }
 
-  addToCart(productId, size = 'M', color = null) {
+  addToCart(productId, size = '50', color = null) {
     const p = this.products.find(x => x.id === productId);
     if (!p) return;
 
@@ -132,13 +125,13 @@ class AuraStore {
         price: p.price,
         image: p.image,
         size: size,
-        color: color || this.getLocalized(p.colors?.[0]?.name) || 'Classic',
+        color: color || this.getLocalized(p.colors?.[0]?.name) || 'أسود ملكي',
         quantity: 1
       });
     }
 
     this.saveCart();
-    this.showToast(this.t.cart?.addedToast || 'Added to bag!');
+    this.showToast(this.t.cart?.addedToast || 'تمت الإضافة بنجاح!');
     this.openCart();
   }
 
@@ -209,13 +202,13 @@ class AuraStore {
         <div class="cart-item-info">
           <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">${this.getLocalized(item.name)}</h4>
           <p style="font-size: 0.75rem; color: var(--color-muted-foreground); margin-bottom: 8px;">
-            ${t.size || 'Size'}: <strong>${item.size}</strong> | ${t.color || 'Color'}: <strong>${item.color}</strong>
+            ${t.size || 'المقاس'}: <strong>${item.size}</strong> | ${t.color || 'اللون'}: <strong>${item.color}</strong>
           </p>
           <div style="display: flex; justify-content: space-between; align-items: center;">
             <div style="display: flex; align-items: center; gap: 8px; background: var(--color-muted); border-radius: 6px; padding: 2px 8px;">
-              <button onclick="window.auraStore.updateQuantity('${item.id}', '${item.size}', -1)" style="border:none;background:none;cursor:pointer;font-size:1.1rem;font-weight:700;">-</button>
+              <button onclick="window.auraStore.updateQuantity('${item.id}', '${item.size}', -1)" style="border:none;background:none;cursor:pointer;font-size:1.1rem;font-weight:700;color:var(--color-foreground);">-</button>
               <span style="font-size: 0.9rem; font-weight:700;">${item.quantity}</span>
-              <button onclick="window.auraStore.updateQuantity('${item.id}', '${item.size}', 1)" style="border:none;background:none;cursor:pointer;font-size:1.1rem;font-weight:700;">+</button>
+              <button onclick="window.auraStore.updateQuantity('${item.id}', '${item.size}', 1)" style="border:none;background:none;cursor:pointer;font-size:1.1rem;font-weight:700;color:var(--color-foreground);">+</button>
             </div>
             <span style="font-weight: 800; font-family: var(--font-mono);">${this.formatPrice(item.price * item.quantity)}</span>
           </div>
@@ -253,17 +246,17 @@ class AuraStore {
       toast.style.cssText = `
         position: fixed;
         bottom: 24px;
-        left: 24px;
-        background: #1C1917;
-        color: #FFFFFF;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: var(--color-card);
+        color: var(--color-foreground);
         border: 1px solid var(--color-accent);
         padding: 12px 24px;
-        border-radius: 12px;
+        border-radius: 999px;
         font-size: 0.9rem;
-        font-weight: 600;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        font-weight: 700;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         z-index: 2000;
-        transform: translateY(100px);
         opacity: 0;
         transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         display: flex;
@@ -272,14 +265,14 @@ class AuraStore {
       `;
       document.body.appendChild(toast);
     }
-    toast.innerHTML = `<span>✨</span> ${message}`;
-    toast.style.transform = 'translateY(0)';
+    toast.innerHTML = `<span>👑</span> ${message}`;
+    toast.style.transform = 'translateX(-50%) translateY(0)';
     toast.style.opacity = '1';
 
     setTimeout(() => {
-      toast.style.transform = 'translateY(100px)';
+      toast.style.transform = 'translateX(-50%) translateY(100px)';
       toast.style.opacity = '0';
-    }, 3200);
+    }, 2800);
   }
 
   bindEvents() {
@@ -287,8 +280,11 @@ class AuraStore {
       btn.addEventListener('click', () => this.toggleTheme());
     });
 
-    document.querySelectorAll('.lang-select-btn').forEach(btn => {
-      btn.addEventListener('click', () => this.cycleLanguage());
+    // Native clean select listener (no emoji)
+    document.querySelectorAll('.lang-select-native').forEach(select => {
+      select.addEventListener('change', (e) => {
+        this.applyLanguage(e.target.value, true);
+      });
     });
 
     document.querySelectorAll('.cart-trigger').forEach(btn => {

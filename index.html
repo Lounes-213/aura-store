@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AURA — دار البدلات الرسمية والقمصان البيضاء الفاخرة</title>
   
-  <!-- Fonts: Amiri + Cormorant Garamond + Cairo + Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -199,15 +198,11 @@
       .cat-explorer-grid { grid-template-columns: 1fr; }
       .hero-h1 { font-size: 2.6rem; }
       .floating-accent-card { inset-inline-end: 10px; bottom: 10px; }
+      .hero-main-img { height: 380px; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Top Announcement Bar -->
-  <aside style="background: var(--color-primary); color: var(--color-on-primary); padding: 9px 16px; font-size: 0.82rem; text-align: center; font-weight: 700; border-bottom: 1px solid rgba(212, 175, 55, 0.25);">
-    <span data-i18n="announcement">✨ توصيل حصري ومجاني لكافة الـ 69 ولاية للطلبات فوق 30,000 دج | الدفع عند الاستلام بعد المعاينة متوفر</span>
-  </aside>
 
   <!-- Site Header -->
   <header class="site-header">
@@ -228,18 +223,22 @@
       </nav>
 
       <div class="header-tools">
-        <!-- Language Switcher Button (AR / EN / FR) -->
-        <button class="lang-select-btn" title="تغيير اللغة / Change Language / Changer la langue">
-          🌐 <span class="current-lang">AR</span>
-        </button>
+        <!-- Clean Language Select Dropdown (No Emoji) -->
+        <div class="lang-dropdown-wrapper">
+          <select class="lang-select-native" aria-label="Language selector">
+            <option value="ar">العربية (AR)</option>
+            <option value="en">English (EN)</option>
+            <option value="fr">Français (FR)</option>
+          </select>
+        </div>
 
         <!-- Theme Toggle (Dark / Light) -->
         <button class="btn-icon theme-toggle" title="تبديل المظهر">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
 
-        <!-- Search button -->
-        <a href="catalog.html" class="btn-icon" title="بحث">
+        <!-- Search button (Hidden on mobile via CSS) -->
+        <a href="catalog.html" class="btn-icon header-search-btn" title="بحث">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </a>
 
@@ -258,7 +257,7 @@
       <div class="container hero-content-grid">
         <div>
           <div class="hero-tag">
-            <span>⚜️</span> <span data-i18n="hero.tag">تشكيلة السهرة والمناسبات الرسمية 2026</span>
+            <span data-i18n="hero.tag">تشكيلة السهرة والمناسبات الرسمية 2026</span>
           </div>
           <h1 class="hero-h1" data-i18n="hero.title">أصالة البدلة السوداء والقميص الأبيض الفاخر</h1>
           <p class="hero-desc" data-i18n="hero.desc">
@@ -275,9 +274,6 @@
         <div class="hero-showcase-box">
           <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000&auto=format&fit=crop" alt="AURA Formal Suit" class="hero-main-img">
           <div class="floating-accent-card">
-            <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-accent-soft); display: grid; place-items: center; color: var(--color-accent); font-size: 1.3rem;">
-              👑
-            </div>
             <div>
               <h4 style="font-size: 1rem; font-weight: 700;" data-i18n="hero.badgeTitle">ضمان الجودة الملكية</h4>
               <p style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="hero.badgeSubtitle">أقمشة وصوف إيطالي وإنجليزي 100%</p>
@@ -403,7 +399,7 @@
     <div class="cart-drawer-footer">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md);">
         <span style="color: var(--color-muted-foreground); font-weight: 600;" data-i18n="cart.subtotal">المجموع الفرعي:</span>
-        <span id="cart-total-price" style="font-size: 1.3rem; font-weight: 800; font-family: var(--font-mono); color: var(--color-foreground);">0 DZD</span>
+        <span id="cart-total-price" style="font-size: 1.3rem; font-weight: 800; font-family: var(--font-mono); color: var(--color-foreground);">0 دج</span>
       </div>
       <a href="checkout.html" class="btn btn-primary" style="width: 100%; border-radius: var(--radius-md);" data-i18n="cart.checkoutBtn">
         متابعة إتمام الطلب (Checkout)
@@ -481,7 +477,7 @@
             <div class="product-thumb">
               ${badge ? `<span class="badge badge-gold" style="position: absolute; top: 12px; inset-inline-end: 12px; z-index: 5;">${badge}</span>` : ''}
               <a href="product.html?id=${p.id}">
-                <img src="${p.image}" alt="${name}">
+                <img src="${p.image}" alt="${name}" loading="lazy">
               </a>
             </div>
             <div class="product-body">
@@ -491,10 +487,9 @@
               </a>
               <div class="product-price">
                 <span>${window.auraStore.formatPrice(p.price)}</span>
-                ${p.oldPrice ? `<span class="product-old-price">${window.auraStore.formatPrice(p.oldPrice)}</span>` : ''}
               </div>
               <button onclick="window.auraStore.addToCart('${p.id}')" class="btn btn-primary" style="margin-top: var(--space-md); width: 100%; padding: 10px;">
-                ${t.addToCart || 'Add to Bag'}
+                ${t.addToCart || 'إضافة إلى الحقيبة'}
               </button>
             </div>
           </div>

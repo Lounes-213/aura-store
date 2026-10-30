@@ -157,9 +157,13 @@
         🔒 نافذة الدفع الآمن والمشفر
       </span>
       <div style="display:flex; align-items:center; gap:10px;">
-        <button class="lang-select-btn" title="Language">
-          🌐 <span class="current-lang">AR</span>
-        </button>
+        <div class="lang-dropdown-wrapper">
+          <select class="lang-select-native" aria-label="Language selector">
+            <option value="ar">العربية (AR)</option>
+            <option value="en">English (EN)</option>
+            <option value="fr">Français (FR)</option>
+          </select>
+        </div>
         <a href="index.html" style="text-decoration:none; color:var(--color-foreground); font-weight:700;" data-i18n="checkout.cancel">إلغاء والعودة</a>
       </div>
     </div>

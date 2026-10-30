@@ -2,9 +2,9 @@
   {
     "id": "aura-suit-01",
     "name": {
-      "ar": "بدلة توكسيدو رسمية ملكية - صوف إنجليزي فائق النعومة",
-      "en": "Royal Bespoke Black Tuxedo - Super 150s Wool",
-      "fr": "Smoking Noir Impérial - Pure Laine Vierge Super 150s"
+      "ar": "بدلة توكسيدو رسمية سوداء - صوف ملكي فاخر",
+      "en": "Royal Bespoke Black Tuxedo - Pure Wool",
+      "fr": "Smoking Noir Impérial - Pure Laine"
     },
     "category": "suits",
     "categoryLabel": {
@@ -12,44 +12,44 @@
       "en": "Formal Suits & Tuxedos",
       "fr": "Costumes & Smokings"
     },
-    "price": 68000,
-    "oldPrice": 76000,
+    "price": 15000,
+    "oldPrice": null,
     "badge": {
       "ar": "الأكثر طلباً",
       "en": "Best Seller",
       "fr": "Coup de Cœur"
     },
-    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&auto=format&fit=crop",
     "gallery": [
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop"
     ],
     "description": {
-      "ar": "بدلة سهرة رسمية سوداء بقصّة كلاسيكية بريطانية مصممة من صوف Super 150s الفاخر. ياقة شال من حرير الساتان الإيطالي وأزرار مغلفة يدوياً لحضور مهيب في كبرى المناسبات.",
-      "en": "Timeless Savile Row silhouette crafted from pure Super 150s English wool with duchess silk-satin shawl lapels and covered buttons.",
-      "fr": "Silhouette d'inspiration Savile Row taillée dans une pure laine vierge Super 150s anglaise, col châle en satin de soie duchesse."
+      "ar": "بدلة سهرة رسمية سوداء بقصّة كلاسيكية راقية من الصوف الخالص، مع ياقة شال من الساتان الإيطالي الفاخر لحضور مهيب في كبرى المناسبات.",
+      "en": "Timeless formal black tuxedo tailored from pure fine wool with satin lapels for prominent presence.",
+      "fr": "Smoking noir classique d'exception taillé dans une pure laine avec col châle en satin."
     },
     "sizes": ["48", "50", "52", "54", "56"],
     "colors": [
-      { "name": { "ar": "أسود ملكي فاخر", "en": "Imperial Deep Black", "fr": "Noir Profond Impérial" }, "hex": "#0A0A0C" }
+      { "name": { "ar": "أسود ملكي", "en": "Imperial Black", "fr": "Noir Impérial" }, "hex": "#0A0A0C" }
     ],
     "inStock": true
   },
   {
     "id": "aura-shirt-01",
     "name": {
-      "ar": "قميص توكسيدو أبيض من قطن الجيزة المصري 100%",
-      "en": "Pleated White Giza Cotton Tuxedo Shirt",
-      "fr": "Chemise Smoking Blanche Coton Giza 100%"
+      "ar": "قميص توكسيدو أبيض ناصع من القطن الصافي 100%",
+      "en": "Classic White Formal Cotton Dress Shirt",
+      "fr": "Chemise Smoking Blanche Pur Coton 100%"
     },
     "category": "shirts",
     "categoryLabel": {
-      "ar": "قمصان رسمية بيضاء",
+      "ar": "قمصان بيضاء",
       "en": "White Formal Shirts",
-      "fr": "Chemises Blanches Formelles"
+      "fr": "Chemises Blanches"
     },
-    "price": 22500,
-    "oldPrice": 26000,
+    "price": 8000,
+    "oldPrice": null,
     "badge": {
       "ar": "جديد",
       "en": "New",
@@ -61,22 +61,22 @@
       "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop"
     ],
     "description": {
-      "ar": "قميص رسمي ناصع البياض من أنقى خيوط قطن الجيزة المصري طويل التيلة. ياقة كلاسيكية مصممة لربطة العنق أو البابيون وأزرار من عرق اللؤلؤ الطبيعي.",
-      "en": "Impeccably tailored white dress shirt crafted from pure Egyptian Giza extra-long staple cotton with mother-of-pearl buttons.",
-      "fr": "Chemise habillée blanc immaculé confectionnée en pur coton égyptien Giza à fibres extra-longues et boutons en nacre naturelle."
+      "ar": "قميص رسمي ناصع البياض من القطن الطبيعي 100%. خامة مريحة ومقاومة للتجعد مع ياقة كلاسيكية مصممة لربطات العنق والبابيون.",
+      "en": "Pristine white formal shirt crafted from 100% fine cotton, tailored for black-tie accessories.",
+      "fr": "Chemise formelle blanc immaculé confectionnée en pur coton 100%, coupe soignée infroissable."
     },
     "sizes": ["39", "40", "41", "42", "43", "44"],
     "colors": [
-      { "name": { "ar": "أبيض ناصع نقي", "en": "Pure Crisp White", "fr": "Blanc Pur Éclatant" }, "hex": "#FFFFFF" }
+      { "name": { "ar": "أبيض ناصع", "en": "Pure White", "fr": "Blanc Pur" }, "hex": "#FFFFFF" }
     ],
     "inStock": true
   },
   {
     "id": "aura-suit-02",
     "name": {
-      "ar": "بدلة عمل رسمية كلاسيكية سوداء بثلاث قطع",
-      "en": "Sartorial 3-Piece Black Wool Suit with Vest",
-      "fr": "Costume 3 Pièces Noir Classique avec Gilet"
+      "ar": "بدلة كلاسيكية سوداء 3 قطع مع صدرية (Vest)",
+      "en": "Classic 3-Piece Black Wool Suit with Waistcoat",
+      "fr": "Costume 3 Pièces Noir avec Gilet"
     },
     "category": "suits",
     "categoryLabel": {
@@ -84,78 +84,77 @@
       "en": "Formal Suits & Tuxedos",
       "fr": "Costumes & Smokings"
     },
-    "price": 74000,
-    "oldPrice": 82000,
+    "price": 15000,
+    "oldPrice": null,
     "badge": {
-      "ar": "طقم متكامل",
+      "ar": "طقم 3 قطع",
       "en": "3-Piece Set",
       "fr": "Ensemble 3 Pièces"
     },
-    "image": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop",
     "gallery": [
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop"
     ],
     "description": {
-      "ar": "طقم رجالي رسمي ثلاث قطع (سترة، صدرية، وبنطال) من صوف ميرينو الأسود الفاخر. تفصيل إيطالي نحيف يمنحك حضوراً واثقاً في الاجتماعات والمناسبات الكبرى.",
-      "en": "Mastercrafted three-piece formal suit tailored from premium Merino wool, featuring tailored jacket, waistcoat, and structured trousers.",
-      "fr": "Costume trois pièces d'exception en laine mérinos supérieure, comprenant veste cintrée, gilet boutonné et pantalon habillé."
+      "ar": "طقم رسمي كلاسيكي متكامل يشمل السترة والصدرية والبنطال بقصّة إيطالية منسقة تمنحك إطلالة مهيبة وواثقة.",
+      "en": "Distinguished three-piece black formal suit featuring jacket, vest, and tailored trousers.",
+      "fr": "Costume trois pièces noir comprenant veste cintrée, gilet boutonné et pantalon habillé."
     },
     "sizes": ["48", "50", "52", "54", "56"],
     "colors": [
-      { "name": { "ar": "أسود نفاث", "en": "Jet Black", "fr": "Noir Jais" }, "hex": "#0D0D11" }
+      { "name": { "ar": "أسود فاحم", "en": "Jet Black", "fr": "Noir Jais" }, "hex": "#0D0D11" }
     ],
     "inStock": true
   },
   {
     "id": "aura-shoes-01",
     "name": {
-      "ar": "حذاء أوكسفورد رسمي كلاسيكي من جلد العجل اللامع",
-      "en": "Patent Leather Black Oxford Cap-Toe Shoes",
+      "ar": "حذاء أوكسفورد رسمي أسود من الجلد الطبيعي المصقول",
+      "en": "Classic Black Leather Oxford Cap-Toe Shoes",
       "fr": "Souliers Richelieu Oxford Cuir Noir Glacé"
     },
     "category": "shoes",
     "categoryLabel": {
-      "ar": "أحذية رسمية كلاسيكية",
+      "ar": "أحذية رسمية",
       "en": "Classic Dress Shoes",
       "fr": "Souliers Classiques"
     },
-    "price": 44000,
-    "oldPrice": 49000,
+    "price": 8000,
+    "oldPrice": null,
     "badge": {
-      "ar": "صناعة يدوية",
-      "en": "Goodyear Welted",
-      "fr": "Cousu Main"
+      "ar": "جلد طبيعي",
+      "en": "Genuine Leather",
+      "fr": "Cuir Véritable"
     },
     "image": "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=800&auto=format&fit=crop",
     "gallery": [
       "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=800&auto=format&fit=crop"
     ],
     "description": {
-      "ar": "حذاء أوكسفورد برباط أمامي مقفل وخياطة Goodyear Welted المتينة. ملمع يدوياً بزيوت نباتية لإعطاء بريق رسمي أسود يتناغم مع البدلات الفاخرة.",
-      "en": "Hand-burnished closed-lacing Oxford shoes built on the legendary Goodyear welted sole using full-grain Italian calf leather.",
-      "fr": "Souliers Richelieu à bout droit rapporté, semelle cousue Goodyear traditionnelle en cuir pleine fleur lustré à la main."
+      "ar": "حذاء أوكسفورد كلاسيكي برباط أمامي وخياطة متقنة، ملمع بلمسة بريق فاخرة تناسب البدلات الرسمية والمناسبات الكبرى.",
+      "en": "Refined closed-lacing Oxford shoes made of hand-finished black leather with durable sole.",
+      "fr": "Souliers Richelieu Oxford en cuir noir poli avec bout droit rapporté et semelle résistante."
     },
     "sizes": ["40", "41", "42", "43", "44", "45"],
     "colors": [
-      { "name": { "ar": "أسود كلاسيكي لامع", "en": "Glossy Mirror Black", "fr": "Noir Brillant Miroir" }, "hex": "#050505" }
+      { "name": { "ar": "أسود كلاسيكي", "en": "Classic Black", "fr": "Noir Classique" }, "hex": "#050505" }
     ],
     "inStock": true
   },
   {
     "id": "aura-shirt-02",
     "name": {
-      "ar": "قميص رسمي فرنسي أبيض بأزرار أكمام (Cufflinks)",
-      "en": "French Cuff White Royal Poplin Dress Shirt",
-      "fr": "Chemise Blanche Popeline Poignets Mousquetaires"
+      "ar": "قميص رسمي أبيض بأزرار أكمام فرنسية (Cufflinks)",
+      "en": "French Cuff White Poplin Dress Shirt",
+      "fr": "Chemise Blanche Poignets Mousquetaires"
     },
     "category": "shirts",
     "categoryLabel": {
-      "ar": "قمصان رسمية بيضاء",
+      "ar": "قمصان بيضاء",
       "en": "White Formal Shirts",
-      "fr": "Chemises Blanches Formelles"
+      "fr": "Chemises Blanches"
     },
-    "price": 24000,
+    "price": 8000,
     "oldPrice": null,
     "badge": {
       "ar": "أكمام فرنسية",
@@ -167,9 +166,9 @@
       "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop"
     ],
     "description": {
-      "ar": "قميص أبيض ناصع بأساور فرنسية مزدوجة مخصصة للأزرار المعدنية (Boutons de manchette). منسوج من بوبلين القطن الإيطالي المعالج ضد التجعد.",
-      "en": "Premium 120/2 two-ply royal cotton poplin shirt tailored with double French cuffs for bespoke cufflinks and cutaway collar.",
-      "fr": "Popeline de coton double retors 120/2 avec poignets mousquetaires pour boutons de manchette et col italien structuré."
+      "ar": "قميص أبيض ناصع بأساور فرنسية مخصصة للأزرار المعدنية، منسوج من قطن البوبلين الناعم المريح طوال اليوم.",
+      "en": "Refined white poplin shirt with double French cuffs designed for luxury cufflinks.",
+      "fr": "Chemise habillée en popeline blanche avec poignets mousquetaires pour boutons de manchette."
     },
     "sizes": ["39", "40", "41", "42", "43", "44"],
     "colors": [
@@ -180,40 +179,40 @@
   {
     "id": "aura-shoes-02",
     "name": {
-      "ar": "حذاء سهرة رسمي دربي من الجلد المصقول",
-      "en": "Formal Black Leather Derby Shoes",
-      "fr": "Derbies Habillées Cuir Noir Satiné"
+      "ar": "حذاء سهرة رسمي دربي أسود كلاسيكي",
+      "en": "Classic Black Leather Derby Shoes",
+      "fr": "Derbies Habillées Cuir Noir"
     },
     "category": "shoes",
     "categoryLabel": {
-      "ar": "أحذية رسمية كلاسيكية",
+      "ar": "أحذية رسمية",
       "en": "Classic Dress Shoes",
       "fr": "Souliers Classiques"
     },
-    "price": 41500,
-    "oldPrice": 46000,
+    "price": 8000,
+    "oldPrice": null,
     "badge": null,
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop",
     "gallery": [
       "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop"
     ],
     "description": {
-      "ar": "حذاء رسمي كلاسيكي ناعم بجلد البقر الإيطالي المشدود وبطانة مريحة تمتص الصدمات، مثالي للمناسبات الرسمية التي تتطلب وقوفاً وأناقة متواصلة.",
-      "en": "Sleek open-laced black leather dress derby shoes with cushioned arch support and hand-painted leather outsoles.",
-      "fr": "Derbies élégantes en cuir lisse d'Italie, semelle intérieure amortissante et finition soignée pour un port prolongé distingué."
+      "ar": "حذاء دربي رسمي أسود بنعل مريح وخامة جلدية مصقولة، يمنحك راحة متواصلة وأناقة كاملة مع البدلات والتوكسيدو.",
+      "en": "Comfortable and elegant black leather derby shoes with cushioned insoles for formal events.",
+      "fr": "Derbies formelles en cuir noir confortable avec semelle amortissante pour grandes cérémonies."
     },
     "sizes": ["40", "41", "42", "43", "44", "45"],
     "colors": [
-      { "name": { "ar": "أسود معتم", "en": "Matte Charcoal Black", "fr": "Noir Mat Satiné" }, "hex": "#111115" }
+      { "name": { "ar": "أسود معتم", "en": "Matte Black", "fr": "Noir Mat" }, "hex": "#111115" }
     ],
     "inStock": true
   },
   {
     "id": "aura-suit-03",
     "name": {
-      "ar": "سترة بليزر رسمية سوداء بأزرار ذهبية ملكية",
-      "en": "Black Formal Blazer with Royal Crest Gold Buttons",
-      "fr": "Blazer Formel Noir Boutons Or Gravés"
+      "ar": "سترة بليزر رسمية سوداء كلاسيكية",
+      "en": "Classic Formal Black Tailored Blazer",
+      "fr": "Veste Blazer Noir Formel Classique"
     },
     "category": "suits",
     "categoryLabel": {
@@ -221,21 +220,21 @@
       "en": "Formal Suits & Tuxedos",
       "fr": "Costumes & Smokings"
     },
-    "price": 49000,
-    "oldPrice": 55000,
+    "price": 15000,
+    "oldPrice": null,
     "badge": {
-      "ar": "إصدار النخبة",
-      "en": "Elite Edition",
-      "fr": "Édition Privée"
+      "ar": "كلاسيك",
+      "en": "Classic",
+      "fr": "Classique"
     },
     "image": "https://images.unsplash.com/photo-1555069519-127aadedf1ee?q=80&w=800&auto=format&fit=crop",
     "gallery": [
       "https://images.unsplash.com/photo-1555069519-127aadedf1ee?q=80&w=800&auto=format&fit=crop"
     ],
     "description": {
-      "ar": "سترة بليزر سوداء كلاسيكية بزرين مزدانة بأزرار نحاسية مطلية بالذهب عيار 24 منقوش عليها شعار دار AURA الملكي.",
-      "en": "Structured double-breasted black wool blazer appointed with 24k gold-plated heraldic crest buttons.",
-      "fr": "Blazer structuré en drap de laine noir orné de boutons exclusifs dorés à l'or fin gravés du blason AURA."
+      "ar": "سترة رسمية سوداء مفصلة بدقة لتناسب الاجتماعات والمناسبات الرسمية الكلاسيكية، تتماشى مع القمصان البيضاء.",
+      "en": "Versatile black formal blazer tailored with structured shoulders and fine lapels.",
+      "fr": "Veste de blazer noir habillé avec épaules structurées et finitions soignées."
     },
     "sizes": ["48", "50", "52", "54"],
     "colors": [
@@ -244,37 +243,37 @@
     "inStock": true
   },
   {
-    "id": "aura-acc-01",
+    "id": "aura-suit-04",
     "name": {
-      "ar": "طقم إكسسوارات السهرة: بابيون حرير أسود + أزرار أكمام مذهبة",
-      "en": "Silk Bowtie & 24k Gold-Plated Cufflinks Tuxedo Set",
-      "fr": "Parure Soirée: Nœud Papillon Soie & Boutons de Manchette Or"
+      "ar": "بدلة سموكنغ فاخرة بياقة ساتان مدببة (Peak Lapel)",
+      "en": "Black Peak Lapel Tuxedo Suit",
+      "fr": "Smoking Noir Col Pointu Satiné"
     },
-    "category": "accessories",
+    "category": "suits",
     "categoryLabel": {
-      "ar": "إكسسوارات السهرة",
-      "en": "Formal Accessories",
-      "fr": "Accessoires de Cérémonie"
+      "ar": "بدلات وتوكسيدو",
+      "en": "Formal Suits & Tuxedos",
+      "fr": "Costumes & Smokings"
     },
-    "price": 18500,
+    "price": 15000,
     "oldPrice": null,
     "badge": {
-      "ar": "طقم متكامل",
-      "en": "Full Set",
-      "fr": "Coffret"
+      "ar": "سهرة فاخرة",
+      "en": "Black Tie",
+      "fr": "Cérémonie"
     },
-    "image": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?q=80&w=800&auto=format&fit=crop",
     "gallery": [
-      "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=800&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?q=80&w=800&auto=format&fit=crop"
     ],
     "description": {
-      "ar": "علبة فاخرة تضم بابيون مصنوع يدويًا من حرير التوت الطبيعي الأسود مع أزرار أكمام مذهبة عيار 24 ودبوس ياقة بتصميم ماسي.",
-      "en": "Luxury presentation box housing a handmade mulberry silk black bow tie and matching 24k gilded monogram cufflinks.",
-      "fr": "Coffret prestige comprenant un nœud papillon en satin de soie noire pure et boutons de manchette dorés à l'or fin."
+      "ar": "بدلة رسمية كلاسيكية سوداء بياقة مدببة تضفي هيبة وطولاً للقوام، مصممة لأصحاب الذوق الكلاسيكي الرفيع.",
+      "en": "Peak lapel black tuxedo designed to create an authoritative, commanding formal silhouette.",
+      "fr": "Smoking noir à revers en pointe satiné pour une allure majestueuse et intemporelle."
     },
-    "sizes": ["One Size"],
+    "sizes": ["48", "50", "52", "54", "56"],
     "colors": [
-      { "name": { "ar": "أسود وذهب", "en": "Black & Gold", "fr": "Noir & Or" }, "hex": "#111111" }
+      { "name": { "ar": "أسود ملكي", "en": "Royal Black", "fr": "Noir Royal" }, "hex": "#0A0A0C" }
     ],
     "inStock": true
   }
