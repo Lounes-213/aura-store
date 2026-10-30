@@ -1,497 +1,1243 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-theme="light">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AURA Haute Couture — دار الأزياء الراقية</title>
+  
+  <!-- Premium Fonts: Amiri / Cormorant Garamond / Cairo / Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    .hero-fullscreen {
-      min-height: 85vh;
+    /* CSS Variables & Luxury Glassmorphism Tokens */
+    :root {
+      --bg: #0A0A0D;
+      --bg-surface: #121318;
+      --card-bg: rgba(26, 27, 34, 0.7);
+      --card-border: rgba(197, 160, 89, 0.15);
+      --card-border-hover: rgba(197, 160, 89, 0.45);
+      --primary: #F8F9FA;
+      --primary-invert: #0A0A0D;
+      --secondary: #A1A1AA;
+      --accent: #D4AF37;
+      --accent-hover: #E5C378;
+      --accent-glow: rgba(212, 175, 55, 0.28);
+      --accent-light: rgba(212, 175, 55, 0.1);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-subtle: rgba(255, 255, 255, 0.04);
+      --text: #F4F4F5;
+      --text-muted: #9CA3AF;
+      --phone-border: #22242B;
+      --phone-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.12);
+    }
+
+    [data-theme="light"] {
+      --bg: #F9F7F2;
+      --bg-surface: #FFFFFF;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --card-border: rgba(197, 160, 89, 0.25);
+      --card-border-hover: rgba(197, 160, 89, 0.6);
+      --primary: #12100E;
+      --primary-invert: #FFFFFF;
+      --secondary: #52525B;
+      --accent: #B8860B;
+      --accent-hover: #996515;
+      --accent-glow: rgba(184, 134, 11, 0.25);
+      --accent-light: rgba(184, 134, 11, 0.08);
+      --border: rgba(18, 16, 14, 0.1);
+      --border-subtle: rgba(18, 16, 14, 0.05);
+      --text: #18181B;
+      --text-muted: #71717A;
+      --phone-border: #E5E7EB;
+      --phone-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Cairo', 'Montserrat', sans-serif;
+      background-color: #070709;
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 3rem;
+      background-image: 
+        radial-gradient(ellipse 70% 40% at 50% 0%, rgba(212, 175, 55, 0.12), transparent 70%),
+        radial-gradient(ellipse 60% 40% at 90% 90%, rgba(26, 27, 34, 0.5), transparent 70%);
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* Floating Studio Toolbar */
+    .studio-bar {
+      position: sticky;
+      top: 1rem;
+      z-index: 1000;
+      background: rgba(18, 19, 24, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.4rem 0.6rem;
+      border-radius: 999px;
       display: flex;
       align-items: center;
-      position: relative;
-      background: radial-gradient(circle at 90% 40%, var(--color-accent-soft), transparent 50%),
-                  radial-gradient(circle at 10% 80%, rgba(28, 25, 23, 0.03), transparent 40%);
-      padding: var(--space-3xl) 0;
-      border-bottom: 1px solid var(--color-border);
+      gap: 0.75rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      margin-bottom: 2rem;
     }
 
-    .hero-content-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: var(--space-3xl);
-      align-items: center;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-sm);
-      padding: 6px 16px;
-      border-radius: var(--radius-full);
-      background: var(--color-accent-soft);
-      border: 1px solid rgba(197, 160, 89, 0.3);
-      color: var(--color-accent);
-      font-size: 0.85rem;
+    .studio-title {
+      font-family: 'Cormorant Garamond', serif;
       font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: var(--space-lg);
-    }
-
-    .hero-h1 {
-      font-size: 3.6rem;
-      line-height: 1.15;
-      color: var(--color-foreground);
-      margin-bottom: var(--space-lg);
-      font-weight: 700;
-    }
-
-    .hero-desc {
       font-size: 1.15rem;
-      color: var(--color-muted-foreground);
-      line-height: 1.8;
-      margin-bottom: var(--space-2xl);
-      max-width: 520px;
-    }
-
-    .hero-showcase-box {
-      position: relative;
-    }
-
-    .hero-main-img {
-      width: 100%;
-      height: 520px;
-      border-radius: var(--radius-lg);
-      object-fit: cover;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .floating-accent-card {
-      position: absolute;
-      bottom: -24px;
-      inset-inline-end: -24px;
-      background: var(--color-card);
-      border: 1px solid var(--color-border);
-      padding: var(--space-lg);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-luxury);
-      display: flex;
-      align-items: center;
-      gap: var(--space-md);
-      backdrop-filter: blur(12px);
-    }
-
-    .features-ribbon {
-      padding: var(--space-2xl) 0;
-      background: var(--color-card);
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .ribbon-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-xl);
-    }
-
-    .ribbon-item {
-      display: flex;
-      align-items: center;
-      gap: var(--space-md);
-    }
-
-    .ribbon-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--radius-md);
-      background: var(--color-muted);
-      border: 1px solid var(--color-border);
-      display: grid;
-      place-items: center;
-      color: var(--color-accent);
-      flex-shrink: 0;
-    }
-
-    .cat-explorer-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-lg);
-      margin-top: var(--space-2xl);
-    }
-
-    .cat-card-interactive {
-      position: relative;
-      height: 380px;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      cursor: pointer;
-      border: 1px solid var(--color-border);
-      display: flex;
-      align-items: flex-end;
-      padding: var(--space-xl);
-      text-decoration: none;
-    }
-
-    .cat-card-interactive img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .cat-card-interactive::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(14, 15, 18, 0.85) 0%, rgba(14, 15, 18, 0.1) 60%);
-      transition: opacity 0.3s ease;
-    }
-
-    .cat-card-interactive:hover img {
-      transform: scale(1.08);
-    }
-
-    .cat-card-content {
-      position: relative;
-      z-index: 2;
-      color: #FFFFFF;
-    }
-
-    .cat-card-content h3 {
-      font-size: 1.6rem;
-      margin-bottom: var(--space-xs);
-      color: #FFFFFF;
-    }
-
-    .cat-card-content span {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--color-accent);
+      letter-spacing: 2px;
+      color: var(--accent);
+      padding: 0 0.8rem;
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
-    @media (max-width: 992px) {
-      .hero-content-grid { grid-template-columns: 1fr; }
-      .ribbon-grid { grid-template-columns: 1fr 1fr; }
-      .cat-explorer-grid { grid-template-columns: 1fr; }
-      .hero-h1 { font-size: 2.6rem; }
-      .floating-accent-card { inset-inline-end: 12px; bottom: 12px; }
+    .toggle-group {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      padding: 2px;
+      display: flex;
+      gap: 2px;
+    }
+
+    .tool-btn {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .tool-btn:hover {
+      color: #FFF;
+    }
+
+    .tool-btn.active {
+      background: linear-gradient(135deg, var(--accent), #996515);
+      color: #0A0A0D;
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
+
+    .action-icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      color: #E2E8F0;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .action-icon-btn:hover {
+      background: rgba(212, 175, 55, 0.2);
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: scale(1.05);
+    }
+
+    /* Main Viewport Container with 3D Morph Animation */
+    .viewport-box {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 1rem;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Mode Web Desktop */
+    .mode-web {
+      width: 100%;
+      max-width: 1260px;
+      background: var(--bg);
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.7);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Mode Mobile Phone (iPhone 16 Pro Max Frame) */
+    .mode-mobile {
+      width: 410px;
+      height: 860px;
+      background: var(--bg);
+      border: 12px solid var(--phone-border);
+      border-radius: 56px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      box-shadow: var(--phone-shadow);
+      position: relative;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: phoneEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .mode-mobile::-webkit-scrollbar { width: 0; }
+
+    @keyframes phoneEntrance {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Dynamic Island */
+    .dynamic-island {
+      display: none;
+      position: sticky;
+      top: 10px;
+      margin: 0 auto;
+      width: 120px;
+      height: 28px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 500;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .mode-mobile .dynamic-island {
+      display: block;
+    }
+
+    /* Store Navigation */
+    .store-navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      background: rgba(18, 19, 24, 0.65);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.3s;
+    }
+
+    [data-theme="light"] .store-navbar {
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    .mode-mobile .store-navbar {
+      padding: 0.85rem 1.25rem;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .brand-diamond {
+      width: 28px;
+      height: 28px;
+      border: 1.5px solid var(--accent);
+      transform: rotate(45deg);
+      display: grid;
+      place-items: center;
+      transition: transform 0.4s ease;
+    }
+
+    .brand-logo-wrap:hover .brand-diamond {
+      transform: rotate(225deg);
+    }
+
+    .brand-diamond::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--text);
+    }
+
+    .brand-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      color: var(--accent);
+      display: block;
+      margin-top: -4px;
+    }
+
+    .store-nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .mode-mobile .store-nav-links {
+      display: none;
+    }
+
+    .store-nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .store-nav-links a:hover, .store-nav-links a.active {
+      color: var(--accent);
+    }
+
+    .store-nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .nav-user-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .cart-btn-pill {
+      background: var(--accent-light);
+      border: 1px solid var(--card-border);
+      color: var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s;
+    }
+
+    .cart-btn-pill:hover {
+      background: var(--accent);
+      color: #0A0A0D;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px var(--accent-glow);
+    }
+
+    .cart-badge-count {
+      background: var(--primary);
+      color: var(--primary-invert);
+      font-size: 0.7rem;
+      font-weight: 800;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+    }
+
+    /* Hero Section with Luxury Typography */
+    .hero-wrap {
+      padding: 4rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+    }
+
+    .mode-mobile .hero-wrap {
+      grid-template-columns: 1fr;
+      padding: 2rem 1.25rem;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .hero-badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: var(--accent-light);
+      border: 1px solid var(--card-border);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .hero-title {
+      font-family: 'Amiri', 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+      font-weight: 700;
+    }
+
+    .mode-mobile .hero-title {
+      font-size: 2.15rem;
+      line-height: 1.3;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.85;
+      margin-bottom: 2.2rem;
+      max-width: 540px;
+    }
+
+    .mode-mobile .hero-desc {
+      font-size: 0.95rem;
+      margin: 0 auto 1.8rem;
+    }
+
+    .hero-cta-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .mode-mobile .hero-cta-btns {
+      justify-content: center;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--accent), #996515);
+      color: #0A0A0D;
+      padding: 14px 32px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 25px var(--accent-glow);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+    }
+
+    .btn-glass {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .btn-glass:hover {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Visual Showcase */
+    .hero-stage {
+      position: relative;
+    }
+
+    .hero-image-frame {
+      width: 100%;
+      height: 480px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    .mode-mobile .hero-image-frame {
+      height: 320px;
+      border-radius: 20px;
+    }
+
+    .hero-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-image-frame:hover img {
+      transform: scale(1.06);
+    }
+
+    .hero-floating-badge {
+      position: absolute;
+      bottom: -15px;
+      inset-inline-end: -15px;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      padding: 1rem 1.4rem;
+      border-radius: 18px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: badgeFloat 4s ease-in-out infinite alternate;
+    }
+
+    .mode-mobile .hero-floating-badge {
+      bottom: 10px;
+      inset-inline-end: 10px;
+      padding: 0.75rem 1rem;
+    }
+
+    @keyframes badgeFloat {
+      from { transform: translateY(0); }
+      to { transform: translateY(-8px); }
+    }
+
+    /* Category Navigation Cards */
+    .section-head {
+      padding: 2.5rem 2.5rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .mode-mobile .section-head {
+      padding: 1.5rem 1.25rem 1rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Amiri', 'Cormorant Garamond', serif;
+      font-size: 2.3rem;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .category-pills-row {
+      display: flex;
+      gap: 0.65rem;
+      overflow-x: auto;
+      padding: 0 2.5rem 1.75rem;
+    }
+
+    .mode-mobile .category-pills-row {
+      padding: 0 1.25rem 1.25rem;
+    }
+
+    .category-pills-row::-webkit-scrollbar { display: none; }
+
+    .cat-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.55rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.25s;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .cat-btn:hover, .cat-btn.active {
+      background: var(--accent);
+      color: #0A0A0D;
+      border-color: var(--accent);
+      box-shadow: 0 4px 15px var(--accent-glow);
+    }
+
+    /* Products Grid */
+    .products-mosaic {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      padding: 0 2.5rem 3.5rem;
+    }
+
+    .mode-mobile .products-mosaic {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+      padding: 0 1.25rem 2.5rem;
+    }
+
+    .couture-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .couture-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--card-border-hover);
+      box-shadow: 0 20px 45px -10px var(--accent-glow);
+    }
+
+    .card-media {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: #14151B;
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .couture-card:hover .card-media img {
+      transform: scale(1.08);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 10px;
+      inset-inline-end: 10px;
+      background: linear-gradient(135deg, var(--accent), #996515);
+      color: #0A0A0D;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-wishlist {
+      position: absolute;
+      top: 10px;
+      inset-inline-start: 10px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(18, 19, 24, 0.65);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFF;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .card-wishlist:hover {
+      color: #E11D48;
+      border-color: #E11D48;
+      transform: scale(1.1);
+    }
+
+    .card-info {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .mode-mobile .card-info {
+      padding: 0.85rem;
+    }
+
+    .card-category {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-family: 'Cairo', 'Amiri', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .mode-mobile .card-title {
+      font-size: 0.88rem;
+    }
+
+    .card-bottom {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--border);
+    }
+
+    .price-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--text);
+    }
+
+    .add-cart-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: var(--accent-light);
+      border: 1px solid var(--card-border);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .add-cart-circle:hover {
+      background: var(--accent);
+      color: #0A0A0D;
+      transform: scale(1.08);
+      box-shadow: 0 4px 15px var(--accent-glow);
+    }
+
+    /* Mobile Bottom Navigation Bar */
+    .mobile-tabbar {
+      display: none;
+      position: sticky;
+      bottom: 0;
+      background: rgba(18, 19, 24, 0.92);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border);
+      padding: 0.65rem 1.5rem 0.85rem;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 200;
+    }
+
+    [data-theme="light"] .mobile-tabbar {
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .mode-mobile .mobile-tabbar {
+      display: flex;
+    }
+
+    .tab-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.7rem;
+      font-weight: 700;
+      transition: color 0.2s;
+    }
+
+    .tab-link.active, .tab-link:hover {
+      color: var(--accent);
+    }
+
+    /* Cart Toast */
+    .toast-pill {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #121318;
+      border: 1px solid var(--accent);
+      color: #FFF;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      z-index: 2000;
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast-pill.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Announcement Bar -->
-  <aside style="background: var(--color-primary); color: #fff; padding: 8px 16px; font-size: 0.8rem; text-align: center; font-weight: 600; border-bottom: 1px solid rgba(197, 160, 89, 0.2);">
-    <span data-i18n="announcement">✨ توصيل حصري ومجاني لكافة ولايات الجزائر للطلبات فوق 30,000 دج | الدفع عند الاستلام متوفر</span>
-  </aside>
+  <!-- Floating Studio Controls -->
+  <div class="studio-bar">
+    <div class="studio-title">
+      <span>👑</span> AURA LAB
+    </div>
 
-  <!-- Site Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="site-logo">
-        <img src="./assets/icons/logo.svg" alt="AURA Logo">
-      </a>
+    <!-- Viewport Switcher -->
+    <div class="toggle-group">
+      <button class="tool-btn active" id="btn-web" onclick="setViewportMode('web')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <span>كمبيوتر (Web)</span>
+      </button>
+      <button class="tool-btn" id="btn-mobile" onclick="setViewportMode('mobile')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"/><circle cx="12" cy="18" r="1"/></svg>
+        <span>هاتف (Mobile)</span>
+      </button>
+    </div>
 
-      <nav>
-        <ul class="main-nav">
-          <li><a href="index.html" class="active" data-i18n="nav.home">الرئيسية</a></li>
-          <li><a href="catalog.html" data-i18n="nav.catalog">المجموعة الكاملة</a></li>
-          <li><a href="catalog.html?category=coats" data-i18n="nav.coats">معاطف</a></li>
-          <li><a href="catalog.html?category=dresses" data-i18n="nav.dresses">فساتين سهرة</a></li>
-          <li><a href="catalog.html?category=suits" data-i18n="nav.suits">بدلات رسمية</a></li>
-          <li><a href="about.html" data-i18n="nav.about">عن الدار</a></li>
-        </ul>
-      </nav>
+    <!-- Language Cycle Button -->
+    <button class="tool-btn" onclick="cycleLang()" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);">
+      🌐 <span id="active-lang-label">AR</span>
+    </button>
 
-      <div class="header-tools">
-        <!-- Language Switcher Button (AR / EN / FR) -->
-        <button class="lang-select-btn" title="تغيير اللغة / Change Language / Changer la langue">
-          🌐 <span class="current-lang">AR</span>
-        </button>
+    <!-- Theme Switcher -->
+    <button class="action-icon-btn" onclick="toggleThemeMode()" title="تبديل المظهر">
+      <span id="theme-icon">🌙</span>
+    </button>
+  </div>
 
-        <!-- Theme Toggle (Dark / Light) -->
-        <button class="btn-icon theme-toggle" title="تبديل الوضع الليلي / النهاري">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </button>
+  <!-- Main Viewport Box -->
+  <div class="viewport-box">
+    <div class="mode-web" id="viewport-frame">
+      
+      <!-- Dynamic Island for Mobile -->
+      <div class="dynamic-island"></div>
 
-        <!-- Search button -->
-        <a href="catalog.html" class="btn-icon" title="بحث">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <!-- Store Navbar -->
+      <header class="store-navbar">
+        <a href="#" class="brand-logo-wrap">
+          <div class="brand-diamond"></div>
+          <div>
+            <span class="brand-name">AURA</span>
+            <span class="brand-sub">HAUTE COUTURE</span>
+          </div>
         </a>
 
-        <!-- Cart Trigger -->
-        <button class="btn-icon cart-trigger" title="حقيبة التسوق">
-          <span class="cart-count">0</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
+        <ul class="store-nav-links">
+          <li><a href="#" class="active" data-key="navHome">الرئيسية</a></li>
+          <li><a href="#" data-key="navCollection">المجموعة الكاملة</a></li>
+          <li><a href="#" data-key="navCoats">معاطف كشمير</a></li>
+          <li><a href="#" data-key="navGowns">فساتين سهرة</a></li>
+          <li><a href="#" data-key="navSuits">بدلات رسمية</a></li>
+        </ul>
 
-  <!-- Hero Section -->
-  <main>
-    <section class="hero-fullscreen">
-      <div class="container hero-content-grid">
+        <div class="nav-user-actions">
+          <button class="cart-btn-pill" onclick="triggerCart()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span class="cart-badge-count" id="cart-count-num">0</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero Banner -->
+      <section class="hero-wrap">
         <div>
-          <div class="hero-tag">
-            <span>⚜️</span> <span data-i18n="hero.tag">تشكيلة الخريف والشتاء الحصرية 2026</span>
-          </div>
-          <h1 class="hero-h1" data-i18n="hero.title">أصالة الخياطة الرفيعة بلمسة عصرية خالدة</h1>
-          <p class="hero-desc" data-i18n="hero.desc">
+          <span class="hero-badge-tag">
+            <span>⚜️</span> <span data-key="heroTag">تشكيلة الخريف والشتاء الحصرية 2026</span>
+          </span>
+          <h1 class="hero-title" data-key="heroTitle">أصالة الخياطة الرفيعة بلمسة عصرية خالدة</h1>
+          <p class="hero-desc" data-key="heroDesc">
             تجسيد حقيقي للفخامة والذوق الرفيع. قطع استثنائية محاكة يدويًا من أنقى أقمشة الكشمير والحرير الإيطالي لتضفي على إطلالتك بريقاً لا يُنسى.
           </p>
-          <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
-            <a href="catalog.html" class="btn btn-primary" data-i18n="hero.ctaPrimary">
-              استكشف التشكيلة
-            </a>
-            <a href="#featured-section" class="btn btn-outline" data-i18n="hero.ctaSecondary">القطع الأكثر طلباً</a>
+          <div class="hero-cta-btns">
+            <button class="btn-gold" onclick="triggerCart()" data-key="heroBtnPrimary">استكشف المجموعة الحصرية ←</button>
+            <button class="btn-glass" data-key="heroBtnSecondary">الأكثر طلباً</button>
           </div>
         </div>
 
-        <div class="hero-showcase-box">
-          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000&auto=format&fit=crop" alt="AURA Luxury Collection" class="hero-main-img">
-          <div class="floating-accent-card">
-            <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-accent-soft); display: grid; place-items: center; color: var(--color-accent); font-size: 1.3rem;">
-              💎
-            </div>
+        <div class="hero-stage">
+          <div class="hero-image-frame">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000&auto=format&fit=crop" alt="AURA Couture">
+          </div>
+          <div class="hero-floating-badge">
+            <span style="font-size:1.6rem;">💎</span>
             <div>
-              <h4 style="font-size: 1rem; font-weight: 700;" data-i18n="hero.badgeTitle">ضمان الجودة الملكية</h4>
-              <p style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="hero.badgeSubtitle">أقمشة إيطالية معتمدة 100%</p>
+              <strong style="display:block; font-size:1rem; color:var(--text);" data-key="badgeTitle">ضمان الجودة الملكية</strong>
+              <span style="font-size:0.75rem; color:var(--text-muted);" data-key="badgeSub">أقمشة إيطالية معتمدة 100%</span>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Value Proposition Ribbon -->
-    <section class="features-ribbon">
-      <div class="container ribbon-grid">
-        <div class="ribbon-item">
-          <div class="ribbon-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          </div>
-          <div>
-            <h4 style="font-size: 0.95rem; font-weight: 700;" data-i18n="features.deliveryTitle">توصيل سريع ومؤمّن</h4>
-            <p style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="features.deliveryDesc">خلال 24-48 ساعة لـ 58 ولاية</p>
-          </div>
-        </div>
-
-        <div class="ribbon-item">
-          <div class="ribbon-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div>
-            <h4 style="font-size: 0.95rem; font-weight: 700;" data-i18n="features.qualityTitle">أصالة وجودة مضمونة</h4>
-            <p style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="features.qualityDesc">شهادة منشأ مع كل قطعة</p>
-          </div>
-        </div>
-
-        <div class="ribbon-item">
-          <div class="ribbon-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-          </div>
-          <div>
-            <h4 style="font-size: 0.95rem; font-weight: 700;" data-i18n="features.returnsTitle">استبدال سهل ومريح</h4>
-            <p style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="features.returnsDesc">إمكانية القياس عند الاستلام</p>
-          </div>
-        </div>
-
-        <div class="ribbon-item">
-          <div class="ribbon-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </div>
-          <div>
-            <h4 style="font-size: 0.95rem; font-weight: 700;" data-i18n="features.stylistTitle">مستشار أناقة خاص</h4>
-            <p style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="features.stylistDesc">خدمة عملاء VIP على مدار الساعة</p>
-          </div>
+      <!-- Category Filter Pills -->
+      <div class="section-head">
+        <div>
+          <h2 class="section-title" data-key="secTitle">روائع دار AURA</h2>
+          <p class="section-sub" data-key="secSub">قطع مختارة بعناية للموسم الحالي تجمع بين الهيبة والنعومة</p>
         </div>
       </div>
-    </section>
 
-    <!-- Categories Banner -->
-    <section style="padding: var(--space-3xl) 0;">
-      <div class="container">
-        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-          <span class="badge badge-gold" style="margin-bottom: var(--space-sm);" data-i18n="categories.badge">أقسام الدار</span>
-          <h2 style="font-size: 2.5rem; margin-bottom: var(--space-xs);" data-i18n="categories.title">اكتشف التشكيلات المتنوعة</h2>
-          <p class="text-muted" data-i18n="categories.desc">قطع متناغمة تعبر عن أسلوب حياتك الفريد</p>
-        </div>
-
-        <div class="cat-explorer-grid">
-          <a href="catalog.html?category=coats" class="cat-card-interactive">
-            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=600&auto=format&fit=crop" alt="Coats">
-            <div class="cat-card-content">
-              <h3 data-i18n="categories.coats">المعاطف والكاب</h3>
-              <span data-i18n="categories.browse">تصفح القسم ←</span>
-            </div>
-          </a>
-
-          <a href="catalog.html?category=dresses" class="cat-card-interactive">
-            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop" alt="Dresses">
-            <div class="cat-card-content">
-              <h3 data-i18n="categories.dresses">فساتين السهرة والمناسبات</h3>
-              <span data-i18n="categories.browse">تصفح القسم ←</span>
-            </div>
-          </a>
-
-          <a href="catalog.html?category=suits" class="cat-card-interactive">
-            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600&auto=format&fit=crop" alt="Suits">
-            <div class="cat-card-content">
-              <h3 data-i18n="categories.suits">البدلات الرسمية والتوكسيدو</h3>
-              <span data-i18n="categories.browse">تصفح القسم ←</span>
-            </div>
-          </a>
-        </div>
+      <div class="category-pills-row">
+        <button class="cat-btn active" onclick="filterCatalog('all', this)" data-key="catAll">كل الأقسام</button>
+        <button class="cat-btn" onclick="filterCatalog('coats', this)" data-key="catCoats">معاطف كشمير</button>
+        <button class="cat-btn" onclick="filterCatalog('dresses', this)" data-key="catDresses">فساتين سهرة</button>
+        <button class="cat-btn" onclick="filterCatalog('suits', this)" data-key="catSuits">بدلات وتوكسيدو</button>
+        <button class="cat-btn" onclick="filterCatalog('accessories', this)" data-key="catAcc">حقائب وإكسسوارات</button>
       </div>
-    </section>
 
-    <!-- Featured Products Grid -->
-    <section id="featured-section" style="padding: var(--space-3xl) 0; background: var(--color-muted);">
-      <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--space-2xl); flex-wrap:wrap; gap:16px;">
-          <div>
-            <span class="badge badge-gold" style="margin-bottom: var(--space-xs);" data-i18n="featured.badge">المختارات الأيقونية</span>
-            <h2 style="font-size: 2.4rem;" data-i18n="featured.title">روائع دار AURA</h2>
-          </div>
-          <a href="catalog.html" class="btn btn-outline" style="border-radius: var(--radius-full);" data-i18n="featured.viewAll">شاهد كل المنتجات (8) ←</a>
-        </div>
+      <!-- Products Grid -->
+      <div class="products-mosaic" id="products-container"></div>
 
-        <div class="product-cards-grid" id="featured-products-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--space-lg);">
-          <!-- Rendered via JS -->
-        </div>
-      </div>
-    </section>
-  </main>
+      <!-- Mobile Tabbar -->
+      <nav class="mobile-tabbar">
+        <a href="#" class="tab-link active">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span data-key="tabHome">الرئيسية</span>
+        </a>
+        <a href="#" class="tab-link">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span data-key="tabCat">الأقسام</span>
+        </a>
+        <a href="#" class="tab-link">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span data-key="tabWish">المفضلة</span>
+        </a>
+        <a href="#" class="tab-link" onclick="triggerCart()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span data-key="tabCart">الحقيبة</span>
+        </a>
+      </nav>
 
-  <!-- Cart Drawer -->
-  <div class="cart-drawer-overlay" id="cart-overlay"></div>
-  <aside class="cart-drawer" id="cart-drawer">
-    <div class="cart-drawer-header">
-      <div style="display: flex; align-items: center; gap: var(--space-sm);">
-        <h3 style="font-size: 1.25rem;" data-i18n="cart.title">حقيبة المشتريات</h3>
-        <span class="badge badge-gold cart-count">0</span>
-      </div>
-      <button class="btn-icon" id="close-cart-btn" style="border:none;">✕</button>
     </div>
+  </div>
 
-    <div class="cart-items-list" id="cart-items-list"></div>
+  <!-- Toast -->
+  <div class="toast-pill" id="aura-toast">
+    <span>✨</span> <span id="toast-msg">تمت إضافة القطعة بنجاح</span>
+  </div>
 
-    <div class="cart-drawer-footer">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md);">
-        <span style="color: var(--color-muted-foreground); font-weight: 600;" data-i18n="cart.subtotal">المجموع الفرعي:</span>
-        <span id="cart-total-price" style="font-size: 1.3rem; font-weight: 800; font-family: var(--font-mono); color: var(--color-foreground);">0 DZD</span>
-      </div>
-      <a href="checkout.html" class="btn btn-primary" style="width: 100%; border-radius: var(--radius-md);" data-i18n="cart.checkoutBtn">
-        متابعة إتمام الطلب (Checkout)
-      </a>
-    </div>
-  </aside>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <img src="./assets/icons/logo-light.svg" alt="AURA" style="height: 38px; margin-bottom: var(--space-md);">
-          <p style="color: #A8A29E; line-height: 1.8; font-size: 0.9rem; max-width: 320px;" data-i18n="footer.desc">
-            دار أزياء جزائرية راقية مستوحاة من عراقة الحياكة العالمية، تقدم تجربة فاخرة لا مثيل لها تلبي تطلعات عشاق الذوق الرفيع.
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h4 data-i18n="footer.linksTitle">روابط سريعة</h4>
-          <ul>
-            <li><a href="catalog.html" data-i18n="nav.catalog">جميع المنتجات</a></li>
-            <li><a href="catalog.html?category=coats" data-i18n="nav.coats">المعاطف الشتوية</a></li>
-            <li><a href="catalog.html?category=dresses" data-i18n="nav.dresses">فساتين السهرة</a></li>
-            <li><a href="about.html" data-i18n="nav.about">قصة الدار</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4 data-i18n="footer.supportTitle">خدمة العملاء</h4>
-          <ul>
-            <li><a href="checkout.html" data-i18n="footer.trackOrder">متابعة الشحنة</a></li>
-            <li><a href="#" data-i18n="footer.returnsPolicy">سياسة الإرجاع والاستبدال</a></li>
-            <li><a href="#" data-i18n="footer.sizeGuide">دليل المقاسات الملكية</a></li>
-            <li><a href="#" data-i18n="footer.faq">الأسئلة الشائعة</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4 data-i18n="footer.newsletterTitle">النشرة البريدية VIP</h4>
-          <p style="font-size: 0.85rem; color: #A8A29E; margin-bottom: var(--space-md);" data-i18n="footer.newsletterDesc">
-            انضم إلى قائمة النخبة للحصول على دعوات حصرية لعروض الأزياء والخصومات الخاصة.
-          </p>
-          <div style="display: flex; gap: var(--space-xs);">
-            <input type="email" placeholder="بريدك الإلكتروني..." data-i18n="footer.emailPlaceholder" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); padding: 10px 14px; border-radius: var(--radius-sm); color: #fff; flex-grow: 1;">
-            <button class="btn btn-accent" style="padding: 10px 18px; border-radius: var(--radius-sm);" data-i18n="footer.subscribe">اشتراك</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p data-i18n="footer.copyright">© 2026 دار AURA للأزياء الراقية. جميع الحقوق محفوظة.</p>
-        <p data-i18n="footer.badge">مصمم بأعلى معايير الـ Luxury UI/UX</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="./js/i18n.js"></script>
-  <script src="./js/store.js"></script>
   <script>
-    function renderFeatured() {
-      const container = document.getElementById('featured-products-container');
-      if (!container || !window.auraStore) return;
+    const PRODUCTS = [
+      {
+        id: 'prod-1',
+        category: 'coats',
+        name: { ar: 'معطف صوف كشمير إيطالي باللون الرملي', en: 'Italian Sand Beige Cashmere Coat', fr: 'Manteau Cachemire Beige Sable' },
+        categoryLabel: { ar: 'معاطف فاخرة', en: 'Luxury Coats', fr: 'Manteaux de Luxe' },
+        price: 48500,
+        badge: { ar: 'جديد', en: 'New', fr: 'Nouveau' },
+        image: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=600&auto=format&fit=crop'
+      },
+      {
+        id: 'prod-2',
+        category: 'dresses',
+        name: { ar: 'فستان سهرة من الحرير الإمبراطوري الزمردي', en: 'Imperial Emerald Silk Evening Gown', fr: 'Robe de Soirée Soie Émeraude' },
+        categoryLabel: { ar: 'فساتين سهرة', en: 'Evening Gowns', fr: 'Robes de Soirée' },
+        price: 52000,
+        badge: { ar: 'الأكثر طلباً', en: 'Best Seller', fr: 'Coup de Cœur' },
+        image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop'
+      },
+      {
+        id: 'prod-3',
+        category: 'suits',
+        name: { ar: 'بدلة توكسيدو رسمية من الصوف الخالص', en: 'Super 140s Wool Black Tuxedo', fr: 'Smoking Tuxedo Laine Vierge' },
+        categoryLabel: { ar: 'بدلات رسمية', en: 'Formal Suits', fr: 'Costumes & Smokings' },
+        price: 64000,
+        badge: { ar: 'حصرية', en: 'Exclusive', fr: 'Exclusif' },
+        image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600&auto=format&fit=crop'
+      },
+      {
+        id: 'prod-4',
+        category: 'accessories',
+        name: { ar: 'حقيبة يد مونوغرام من جلد العجل الطبيعي', en: 'Monogram Calfskin Shoulder Bag', fr: 'Sac Bandoulière Cuir Monogramme' },
+        categoryLabel: { ar: 'حقائب وإكسسوارات', en: 'Bags & Accessories', fr: 'Sacs & Accessoires' },
+        price: 31500,
+        badge: { ar: 'إصدار محدود', en: 'Limited', fr: 'Édition Limitée' },
+        image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=600&auto=format&fit=crop'
+      },
+      {
+        id: 'prod-5',
+        category: 'suits',
+        name: { ar: 'قميص كتان فرنسي بأزرار لؤلؤية', en: 'Normandy Pure Linen Shirt', fr: 'Chemise en Lin de Normandie' },
+        categoryLabel: { ar: 'قمصان فاخرة', en: 'Luxury Shirts', fr: 'Chemises de Luxe' },
+        price: 19800,
+        badge: null,
+        image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=600&auto=format&fit=crop'
+      },
+      {
+        id: 'prod-6',
+        category: 'dresses',
+        name: { ar: 'فستان بليزر عصري بتفاصيل ذهبية', en: 'Modern Blazer Dress with Gold Accents', fr: 'Robe Blazer Croisée Or' },
+        categoryLabel: { ar: 'فساتين سهرة', en: 'Evening Dresses', fr: 'Robes de Soirée' },
+        price: 36000,
+        badge: { ar: 'تريند', en: 'Trending', fr: 'Tendance' },
+        image: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=600&auto=format&fit=crop'
+      },
+      {
+        id: 'prod-7',
+        category: 'accessories',
+        name: { ar: 'حذاء أوكسفورد جلدي مصنوع يدوياً', en: 'Goodyear-Welted Oxford Shoes', fr: 'Souliers Richelieu Cousu Goodyear' },
+        categoryLabel: { ar: 'أحذية فاخرة', en: 'Luxury Shoes', fr: 'Souliers de Luxe' },
+        price: 42000,
+        badge: { ar: 'صناعة يدوية', en: 'Handmade', fr: 'Fait Main' },
+        image: 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=600&auto=format&fit=crop'
+      },
+      {
+        id: 'prod-8',
+        category: 'accessories',
+        name: { ar: 'وشاح كشمير مطرز بخيوط الحرير', en: 'Embroidered Silk & Cashmere Scarf', fr: 'Étole Cachemire & Soie' },
+        categoryLabel: { ar: 'حقائب وإكسسوارات', en: 'Accessories', fr: 'Accessoires' },
+        price: 16500,
+        badge: null,
+        image: 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=600&auto=format&fit=crop'
+      }
+    ];
 
-      const featured = window.auraStore.products.slice(0, 4);
-      const t = window.auraStore.t.featured || {};
+    const I18N = {
+      ar: {
+        currency: 'دج',
+        navHome: 'الرئيسية',
+        navCollection: 'المجموعة الكاملة',
+        navCoats: 'معاطف كشمير',
+        navGowns: 'فساتين سهرة',
+        navSuits: 'بدلات رسمية',
+        heroTag: 'تشكيلة الخريف والشتاء الحصرية 2026',
+        heroTitle: 'أصالة الخياطة الرفيعة بلمسة عصرية خالدة',
+        heroDesc: 'تجسيد حقيقي للفخامة والذوق الرفيع. قطع استثنائية محاكة يدويًا من أنقى أقمشة الكشمير والحرير الإيطالي لتضفي على إطلالتك بريقاً لا يُنسى.',
+        heroBtnPrimary: 'استكشف المجموعة الحصرية ←',
+        heroBtnSecondary: 'الأكثر طلباً',
+        badgeTitle: 'ضمان الجودة الملكية',
+        badgeSub: 'أقمشة إيطالية معتمدة 100%',
+        secTitle: 'روائع دار AURA',
+        secSub: 'قطع مختارة بعناية للموسم الحالي تجمع بين الهيبة والنعومة',
+        catAll: 'كل الأقسام',
+        catCoats: 'معاطف كشمير',
+        catDresses: 'فساتين سهرة',
+        catSuits: 'بدلات وتوكسيدو',
+        catAcc: 'حقائب وإكسسوارات',
+        tabHome: 'الرئيسية',
+        tabCat: 'الأقسام',
+        tabWish: 'المفضلة',
+        tabCart: 'الحقيبة',
+        toastAdded: 'تمت إضافة القطعة بنجاح إلى حقيبة التسوق ✨'
+      },
+      en: {
+        currency: 'DZD',
+        navHome: 'Home',
+        navCollection: 'Full Collection',
+        navCoats: 'Cashmere Coats',
+        navGowns: 'Evening Gowns',
+        navSuits: 'Tailored Suits',
+        heroTag: 'Autumn / Winter 2026 Haute Couture',
+        heroTitle: 'Timeless Sartorial Heritage with Modern Sophistication',
+        heroDesc: 'The true embodiment of luxury and refined taste. Masterpieces handcrafted from the finest Italian cashmere and imperial silk.',
+        heroBtnPrimary: 'Explore Exclusive Pieces →',
+        heroBtnSecondary: 'Best Sellers',
+        badgeTitle: 'Royal Quality Guarantee',
+        badgeSub: '100% Certified Italian Fabrics',
+        secTitle: 'Maison AURA Creations',
+        secSub: 'Exquisite garments engineered for timeless presence',
+        catAll: 'All Collections',
+        catCoats: 'Cashmere Coats',
+        catDresses: 'Evening Gowns',
+        catSuits: 'Tailored Suits',
+        catAcc: 'Bags & Accessories',
+        tabHome: 'Home',
+        tabCat: 'Categories',
+        tabWish: 'Wishlist',
+        tabCart: 'Bag',
+        toastAdded: 'Item added to your shopping bag ✨'
+      },
+      fr: {
+        currency: 'DZD',
+        navHome: 'Accueil',
+        navCollection: 'Collection Complète',
+        navCoats: 'Manteaux Cachemire',
+        navGowns: 'Robes de Soirée',
+        navSuits: 'Costumes & Smokings',
+        heroTag: 'Collection Automne / Hiver 2026 Haute Couture',
+        heroTitle: "L'Héritage Sartorial Sublimé d'Audace Contemporaine",
+        heroDesc: "La quintessence du luxe et du raffinement. Des pièces d'exception façonnées à la main dans les plus nobles cachemires et soies d'Italie.",
+        heroBtnPrimary: 'Découvrir la Collection →',
+        heroBtnSecondary: 'Nos Coups de Cœur',
+        badgeTitle: 'Garantie Haute Couture',
+        badgeSub: 'Tissus 100% Italiens Certifiés',
+        secTitle: 'Les Chefs-d\'Œuvre AURA',
+        secSub: 'Des silhouettes harmonieuses pour révéler votre distinction',
+        catAll: 'Toutes les Pièces',
+        catCoats: 'Manteaux Cachemire',
+        catDresses: 'Robes de Soirée',
+        catSuits: 'Costumes & Smokings',
+        catAcc: 'Sacs & Accessoires',
+        tabHome: 'Accueil',
+        tabCat: 'Rayons',
+        tabWish: 'Favoris',
+        tabCart: 'Panier',
+        toastAdded: 'Pièce ajoutée avec succès au panier ✨'
+      }
+    };
 
-      container.innerHTML = featured.map(p => {
-        const badge = window.auraStore.getLocalized(p.badge);
-        const name = window.auraStore.getLocalized(p.name);
-        const cat = window.auraStore.getLocalized(p.categoryLabel);
+    let currentLang = 'ar';
+    let currentTheme = 'dark';
+    let currentCategory = 'all';
+    let cartCount = 0;
+
+    function setViewportMode(mode) {
+      const frame = document.getElementById('viewport-frame');
+      const btnWeb = document.getElementById('btn-web');
+      const btnMobile = document.getElementById('btn-mobile');
+
+      if (mode === 'mobile') {
+        frame.className = 'mode-mobile';
+        btnMobile.classList.add('active');
+        btnWeb.classList.remove('active');
+      } else {
+        frame.className = 'mode-web';
+        btnWeb.classList.add('active');
+        btnMobile.classList.remove('active');
+      }
+    }
+
+    function toggleThemeMode() {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', currentTheme);
+      document.getElementById('theme-icon').textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+    }
+
+    function cycleLang() {
+      const langs = ['ar', 'en', 'fr'];
+      const idx = (langs.indexOf(currentLang) + 1) % langs.length;
+      currentLang = langs[idx];
+
+      document.getElementById('active-lang-label').textContent = currentLang.toUpperCase();
+      document.documentElement.setAttribute('lang', currentLang);
+      document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+
+      applyTranslations();
+      renderProducts();
+    }
+
+    function applyTranslations() {
+      const t = I18N[currentLang];
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (t[key]) el.textContent = t[key];
+      });
+    }
+
+    function filterCatalog(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderProducts();
+    }
+
+    function renderProducts() {
+      const container = document.getElementById('products-container');
+      const t = I18N[currentLang];
+
+      let list = PRODUCTS;
+      if (currentCategory !== 'all') {
+        list = list.filter(p => p.category === currentCategory);
+      }
+
+      container.innerHTML = list.map(p => {
+        const name = p.name[currentLang] || p.name['ar'];
+        const catLabel = p.categoryLabel[currentLang] || p.categoryLabel['ar'];
+        const badge = p.badge ? (p.badge[currentLang] || p.badge['ar']) : null;
+        const formattedPrice = p.price.toLocaleString('fr-DZ') + ' ' + t.currency;
 
         return `
-          <div class="product-card">
-            <div class="product-thumb">
-              ${badge ? `<span class="badge badge-gold" style="position: absolute; top: 12px; inset-inline-end: 12px; z-index: 5;">${badge}</span>` : ''}
-              <a href="product.html?id=${p.id}">
-                <img src="${p.image}" alt="${name}">
-              </a>
+          <div class="couture-card">
+            <div class="card-media">
+              ${badge ? `<span class="card-badge">${badge}</span>` : ''}
+              <button class="card-wishlist" onclick="toggleWish(this)">❤</button>
+              <img src="${p.image}" alt="${name}" loading="lazy">
             </div>
-            <div class="product-body">
-              <span class="product-cat">${cat}</span>
-              <a href="product.html?id=${p.id}" style="text-decoration:none;">
-                <h3 class="product-title">${name}</h3>
-              </a>
-              <div class="product-price">
-                <span>${window.auraStore.formatPrice(p.price)}</span>
-                ${p.oldPrice ? `<span class="product-old-price">${window.auraStore.formatPrice(p.oldPrice)}</span>` : ''}
+            <div class="card-info">
+              <span class="card-category">${catLabel}</span>
+              <h3 class="card-title">${name}</h3>
+              <div class="card-bottom">
+                <span class="price-tag">${formattedPrice}</span>
+                <button class="add-cart-circle" onclick="addToCart()" title="Ajouter">+</button>
               </div>
-              <button onclick="window.auraStore.addToCart('${p.id}')" class="btn btn-primary" style="margin-top: var(--space-md); width: 100%; padding: 10px;">
-                ${t.addToCart || 'Add to Bag'}
-              </button>
             </div>
           </div>
         `;
       }).join('');
     }
 
-    window.onAuraLanguageChanged = () => {
-      renderFeatured();
-    };
+    function addToCart() {
+      cartCount++;
+      document.getElementById('cart-count-num').textContent = cartCount;
+      showToast(I18N[currentLang].toastAdded);
+    }
+
+    function toggleWish(btn) {
+      btn.style.color = btn.style.color === 'rgb(225, 29, 72)' ? '#FFF' : '#E11D48';
+      btn.style.borderColor = btn.style.color === 'rgb(225, 29, 72)' ? '#E11D48' : 'rgba(255, 255, 255, 0.15)';
+    }
+
+    function triggerCart() {
+      showToast(I18N[currentLang].toastAdded);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('aura-toast');
+      document.getElementById('toast-msg').textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2800);
+    }
 
     document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(renderFeatured, 200);
+      applyTranslations();
+      renderProducts();
     });
   </script>
 </body>
