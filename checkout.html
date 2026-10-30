@@ -6,7 +6,7 @@
   <title>إتمام الطلب — AURA Haute Couture</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;500;600;700;800;900&family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
   <style>
     .checkout-layout {
@@ -68,7 +68,6 @@
       border: 1px solid var(--color-border);
       background: var(--color-background);
       color: var(--color-foreground);
-      font-family: var(--font-sans);
       font-size: 0.95rem;
       transition: border-color 0.2s;
     }
@@ -157,13 +156,10 @@
         🔒 نافذة الدفع الآمن والمشفر
       </span>
       <div style="display:flex; align-items:center; gap:10px;">
-        <div class="lang-dropdown-wrapper">
-          <select class="lang-select-native" aria-label="Language selector">
-            <option value="ar">العربية (AR)</option>
-            <option value="en">English (EN)</option>
-            <option value="fr">Français (FR)</option>
-          </select>
-        </div>
+        <button class="settings-trigger-btn" onclick="openSettingsModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span data-i18n="settings.trigger">الإعدادات</span>
+        </button>
         <a href="index.html" style="text-decoration:none; color:var(--color-foreground); font-weight:700;" data-i18n="checkout.cancel">إلغاء والعودة</a>
       </div>
     </div>
@@ -206,8 +202,8 @@
             </div>
 
             <div class="form-field full">
-              <label class="form-label" data-i18n="checkout.notes">ملاحظات إضافية للتوصيل (اختياري)</label>
-              <textarea class="form-input" rows="2" placeholder="المقاس المطلوب للبدلة والقميص، أوقات التواجد..."></textarea>
+              <label class="form-label" data-i18n="checkout.notes">ملاحظات إضافية للتوصيل (المقاسات الخاصة...)</label>
+              <textarea class="form-input" rows="2" placeholder="المقاس المطلوب للبدلة، والقميص، أوقات التواجد..."></textarea>
             </div>
           </div>
       </div>
@@ -222,14 +218,6 @@
             <div>
               <strong style="display: block; font-size: 0.95rem;" data-i18n="checkout.codTitle">الدفع عند الاستلام بعد المعاينة والقياس</strong>
               <span style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="checkout.codDesc">يحق لك فحص البدلة أو القميص والتأكد من جودة القماش قبل تسليم المبلغ</span>
-            </div>
-          </label>
-
-          <label style="display: flex; align-items: center; gap: var(--space-md); padding: 14px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); opacity: 0.7; cursor: not-allowed;">
-            <input type="radio" name="payment" value="cib" disabled style="width:18px; height:18px;">
-            <div>
-              <strong style="display: block; font-size: 0.95rem;" data-i18n="checkout.cibTitle">البطاقة الذهبية / CIB (قريباً)</strong>
-              <span style="font-size: 0.8rem; color: var(--color-muted-foreground);" data-i18n="checkout.cibDesc">بوابة الدفع الإلكتروني المباشر عبر الساتيم</span>
             </div>
           </label>
         </div>
@@ -274,7 +262,7 @@
   <div class="success-modal" id="order-success-modal">
     <div class="modal-box">
       <div style="font-size: 3.5rem; margin-bottom: 1rem;">👑</div>
-      <h2 style="font-family:'Amiri',serif; font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-accent);" data-i18n="checkout.successTitle">تم تأكيد طلبك بنجاح!</h2>
+      <h2 style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-accent);" data-i18n="checkout.successTitle">تم تأكيد طلبك بنجاح!</h2>
       <p style="color: var(--color-muted-foreground); margin-bottom: 1.5rem; line-height: 1.7;" data-i18n="checkout.successDesc">
         شكراً لاختيارك دار AURA Haute Couture.<br>
         سيتصل بك خبير المقاسات لتأكيد القياسات الدقيقة وموعد الشحن.
@@ -283,6 +271,32 @@
         <span data-i18n="checkout.orderRef">رقم الطلب:</span> <span id="order-ref-num">#AURA-84920</span>
       </div>
       <a href="index.html" class="btn btn-primary" style="width: 100%;" data-i18n="checkout.homeReturn">العودة إلى الصفحة الرئيسية</a>
+    </div>
+  </div>
+
+  <!-- Settings Modal Interface -->
+  <div class="settings-overlay" id="settings-modal-overlay">
+    <div class="settings-modal-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; border-bottom:1px solid var(--color-border); padding-bottom:0.75rem;">
+        <h3 style="font-size:1.2rem;" data-i18n="settings.title">تخصيص الواجهة واللغة</h3>
+        <button class="btn-icon" onclick="closeSettingsModal()" style="border:none;">✕</button>
+      </div>
+      <div class="settings-row">
+        <label class="settings-label" data-i18n="settings.langLabel">لغة العرض</label>
+        <select class="settings-select" id="settings-lang-select" onchange="applySettingsLang(this.value)">
+          <option value="ar">العربية (Arabic - RTL)</option>
+          <option value="en">English (UK/US - LTR)</option>
+          <option value="fr">Français (France - LTR)</option>
+        </select>
+      </div>
+      <div class="settings-row">
+        <label class="settings-label" data-i18n="settings.themeLabel">المظهر</label>
+        <select class="settings-select" id="settings-theme-select" onchange="applySettingsTheme(this.value)">
+          <option value="dark">الوضع الليلي الفاخر (Dark Onyx)</option>
+          <option value="light">الوضع النهاري العاجي (Light Ivory)</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" onclick="closeSettingsModal()" style="width:100%;" data-i18n="settings.close">حفظ وإغلاق</button>
     </div>
   </div>
 
@@ -312,6 +326,18 @@
 
     let shippingCost = 400;
 
+    function openSettingsModal() {
+      const modal = document.getElementById('settings-modal-overlay');
+      document.getElementById('settings-lang-select').value = window.auraStore.lang;
+      document.getElementById('settings-theme-select').value = window.auraStore.theme;
+      modal.classList.add('show');
+    }
+    function closeSettingsModal() {
+      document.getElementById('settings-modal-overlay').classList.remove('show');
+    }
+    function applySettingsLang(v) { window.auraStore.applyLanguage(v, true); }
+    function applySettingsTheme(v) { window.auraStore.applyTheme(v); }
+
     window.addEventListener('DOMContentLoaded', () => {
       const select = document.getElementById('wilaya-select');
       select.innerHTML = WILAYAS_69.map((w, idx) => {
@@ -332,7 +358,7 @@
       if (val === '16') shippingCost = 400;
       else if (val === '09' || val === '35' || val === '42') shippingCost = 500;
       else if (['31','25','19','68','23'].includes(val)) shippingCost = 600;
-      else if (parseInt(val) >= 49) shippingCost = 900; // Grand Sud
+      else if (parseInt(val) >= 49) shippingCost = 900;
       else shippingCost = 700;
 
       renderCheckoutSummary();
@@ -345,7 +371,6 @@
       const subtotalEl = document.getElementById('subtotal-val');
       const shippingEl = document.getElementById('shipping-val');
       const finalTotalEl = document.getElementById('final-total');
-      const t = window.auraStore.t.checkout || {};
 
       if (cart.length === 0) {
         itemsContainer.innerHTML = '<p class="text-muted" style="text-align:center;">Empty Bag</p>';
@@ -363,11 +388,9 @@
       }
 
       const subtotal = window.auraStore.getCartTotal();
-      const actualShipping = subtotal > 30000 ? 0 : shippingCost;
-
       subtotalEl.textContent = window.auraStore.formatPrice(subtotal);
-      shippingEl.textContent = actualShipping === 0 ? (t.freeShipping || 'Free ✨') : window.auraStore.formatPrice(actualShipping);
-      finalTotalEl.textContent = window.auraStore.formatPrice(subtotal + actualShipping);
+      shippingEl.textContent = window.auraStore.formatPrice(shippingCost);
+      finalTotalEl.textContent = window.auraStore.formatPrice(subtotal + shippingCost);
     }
 
     function handleOrderSubmit(e) {

@@ -6,7 +6,7 @@
   <title>المجموعة الرسمية الكاملة — AURA Haute Couture</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;500;600;700;800;900&family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
   <style>
     .catalog-layout {
@@ -92,7 +92,6 @@
       border: 1px solid var(--color-border);
       background: var(--color-card);
       color: var(--color-foreground);
-      font-family: var(--font-sans);
       font-size: 0.9rem;
     }
 
@@ -138,16 +137,9 @@
       </nav>
 
       <div class="header-tools">
-        <div class="lang-dropdown-wrapper">
-          <select class="lang-select-native" aria-label="Language selector">
-            <option value="ar">العربية (AR)</option>
-            <option value="en">English (EN)</option>
-            <option value="fr">Français (FR)</option>
-          </select>
-        </div>
-
-        <button class="btn-icon theme-toggle" title="Theme">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <button class="settings-trigger-btn" onclick="openSettingsModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span data-i18n="settings.trigger">الإعدادات</span>
         </button>
 
         <button class="btn-icon cart-trigger" title="Shopping Bag">
@@ -161,7 +153,7 @@
   <!-- Main Content -->
   <main class="container">
     <div style="padding: var(--space-2xl) 0 var(--space-md); text-align: center;">
-      <h1 style="font-family:'Amiri', serif; font-size: 3rem; margin-bottom: var(--space-xs);" data-i18n="catalog.title">المجموعة الرسمية الكلاسيكية 2026</h1>
+      <h1 style="font-size: 3rem; margin-bottom: var(--space-xs);" data-i18n="catalog.title">المجموعة الرسمية الكلاسيكية 2026</h1>
       <p class="text-muted" data-i18n="catalog.desc">بدلات توكسيدو سوداء، قمصان بيضاء قطنية ناصعة، وأحذية أوكسفورد يدوية الصنع</p>
     </div>
 
@@ -175,7 +167,6 @@
             <li><label class="filter-option"><input type="radio" name="cat" value="suits" onchange="filterProducts()"> <span data-i18n="nav.suits">بدلات وتوكسيدو</span></label></li>
             <li><label class="filter-option"><input type="radio" name="cat" value="shirts" onchange="filterProducts()"> <span data-i18n="nav.shirts">قمصان بيضاء</span></label></li>
             <li><label class="filter-option"><input type="radio" name="cat" value="shoes" onchange="filterProducts()"> <span data-i18n="nav.shoes">أحذية رسمية</span></label></li>
-            <li><label class="filter-option"><input type="radio" name="cat" value="accessories" onchange="filterProducts()"> <span>إكسسوارات السهرة</span></label></li>
           </ul>
         </div>
 
@@ -185,7 +176,6 @@
             <option value="featured">الأبرز / الموصى به</option>
             <option value="price-asc">السعر: من الأقل للأعلى</option>
             <option value="price-desc">السعر: من الأعلى للأقل</option>
-            <option value="rating">التقييم الأعلى</option>
           </select>
         </div>
       </aside>
@@ -227,6 +217,32 @@
     </div>
   </aside>
 
+  <!-- Settings Modal Interface -->
+  <div class="settings-overlay" id="settings-modal-overlay">
+    <div class="settings-modal-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; border-bottom:1px solid var(--color-border); padding-bottom:0.75rem;">
+        <h3 style="font-size:1.2rem;" data-i18n="settings.title">تخصيص الواجهة واللغة</h3>
+        <button class="btn-icon" onclick="closeSettingsModal()" style="border:none;">✕</button>
+      </div>
+      <div class="settings-row">
+        <label class="settings-label" data-i18n="settings.langLabel">لغة العرض</label>
+        <select class="settings-select" id="settings-lang-select" onchange="applySettingsLang(this.value)">
+          <option value="ar">العربية (Arabic - RTL)</option>
+          <option value="en">English (UK/US - LTR)</option>
+          <option value="fr">Français (France - LTR)</option>
+        </select>
+      </div>
+      <div class="settings-row">
+        <label class="settings-label" data-i18n="settings.themeLabel">المظهر</label>
+        <select class="settings-select" id="settings-theme-select" onchange="applySettingsTheme(this.value)">
+          <option value="dark">الوضع الليلي الفاخر (Dark Onyx)</option>
+          <option value="light">الوضع النهاري العاجي (Light Ivory)</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" onclick="closeSettingsModal()" style="width:100%;" data-i18n="settings.close">حفظ وإغلاق</button>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="site-footer" style="margin-top: var(--space-3xl);">
     <div class="container footer-bottom">
@@ -238,6 +254,18 @@
   <script src="./js/i18n.js"></script>
   <script src="./js/store.js"></script>
   <script>
+    function openSettingsModal() {
+      const modal = document.getElementById('settings-modal-overlay');
+      document.getElementById('settings-lang-select').value = window.auraStore.lang;
+      document.getElementById('settings-theme-select').value = window.auraStore.theme;
+      modal.classList.add('show');
+    }
+    function closeSettingsModal() {
+      document.getElementById('settings-modal-overlay').classList.remove('show');
+    }
+    function applySettingsLang(v) { window.auraStore.applyLanguage(v, true); }
+    function applySettingsTheme(v) { window.auraStore.applyTheme(v); }
+
     window.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const catParam = urlParams.get('category');
@@ -275,7 +303,6 @@
 
       if (sortVal === 'price-asc') list.sort((a,b) => a.price - b.price);
       if (sortVal === 'price-desc') list.sort((a,b) => b.price - a.price);
-      if (sortVal === 'rating') list.sort((a,b) => b.rating - a.rating);
 
       const grid = document.getElementById('catalog-grid');
       const countLabel = document.getElementById('product-count-label');
@@ -300,11 +327,11 @@
         const cat = window.auraStore.getLocalized(p.categoryLabel);
 
         return `
-          <div class="product-card">
+          <div class="product-card" id="card-${p.id}">
             <div class="product-thumb">
               ${badge ? `<span class="badge badge-gold" style="position: absolute; top: 12px; inset-inline-end: 12px; z-index: 5;">${badge}</span>` : ''}
               <a href="product.html?id=${p.id}">
-                <img src="${p.image}" alt="${name}">
+                <img src="${p.colors[0]?.image || p.image}" alt="${name}" id="thumb-img-${p.id}">
               </a>
             </div>
             <div class="product-body">
@@ -312,9 +339,17 @@
               <a href="product.html?id=${p.id}" style="text-decoration:none;">
                 <h3 class="product-title">${name}</h3>
               </a>
+
+              ${p.colors && p.colors.length > 1 ? `
+                <div class="product-colors-preview">
+                  ${p.colors.map((c, idx) => `
+                    <span class="color-dot-choice ${idx===0?'active':''}" style="background:${c.hex};" title="${window.auraStore.getLocalized(c.name)}" onclick="switchCardColor('${p.id}', '${c.image}', this)"></span>
+                  `).join('')}
+                </div>
+              ` : ''}
+
               <div class="product-price">
                 <span>${window.auraStore.formatPrice(p.price)}</span>
-                ${p.oldPrice ? `<span class="product-old-price">${window.auraStore.formatPrice(p.oldPrice)}</span>` : ''}
               </div>
               <button onclick="window.auraStore.addToCart('${p.id}')" class="btn btn-primary" style="margin-top: var(--space-md); width: 100%; padding: 10px;">
                 ${tFeatured.addToCart || 'Add to Bag'}
@@ -323,6 +358,14 @@
           </div>
         `;
       }).join('');
+    }
+
+    function switchCardColor(prodId, imgSrc, el) {
+      const img = document.getElementById('thumb-img-' + prodId);
+      if (img) img.src = imgSrc;
+      const parent = el.parentElement;
+      parent.querySelectorAll('.color-dot-choice').forEach(d => d.classList.remove('active'));
+      el.classList.add('active');
     }
   </script>
 </body>
